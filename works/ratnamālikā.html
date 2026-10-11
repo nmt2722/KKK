@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/muñja-vākpati.html">Muñja (Vākpati)</a>
 </p>
 </div>
@@ -228,9 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Ratnamālikā begins with an invocation to Sarasvatī, the goddess of learning and the arts. The verses that follow are arranged thematically, and cover a variety of subjects including love, nature, religion, philosophy, and morality. Many of the verses in Ratnamālikā are focused on the theme of love, and explore the different aspects of romantic relationships. Some verses celebrate the joy and ecstasy of love, while others express the pain and sorrow of separation. Muñja’s verses are characterized by their vivid imagery, musical language, and sensuous descriptions of nature and emotions.</p>
-<p>Other verses in Ratnamālikā explore philosophical and moral themes. Some verses reflect on the transience of life and the inevitability of death, while others extol the virtues of generosity, kindness, and compassion.</p>
-Throughout Ratnamālikā, Muñja demonstrates his skill as a poet and his deep understanding of human nature. The work is admired for its beauty and lyrical quality, and is considered one of the masterpieces of Sanskrit literature.
+Ratnamālikā begins with an invocation to Sarasvatī, the goddess of learning and the arts. The verses that follow are arranged thematically, and cover a variety of subjects including love, nature, religion, philosophy, and morality.<br>Many of the verses in Ratnamālikā are focused on the theme of love, and explore the different aspects of romantic relationships. Some verses celebrate the joy and ecstasy of love, while others express the pain and sorrow of separation. Muñja’s verses are characterized by their vivid imagery, musical language, and sensuous descriptions of nature and emotions.<br><br>Other verses in Ratnamālikā explore philosophical and moral themes. Some verses reflect on the transience of life and the inevitability of death, while others extol the virtues of generosity, kindness, and compassion.<br><br>Throughout Ratnamālikā, Muñja demonstrates his skill as a poet and his deep understanding of human nature. The work is admired for its beauty and lyrical quality, and is considered one of the masterpieces of Sanskrit literature.
 </div>
 </div>
 </div>
@@ -242,7 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-Ratnamālikā is a collection of 103 shlokas or verses, the verses cover a wide range of topics, including love, nature, religion, philosophy, and morality. Invocation: The work begins with an invocation to Sarasvatī, the goddess of learning and the arts. The nature of love: Several verses explore the nature of love and its various aspects. Some verses describe the joy and ecstasy of love, while others reflect on the pain and sorrow of separation. The beauty of nature: Muñja’s verses are characterized by their vivid imagery and sensuous descriptions of nature. Many verses in Ratnamālikā celebrate the beauty of the natural world, from the mountains and forests to the flowers and birds. Religion and philosophy: Several verses in Ratnamālikā reflect on religious and philosophical themes. Some verses explore the transience of life and the inevitability of death, while others ponder the nature of the soul and the ultimate reality of the universe. Morality and ethics: Muñja also addresses moral and ethical themes in Ratnamālikā. Some verses extol the virtues of generosity, kindness, and compassion, while others criticize greed, selfishness, and cruelty. The power of poetry: Muñja, as a poet himself, pays homage to the power and beauty of poetry in several verses.
+Ratnamālikā is a collection of 103 shlokas or verses, the verses cover a wide range of topics, including love, nature, religion, philosophy, and morality. <br>Invocation: The work begins with an invocation to Sarasvatī, the goddess of learning and the arts.<br>The nature of love: Several verses explore the nature of love and its various aspects. Some verses describe the joy and ecstasy of love, while others reflect on the pain and sorrow of separation.<br>The beauty of nature: Muñja’s verses are characterized by their vivid imagery and sensuous descriptions of nature. Many verses in Ratnamālikā celebrate the beauty of the natural world, from the mountains and forests to the flowers and birds.<br>Religion and philosophy: Several verses in Ratnamālikā reflect on religious and philosophical themes. Some verses explore the transience of life and the inevitability of death, while others ponder the nature of the soul and the ultimate reality of the universe.<br>Morality and ethics: Muñja also addresses moral and ethical themes in Ratnamālikā. Some verses extol the virtues of generosity, kindness, and compassion, while others criticize greed, selfishness, and cruelty.<br>The power of poetry: Muñja, as a poet himself, pays homage to the power and beauty of poetry in several verses.
 </div>
 </div>
 </div>
@@ -293,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Social Drama</span>
+<span class="badge bg-primary work-genre-badge">Social Drama</span>
 </p>
 </div>
 </div>
@@ -704,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

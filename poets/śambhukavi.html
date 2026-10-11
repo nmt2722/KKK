@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,7 +222,7 @@ Works (2)
 </p>
 </div>
 <div id="nav-śambhukavi-life" class="tab-pane fade" role="tabpanel">
-Śambhukavi lived in the 11th century AD, during the reign of King Rājendra Cōḷa I. According to some sources, he was born in the town of Rājēndrapuram in Tamil Nadu, India, which was the capital city of the Cōḷa dynasty during the time of King Rājēndra Cōḷa I. It is believed that Śambhukavi was a court poet of King Rājēndra Cōḷa I, and he composed several literary works during his lifetime. His two most famous works, Rājendrakarṇapūra and Anyoktimuktalatā, are considered among the finest examples of Sanskrit literature and poetics. Despite his contributions to Sanskrit literature, very little is known about his personal life, including his family background, education, and other biographical details. His legacy, however, lives on through his works, which continue to be studied and appreciated by scholars and enthusiasts of Sanskrit literature.
+Śambhukavi lived in the 11th century AD, during the reign of King Rājendra Cōḷa I. According to some sources, he was born in the town of Rājēndrapuram in Tamil Nadu, India, which was the capital city of the Cōḷa dynasty during the time of King Rājēndra Cōḷa I.<br>It is believed that Śambhukavi was a court poet of King Rājēndra Cōḷa I, and he composed several literary works during his lifetime. His two most famous works, Rājendrakarṇapūra and Anyoktimuktalatā, are considered among the finest examples of Sanskrit literature and poetics.<br>Despite his contributions to Sanskrit literature, very little is known about his personal life, including his family background, education, and other biographical details. His legacy, however, lives on through his works, which continue to be studied and appreciated by scholars and enthusiasts of Sanskrit literature.
 </div>
 <div id="nav-śambhukavi-contribution" class="tab-pane fade" role="tabpanel">
 Śambhukavi was a prolific Sanskrit poet who made significant contributions to the development of Sanskrit literature during the 11th and 12th centuries. One of the key contributions of Śambhukavi to Sanskrit literature was his use of the Kaviyōga tradition. This tradition emphasizes the use of language for aesthetic purposes, rather than for religious or philosophical ones, and on the exploration of human emotions and experiences, particularly in the realm of love and desire. Śambhukavi’s works are also significant for the insights they provide into the cultural and social milieu of medieval India. His poems are replete with references to the customs, beliefs, and attitudes of his time, providing valuable historical and sociological information. In addition, Śambhukavi’s works were influential in the development of the Indian literary tradition. Overall, Śambhukavi’s contributions to Sanskrit literature were significant and far-reaching, and his works remain an important part of the Indian literary tradition to this day.
@@ -655,6 +643,19 @@ Works (2)
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

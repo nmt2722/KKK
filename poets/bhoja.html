@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,12 +222,7 @@ Works (7)
 </p>
 </div>
 <div id="nav-bhoja-life" class="tab-pane fade" role="tabpanel">
-<p>Rāja Bhoja, also known as Bhoja deva, was a famous Sanskrit poet, scholar, and ruler who lived in the city of Dhara Nagar in present-day Madhya Pradesh, India, during the 11th century CE. He was born in a Brāhmaṇa family, and his father, Sindhurāja, was a king who ruled over the region of Mālava.</p>
-<p>Bhoja was a patron of art, literature, and science, and he was a prolific writer himself. He wrote extensively on a variety of subjects, including poetry, drama, philosophy, history, and astronomy. He was also known for his patronage of scholars and intellectuals, and he provided them with the necessary resources to pursue their studies and research.</p>
-<p>Bhoja was a follower of the Śaiva tradition of Hinduism, and he was deeply devoted to Lord Śiva. He built numerous temples and performed several religious ceremonies to honour the deity.</p>
-<p>In addition to his scholarly pursuits, Bhoja was also a skilled warrior and an able ruler. He expanded his Kingdom through conquests and alliances and was respected and feared by his contemporaries.</p>
-<p>However, towards the end of his reign, his kingdom faced several challenges, including invasions from neighbouring states and internal strife. Bhoja’s health also deteriorated, and he eventually passed away in the year 1055 CE.</p>
-Despite the challenges he faced in his later years, Rāja Bhoja’s legacy as a scholar and patron of art and literature has endured over the centuries. His writings and patronage have influenced subsequent generations of writers and scholars, and he is remembered as one of the most prominent figures of the Paramara dynasty.
+Rāja Bhoja, also known as Bhoja deva, was a famous Sanskrit poet, scholar, and ruler who lived in the city of Dhara Nagar in present-day Madhya Pradesh, India, during the 11th century CE. He was born in a Brāhmaṇa family, and his father, Sindhurāja, was a king who ruled over the region of Mālava.<br><br>Bhoja was a patron of art, literature, and science, and he was a prolific writer himself. He wrote extensively on a variety of subjects, including poetry, drama, philosophy, history, and astronomy. He was also known for his patronage of scholars and intellectuals, and he provided them with the necessary resources to pursue their studies and research.<br><br>Bhoja was a follower of the Śaiva tradition of Hinduism, and he was deeply devoted to Lord Śiva. He built numerous temples and performed several religious ceremonies to honour the deity.<br><br>In addition to his scholarly pursuits, Bhoja was also a skilled warrior and an able ruler. He expanded his Kingdom through conquests and alliances and was respected and feared by his contemporaries.<br><br>However, towards the end of his reign, his kingdom faced several challenges, including invasions from neighbouring states and internal strife. Bhoja’s health also deteriorated, and he eventually passed away in the year 1055 CE.<br><br>Despite the challenges he faced in his later years, Rāja Bhoja’s legacy as a scholar and patron of art and literature has endured over the centuries. His writings and patronage have influenced subsequent generations of writers and scholars, and he is remembered as one of the most prominent figures of the Paramara dynasty.
 </div>
 <div id="nav-bhoja-contribution" class="tab-pane fade" role="tabpanel">
 Bhoja made significant contributions to classical Sanskrit literature by promoting and preserving the intellectual and cultural traditions of ancient India. His works spanned a wide range of fields, including poetry, philosophy, history, science, and law. Bhoja’s poetry is considered to be among the finest examples of Sanskrit literature and his treatises on aesthetics, language, and philosophy provided critical insights into the nature and purpose of literature and language. Additionally, his work on science and technology provided insights into the technological advancements of medieval India and the practical applications of scientific knowledge. In a nutshell, Bhoja’s contribution to Classical Sanskrit literature reflects his deep interest in exploring the connections between different fields of knowledge and his efforts to synthesize their insights into a coherent whole.
@@ -675,6 +658,19 @@ Bhoja made significant contributions to classical Sanskrit literature by promoti
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

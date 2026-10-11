@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/hemacandra.html">Hemacandra</a>
 </p>
 </div>
@@ -228,9 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Kāvyānuśāsana is a comprehensive guide to the art of poetry. Hemacandra’s insights into language, meter, and style provide valuable guidance for poets and readers alike, and his work is considered a classic of Sanskrit literature. The work is divided into 22 chapters and covers a wide range of topics related to poetry, including word choice, meter, style, figures of speech, and the creative process of poetry.</p>
-<p>One of the key themes of Kāvyānuśāsana is the importance of language in poetry. Hemacandra argues that the choice of words is crucial to creating effective poetry, and he devotes several chapters to the analysis of individual words and their meanings. Another important theme of the work is meter. Hemacandra discusses different types of meters and their importance in creating rhythm and structure in poetry. He also emphasizes the importance of maintaining consistency in meter throughout a poem.</p>
-Kāvyānuśāsana also includes discussions of style and figures of speech. Hemacandra provides detailed analysis of different poetic styles and their effects on the reader, as well as explanations of various figures of speech such as simile, metaphor, and hyperbole.
+Kāvyānuśāsana is a comprehensive guide to the art of poetry. Hemacandra’s insights into language, meter, and style provide valuable guidance for poets and readers alike, and his work is considered a classic of Sanskrit literature. The work is divided into 22 chapters and covers a wide range of topics related to poetry, including word choice, meter, style, figures of speech, and the creative process of poetry.<br><br>One of the key themes of Kāvyānuśāsana is the importance of language in poetry. Hemacandra argues that the choice of words is crucial to creating effective poetry, and he devotes several chapters to the analysis of individual words and their meanings. Another important theme of the work is meter. Hemacandra discusses different types of meters and their importance in creating rhythm and structure in poetry. He also emphasizes the importance of maintaining consistency in meter throughout a poem.<br><br>Kāvyānuśāsana also includes discussions of style and figures of speech. Hemacandra provides detailed analysis of different poetic styles and their effects on the reader, as well as explanations of various figures of speech such as simile, metaphor, and hyperbole.
 </div>
 </div>
 </div>
@@ -242,31 +228,8 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Kāvyānuśāsana, is a treatise on poetics that is divided into 22 chapters. Here is a brief summary of the contents of each chapter:</p>
-<ol type="1">
-<li>Introduction: An overview of the topics covered in the work.</li>
-<li>Explanation of the word Kāvya (poetry).</li>
-<li>Definition of poetry and its purpose.</li>
-<li>The nature of language and its importance in poetry.</li>
-<li>The role of emotion in poetry.</li>
-<li>Explanation of the four types of speech and their use in poetry.</li>
-<li>The importance of individual words in poetry.</li>
-<li>The meaning of words and the use of synonyms.</li>
-<li>The importance of choosing the right words for the right occasion.</li>
-<li>The importance of meter in poetry and an explanation of different types of meters.</li>
-<li>The relationship between meter and the meaning of a poem.</li>
-<li>Explanation of the rules of meter.</li>
-<li>The use of various styles in poetry.</li>
-<li>The importance of consistency in meter and style.</li>
-<li>Explanation of figures of speech, including simile, metaphor, and hyperbole.</li>
-<li>The importance of balance in poetry.</li>
-<li>The use of various techniques in poetry, such as repetition and alliteration.</li>
-<li>The importance of grammar in poetry.</li>
-<li>The use of sound in poetry, including rhyme and rhythm.</li>
-<li>The importance of structure in poetry.</li>
-<li>The creative process of poetry.</li>
-<li>Conclusion: A summary of the topics covered in the work and a call to aspiring poets to study and master the art of poetry.
-</li></ol></div>
+Kāvyānuśāsana, is a treatise on poetics that is divided into 22 chapters. Here is a brief summary of the contents of each chapter:<br><br>1. Introduction: An overview of the topics covered in the work.<br>2. Explanation of the word Kāvya (poetry).<br>3. Definition of poetry and its purpose.<br>4. The nature of language and its importance in poetry.<br>5. The role of emotion in poetry.<br>6. Explanation of the four types of speech and their use in poetry.<br>7. The importance of individual words in poetry.<br>8. The meaning of words and the use of synonyms.<br>9. The importance of choosing the right words for the right occasion.<br>10. The importance of meter in poetry and an explanation of different types of meters.<br>11. The relationship between meter and the meaning of a poem.<br>12. Explanation of the rules of meter.<br>13. The use of various styles in poetry.<br>14. The importance of consistency in meter and style.<br>15. Explanation of figures of speech, including simile, metaphor, and hyperbole.<br>16. The importance of balance in poetry.<br>17. The use of various techniques in poetry, such as repetition and alliteration.<br>18. The importance of grammar in poetry.<br>19. The use of sound in poetry, including rhyme and rhythm.<br>20. The importance of structure in poetry.<br>21. The creative process of poetry.<br>22. Conclusion: A summary of the topics covered in the work and a call to aspiring poets to study and master the art of poetry.
+</div>
 </div>
 </div>
 <div class="accordion-item">
@@ -289,18 +252,12 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Kāvyānuśāsana provides a systematic and comprehensive treatment of the art of poetry. Hemacandra’s work helped to codify the rules and principles of poetics in Sanskrit literature, making it easier for poets and scholars to understand and analyse the art of poetry. Hemacandra’s work contributed to the development of technical vocabulary related to poetics in Sanskrit literature. He introduced many new terms and concepts related to language, meter, style, figures of speech, and the creative process of poetry, which have since become standard in the study of poetics.</p>
+Kāvyānuśāsana provides a systematic and comprehensive treatment of the art of poetry. Hemacandra’s work helped to codify the rules and principles of poetics in Sanskrit literature, making it easier for poets and scholars to understand and analyse the art of poetry. Hemacandra’s work contributed to the development of technical vocabulary related to poetics in Sanskrit literature. He introduced many new terms and concepts related to language, meter, style, figures of speech, and the creative process of poetry, which have since become standard in the study of poetics.<br><br>Kāvyānuśāsana has had a significant influence on the development of poetics in Sanskrit literature. Its systematic and comprehensive treatment of the art of poetry helped to codify the rules and principles of poetics, making it easier for poets and scholars to understand and analyse the art of poetry. The work also contributed to the development of technical vocabulary related to poetics, introducing many new terms and concepts that have since become standard in the study of poetics.
 </div>
 </div>
 </div>
-
-<hr>
-Kāvyānuśāsana has had a significant influence on the development of poetics in Sanskrit literature. Its systematic and comprehensive treatment of the art of poetry helped to codify the rules and principles of poetics, making it easier for poets and scholars to understand and analyse the art of poetry. The work also contributed to the development of technical vocabulary related to poetics, introducing many new terms and concepts that have since become standard in the study of poetics.
-</div>
-</main></div>
-
 <div class="accordion-item">
-<h2 class="accordion-header">
+<h2 class="accordion-header anchored">
 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work-acc-quotations">
 Quotable Quotations
 </button>
@@ -314,7 +271,7 @@ No quotations available.
 </div>
 </div>
 <div class="accordion-item">
-<h2 class="accordion-header">
+<h2 class="accordion-header anchored">
 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work-acc-genre">
 Genre
 </button>
@@ -322,16 +279,16 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Humor</span>
+<span class="badge bg-primary work-genre-badge">Humor</span>
 </p>
 </div>
 </div>
 </div>
+</div>
 
 
 
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -732,7 +689,20 @@ Genre
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

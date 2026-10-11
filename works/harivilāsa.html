@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/lolambarāja.html">Lolambarāja</a>
 </p>
 </div>
@@ -228,8 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Harivilāsa is another important work by the Sanskrit poet Lolambarāja. It is a shorter poem consisting of 84 verses, and is dedicated to the god Viṣṇu, who is also known as Hari. In Harivilāsa, Lolambarāja describes various aspects of the god’s life, such as his birth, his many incarnations, and his interactions with other deities and mortals. The poem also touches on themes of devotion, love, and the ultimate nature of reality.</p>
-Harivilāsa is noted for its lyrical beauty and its use of vivid imagery to convey complex philosophical ideas. Like the Sākṣi-gopāla-viraha-kāvya, it is written in the kāvya style, which emphasizes intricate wordplay, metaphor, and allusion. Today, Harivilāsa is considered an important work of devotional poetry within the Hindu tradition, and is still studied and appreciated by scholars of Sanskrit literature
+Harivilāsa is another important work by the Sanskrit poet Lolambarāja. It is a shorter poem consisting of 84 verses, and is dedicated to the god Viṣṇu, who is also known as Hari. In Harivilāsa, Lolambarāja describes various aspects of the god’s life, such as his birth, his many incarnations, and his interactions with other deities and mortals. The poem also touches on themes of devotion, love, and the ultimate nature of reality.<br><br>Harivilāsa is noted for its lyrical beauty and its use of vivid imagery to convey complex philosophical ideas. Like the Sākṣi-gopāla-viraha-kāvya, it is written in the kāvya style, which emphasizes intricate wordplay, metaphor, and allusion. Today, Harivilāsa is considered an important work of devotional poetry within the Hindu tradition, and is still studied and appreciated by scholars of Sanskrit literature
 </div>
 </div>
 </div>
@@ -241,13 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Harivilāsa is a devotional work, centred on the figure of the Hindu god Kṛṣṇa, and is notable for its use of vivid imagery, complex metaphors, and ornate language. Here are some of the main contents of the work:</p>
-<p>• Invocation: The poem begins with an invocation to the god Gaṇeśa, asking for his blessings and guidance in the composition of the work.</p>
-<p>• Description of Kṛṣṇa’s birth: The poem then goes on to describe the birth of Kṛṣṇa, and his early life as a cowherd in the village of Vrindavan. The descriptions are rich in detail, and emphasize the beauty and wonder of Kṛṣṇa’s surroundings.</p>
-<p>• Kṛṣṇa’s love for Rādhā: A significant portion of the poem is devoted to Kṛṣṇa’s love for the cowherd girl Rādhā, and the various trials and tribulations they face as a couple. The poem’s descriptions of their love are often highly romantic and deeply emotional, and are considered some of the most moving passages in Sanskrit literature.</p>
-<p>• Religious themes: Throughout the poem, Lolambarāja weaves in a number of religious themes, including devotion, surrender, and the search for spiritual truth. These themes are often expressed through complex metaphors and allegories, and reflect the poet’s deep engagement with Hindu philosophy and spirituality.</p>
-<p>• Musical elements: The Harivilāsa is also known for its use of musical elements, including descriptions of Kṛṣṇa’s flute-playing and references to various ragas (musical scales) that are associated with different moods and emotions.</p>
-Harivilāsa is a rich and complex work that touches on a wide range of themes, from romantic love to spiritual devotion. Its use of vivid imagery, complex metaphors, and musical elements has made it an enduring and beloved work within the Sanskrit literary tradition.
+Harivilāsa is a devotional work, centred on the figure of the Hindu god Kṛṣṇa, and is notable for its use of vivid imagery, complex metaphors, and ornate language. Here are some of the main contents of the work:<br><br>• Invocation: The poem begins with an invocation to the god Gaṇeśa, asking for his blessings and guidance in the composition of the work.<br><br>• Description of Kṛṣṇa’s birth: The poem then goes on to describe the birth of Kṛṣṇa, and his early life as a cowherd in the village of Vrindavan. The descriptions are rich in detail, and emphasize the beauty and wonder of Kṛṣṇa’s surroundings.<br><br>• Kṛṣṇa’s love for Rādhā: A significant portion of the poem is devoted to Kṛṣṇa’s love for the cowherd girl Rādhā, and the various trials and tribulations they face as a couple. The poem’s descriptions of their love are often highly romantic and deeply emotional, and are considered some of the most moving passages in Sanskrit literature.<br><br>• Religious themes: Throughout the poem, Lolambarāja weaves in a number of religious themes, including devotion, surrender, and the search for spiritual truth. These themes are often expressed through complex metaphors and allegories, and reflect the poet’s deep engagement with Hindu philosophy and spirituality.<br><br>• Musical elements: The Harivilāsa is also known for its use of musical elements, including descriptions of Kṛṣṇa’s flute-playing and references to various ragas (musical scales) that are associated with different moods and emotions.<br><br>Harivilāsa is a rich and complex work that touches on a wide range of themes, from romantic love to spiritual devotion. Its use of vivid imagery, complex metaphors, and musical elements has made it an enduring and beloved work within the Sanskrit literary tradition.
 </div>
 </div>
 </div>
@@ -259,12 +240,7 @@ Uniqueness
 </h2>
 <div id="work-acc-uniqueness" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Harivilāsa is a unique work of Sanskrit literature in several respects:</p>
-<p>Style and language: Harivilāsa is written in a highly ornate and complex style of Sanskrit, with intricate metaphors, wordplay, and allusions. This style is considered unique even within the rich tradition of Sanskrit poetry, and reflects Lolambarāja mastery of the language and his willingness to experiment with new forms and techniques.</p>
-<p>Emotional depth: Harivilāsa is known for its deep emotional intensity, particularly in its descriptions of the love between Kṛṣṇa and Rādhā. The poem explores the complexities of romantic love, from the heights of ecstasy to the depths of despair, and is considered one of the most moving works of Sanskrit literature.</p>
-<p>Religious themes: Harivilāsa weaves together a number of different religious themes, including devotion, surrender, and the search for spiritual truth. These themes are expressed through complex metaphors and allegories, and reflect the poet’s deep engagement with Hindu philosophy and spirituality.</p>
-<p>Musical elements: Harivilāsa incorporates musical elements, such as descriptions of Kṛṣṇa’s flute-playing and references to various ragas, which are associated with different moods and emotions. This use of music enhances the poem’s emotional impact and contributes to its unique style.</p>
-Harivilāsa is a work of great complexity and depth, characterized by its ornate language, emotional intensity, and engagement with religious and musical themes. Its unique style and rich content have made it an enduring and beloved work within the Sanskrit literary tradition.
+Harivilāsa is a unique work of Sanskrit literature in several respects:<br><br>Style and language: Harivilāsa is written in a highly ornate and complex style of Sanskrit, with intricate metaphors, wordplay, and allusions. This style is considered unique even within the rich tradition of Sanskrit poetry, and reflects Lolambarāja mastery of the language and his willingness to experiment with new forms and techniques.<br><br>Emotional depth: Harivilāsa is known for its deep emotional intensity, particularly in its descriptions of the love between Kṛṣṇa and Rādhā. The poem explores the complexities of romantic love, from the heights of ecstasy to the depths of despair, and is considered one of the most moving works of Sanskrit literature.<br><br>Religious themes: Harivilāsa weaves together a number of different religious themes, including devotion, surrender, and the search for spiritual truth. These themes are expressed through complex metaphors and allegories, and reflect the poet’s deep engagement with Hindu philosophy and spirituality.<br><br>Musical elements: Harivilāsa incorporates musical elements, such as descriptions of Kṛṣṇa’s flute-playing and references to various ragas, which are associated with different moods and emotions. This use of music enhances the poem’s emotional impact and contributes to its unique style.<br><br>Harivilāsa is a work of great complexity and depth, characterized by its ornate language, emotional intensity, and engagement with religious and musical themes. Its unique style and rich content have made it an enduring and beloved work within the Sanskrit literary tradition.
 </div>
 </div>
 </div>
@@ -303,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Biography</span>
+<span class="badge bg-primary work-genre-badge">Biography</span>
 </p>
 </div>
 </div>
@@ -714,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

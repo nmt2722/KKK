@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/vādībhasiṁha.html">Vādībhasiṁha</a>
 </p>
 </div>
@@ -228,10 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Kṣatracūḍāmaṇi is a play written by Vādībhasiṁha, which is based on the legend of the demon king Kṣatracūḍa and his eventual defeat at the hands of Lord Kṛṣṇa. The play is known for its engaging plot, well-crafted characters, and skillful use of language.</p>
-<p>The story revolves around Kṣatracūḍa, a powerful demon King who is invincible in battle. However, he becomes overconfident and starts harassing the people of the nearby Kingdom of Yādavas, where Lord Kṛṣṇa resides. The Yādavas seek Lord Kṛṣṇa’s help, and he agrees to fight Kṣatracūḍa.</p>
-<p>The play builds up to a thrilling battle between Lord Kṛṣṇa and Kṣatracūḍa, with several twists and turns along the way. Ultimately, Lord Kṛṣṇa emerges victorious, and Kṣatracūḍa is defeated.</p>
-Kṣatracūḍāmaṇi is considered one of Vādībhasiṁha’s most important works and is admired for its literary qualities as well as its religious and moral message. The play also reflects the social and cultural milieu of its time and provides valuable insights into the literary and artistic traditions of Classical Sanskrit literature.
+Kṣatracūḍāmaṇi is a play written by Vādībhasiṁha, which is based on the legend of the demon king Kṣatracūḍa and his eventual defeat at the hands of Lord Kṛṣṇa. The play is known for its engaging plot, well-crafted characters, and skillful use of language.<br><br>The story revolves around Kṣatracūḍa, a powerful demon King who is invincible in battle. However, he becomes overconfident and starts harassing the people of the nearby Kingdom of Yādavas, where Lord Kṛṣṇa resides. The Yādavas seek Lord Kṛṣṇa’s help, and he agrees to fight Kṣatracūḍa.<br><br>The play builds up to a thrilling battle between Lord Kṛṣṇa and Kṣatracūḍa, with several twists and turns along the way. Ultimately, Lord Kṛṣṇa emerges victorious, and Kṣatracūḍa is defeated.<br><br>Kṣatracūḍāmaṇi is considered one of Vādībhasiṁha’s most important works and is admired for its literary qualities as well as its religious and moral message. The play also reflects the social and cultural milieu of its time and provides valuable insights into the literary and artistic traditions of Classical Sanskrit literature.
 </div>
 </div>
 </div>
@@ -243,13 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Kṣatracūḍāmaṇi, written by Vādībhasiṁha, is a play in Sanskrit language that tells the story of the demon king Kṣatracūḍa and his defeat at the hands of Lord Kṛṣṇa. The play consists of five acts and includes several subplots that add depth and complexity to the main story.</p>
-<p>Act 1 introduces the character of Kṣatracūḍa and his Kingdom of Tripura. Kṣatracūḍa is portrayed as a powerful and arrogant demon King who is feared by all. He is challenged by the sage Dūrvāsa, who curses him to be defeated by a mortal. The scene shifts to the Kingdom of Yādavas, where Lord Kṛṣṇa and his people live.</p>
-<p>Act 2 focuses on the conflict between Kṣatracūḍa and the Yādavas. Kṣatracūḍa begins to harass the people of Yādavas, and they seek Lord Kṛṣṇa’s help. Lord Kṛṣṇa agrees to fight Kṣatracūḍa and prepares for battle.</p>
-<p>Act 3 is the climactic battle between Lord Kṛṣṇa and Kṣatracūḍa. The battle is fierce and filled with drama, as Kṣatracūḍa seems invincible at first. However, Lord Kṛṣṇa uses his divine powers and ultimately defeats Kṣatracūḍa.</p>
-<p>Act 4 deals with the aftermath of the battle. Kṣatracūḍa is defeated but is shown mercy by Lord Kṛṣṇa, who asks him to seek redemption for his past actions. Kṣatracūḍa realizes the error of his ways and becomes a devotee of Lord Kṛṣṇa.</p>
-<p>Act 5 concludes the play with a celebration of Lord Kṛṣṇa’s victory and the change in Kṣatracūḍa. The play also emphasizes the moral message of redemption and the power of divine mercy.</p>
-Overall, Kṣatracūḍāmaṇi is a well-crafted play that showcases Vādībhasiṁha’s skillful use of language and his ability to weave complex plotlines together. It is a valuable contribution to Sanskrit literature and provides insights into the cultural and religious traditions of its time.
+Kṣatracūḍāmaṇi, written by Vādībhasiṁha, is a play in Sanskrit language that tells the story of the demon king Kṣatracūḍa and his defeat at the hands of Lord Kṛṣṇa. The play consists of five acts and includes several subplots that add depth and complexity to the main story.<br><br>Act 1 introduces the character of Kṣatracūḍa and his Kingdom of Tripura. Kṣatracūḍa is portrayed as a powerful and arrogant demon King who is feared by all. He is challenged by the sage Dūrvāsa, who curses him to be defeated by a mortal. The scene shifts to the Kingdom of Yādavas, where Lord Kṛṣṇa and his people live.<br><br>Act 2 focuses on the conflict between Kṣatracūḍa and the Yādavas. Kṣatracūḍa begins to harass the people of Yādavas, and they seek Lord Kṛṣṇa’s help. Lord Kṛṣṇa agrees to fight Kṣatracūḍa and prepares for battle.<br><br>Act 3 is the climactic battle between Lord Kṛṣṇa and Kṣatracūḍa. The battle is fierce and filled with drama, as Kṣatracūḍa seems invincible at first. However, Lord Kṛṣṇa uses his divine powers and ultimately defeats Kṣatracūḍa.<br><br>Act 4 deals with the aftermath of the battle. Kṣatracūḍa is defeated but is shown mercy by Lord Kṛṣṇa, who asks him to seek redemption for his past actions. Kṣatracūḍa realizes the error of his ways and becomes a devotee of Lord Kṛṣṇa.<br><br>Act 5 concludes the play with a celebration of Lord Kṛṣṇa’s victory and the change in Kṣatracūḍa. The play also emphasizes the moral message of redemption and the power of divine mercy.<br><br>Overall, Kṣatracūḍāmaṇi is a well-crafted play that showcases Vādībhasiṁha’s skillful use of language and his ability to weave complex plotlines together. It is a valuable contribution to Sanskrit literature and provides insights into the cultural and religious traditions of its time.
 </div>
 </div>
 </div>
@@ -261,10 +240,7 @@ Uniqueness
 </h2>
 <div id="work-acc-uniqueness" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>One of the unique aspects of Vādībhasiṁha’s Kṣatracūḍāmaṇi is its treatment of the traditional Hindu mythology and its characters. While many Sanskrit plays focused on the heroics and deeds of gods and goddesses, Kṣatracūḍāmaṇi focuses on the character of Kṣatracūḍa, a demon King who is traditionally portrayed as a villain.</p>
-<p>Vādībhasiṁha humanizes Kṣatracūḍa and portrays him as a complex character with flaws and virtues, rather than a one-dimensional antagonist. The play explores Kṣatracūḍa’s motivations, desires, and inner conflicts, making him a relatable character despite his demonic nature.</p>
-<p>The play also emphasizes the themes of redemption and mercy, which are not commonly found in traditional Sanskrit plays. Kṣatracūḍa is shown mercy by Lord Kṛṣṇa, who forgives him for his past actions and offers him a chance of redemption. This theme of mercy and forgiveness is a departure from the typical portrayal of gods and goddesses in Sanskrit literature, where they are often depicted as unforgiving and wrathful.</p>
-The unique portrayal of Kṣatracūḍa and the themes of redemption and mercy make Kṣatracūḍāmaṇi a distinctive and valuable contribution to Sanskrit literature.
+One of the unique aspects of Vādībhasiṁha’s Kṣatracūḍāmaṇi is its treatment of the traditional Hindu mythology and its characters. While many Sanskrit plays focused on the heroics and deeds of gods and goddesses, Kṣatracūḍāmaṇi focuses on the character of Kṣatracūḍa, a demon King who is traditionally portrayed as a villain.<br><br>Vādībhasiṁha humanizes Kṣatracūḍa and portrays him as a complex character with flaws and virtues, rather than a one-dimensional antagonist. The play explores Kṣatracūḍa’s motivations, desires, and inner conflicts, making him a relatable character despite his demonic nature.<br><br>The play also emphasizes the themes of redemption and mercy, which are not commonly found in traditional Sanskrit plays. Kṣatracūḍa is shown mercy by Lord Kṛṣṇa, who forgives him for his past actions and offers him a chance of redemption. This theme of mercy and forgiveness is a departure from the typical portrayal of gods and goddesses in Sanskrit literature, where they are often depicted as unforgiving and wrathful.<br><br>The unique portrayal of Kṣatracūḍa and the themes of redemption and mercy make Kṣatracūḍāmaṇi a distinctive and valuable contribution to Sanskrit literature.
 </div>
 </div>
 </div>
@@ -276,20 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Vādībhasiṁha’s Kṣatracūḍāmaṇi is a significant contribution to Sanskrit literature in several ways.</p>
-<p>The play deviates from traditional Sanskrit literature in its portrayal of the character of Kṣatracūḍa, a demon king who is typically portrayed as a villain. Vādībhasiṁha humanizes Kṣatracūḍa and explores his motivations and inner conflicts, making him a complex and relatable character. This departure from the typical black-and-white portrayal of characters in Sanskrit literature adds depth and nuance to the play.</p>
-<p>The play’s themes of redemption and mercy are not commonly found in traditional Sanskrit literature, which often focuses on themes of duty, morality, and karma. Kṣatracūḍāmaṇi emphasizes the possibility of redemption for even the most sinful and wicked characters, presenting a more forgiving and merciful perspective than is typical in Sanskrit literature.</p>
-<p>Kṣatracūḍāmaṇi also showcases Vādībhasiṁha’s skill as a playwright and poet. The play is written in a highly lyrical and poetic style, with vivid descriptions, metaphors, and wordplay that showcase the beauty and complexity of the Sanskrit language.</p>
-<p>Vādībhasiṁha’s Kṣatracūḍāmaṇi is a significant contribution to Sanskrit literature, both in its departure from traditional portrayals of characters and themes, and in its literary merits as a well-crafted and poetic play.</p>
-<hr>
-<p>Vādībhasiṁha’s Kṣatracūḍāmaṇi is a Sanskrit play that tells the story of a young prince named Kṣatracūḍa who faces various challenges and ultimately learns valuable lessons about life and morality. Here are some notable pieces of information about the work:</p>
-<p>Genre: Kṣatracūḍāmaṇi is a nāṭaka, which is a type of Sanskrit drama that typically deals with heroic or noble characters.</p>
-<p>Date: The exact date of composition of Kṣatracūḍāmaṇi is not known, but it is believed to have been written in the 11th century CE.</p>
-<p>Themes: The play explores various themes such as morality, the impermanence of life, the consequences of one’s actions, and the power of love.</p>
-<p>Characters: The main character of the play is Kṣatracūḍa, but there are several other important characters such as his father King Candrāditya, his love interest Sāgarikā, and the sage Dūrvāsa.</p>
-<p>Language: Kṣatracūḍāmaṇi is written in Sanskrit, which was a literary and scholarly language of ancient India.</p>
-<p>Style: The play is known for its poetic and dramatic style, featuring elaborate descriptions, vivid imagery, and intense emotional scenes.</p>
-Influence: Kṣatracūḍāmaṇi has been influential in the development of Sanskrit drama and literature, and it continues to be studied and performed to this day.
+Vādībhasiṁha’s Kṣatracūḍāmaṇi is a significant contribution to Sanskrit literature in several ways.<br><br>The play deviates from traditional Sanskrit literature in its portrayal of the character of Kṣatracūḍa, a demon king who is typically portrayed as a villain. Vādībhasiṁha humanizes Kṣatracūḍa and explores his motivations and inner conflicts, making him a complex and relatable character. This departure from the typical black-and-white portrayal of characters in Sanskrit literature adds depth and nuance to the play.<br><br>The play’s themes of redemption and mercy are not commonly found in traditional Sanskrit literature, which often focuses on themes of duty, morality, and karma. Kṣatracūḍāmaṇi emphasizes the possibility of redemption for even the most sinful and wicked characters, presenting a more forgiving and merciful perspective than is typical in Sanskrit literature.<br><br>Kṣatracūḍāmaṇi also showcases Vādībhasiṁha’s skill as a playwright and poet. The play is written in a highly lyrical and poetic style, with vivid descriptions, metaphors, and wordplay that showcase the beauty and complexity of the Sanskrit language.<br><br>Vādībhasiṁha’s Kṣatracūḍāmaṇi is a significant contribution to Sanskrit literature, both in its departure from traditional portrayals of characters and themes, and in its literary merits as a well-crafted and poetic play.<br><br>Vādībhasiṁha’s Kṣatracūḍāmaṇi is a Sanskrit play that tells the story of a young prince named Kṣatracūḍa who faces various challenges and ultimately learns valuable lessons about life and morality. Here are some notable pieces of information about the work:<br><br>Genre: Kṣatracūḍāmaṇi is a nāṭaka, which is a type of Sanskrit drama that typically deals with heroic or noble characters.<br><br>Date: The exact date of composition of Kṣatracūḍāmaṇi is not known, but it is believed to have been written in the 11th century CE.<br><br>Themes: The play explores various themes such as morality, the impermanence of life, the consequences of one’s actions, and the power of love.<br><br>Characters: The main character of the play is Kṣatracūḍa, but there are several other important characters such as his father King Candrāditya, his love interest Sāgarikā, and the sage Dūrvāsa.<br><br>Language: Kṣatracūḍāmaṇi is written in Sanskrit, which was a literary and scholarly language of ancient India.<br><br>Style: The play is known for its poetic and dramatic style, featuring elaborate descriptions, vivid imagery, and intense emotional scenes.<br><br>Influence: Kṣatracūḍāmaṇi has been influential in the development of Sanskrit drama and literature, and it continues to be studied and performed to this day.
 </div>
 </div>
 </div>
@@ -301,10 +264,8 @@ Quotable Quotations
 </h2>
 <div id="work-acc-quotations" class="accordion-collapse collapse">
 <div class="accordion-body">
-<ol type="1">
-<li>रत्नत्रयविशुद्धः सन् पात्रस्नेही परार्थकृत् । परिपालितधर्मो हि भवाब्धेस्तारको गुरुः ॥ [क्षत्रचूडामणिः - २.३०] ratnatrayaviśuddhaḥ san pātrasnehī parārthakṛt । paripālitadharmo hi bhavābdhestārako guruḥ ॥ [kṣatracūḍāmaṇiḥ - 2.30] The person being pure like a jewel-traid, affectionate to worthy person, doing the welfare of others and protecting the Dharma, for the savior of the ocean of the world is the Guru</li>
-<li>गुरुभक्तो भवाद्भीतो विनीतो धार्मिकः सुधीः । शान्तस्वान्तो ह्यतन्द्रालुः शिष्टः शिष्योऽयमिष्यते ॥ [क्षत्रचूडामणिः - २.३१] gurubhakto bhavādbhīto vinīto dhārmikaḥ sudhīḥ । śāntasvānto hyatandrāluḥ śiṣṭaḥ śiṣyo’yamiṣyate ॥ [kṣatracūḍāmaṇiḥ - 2.31] He will be a disciple, who is devotee of the teacher, fearing of the ocean of the world, humble, righteous, intelligent, calm, self-controlled, energetic and polite.
-</li></ol></div>
+1. रत्नत्रयविशुद्धः सन् पात्रस्नेही परार्थकृत् । परिपालितधर्मो हि भवाब्धेस्तारको गुरुः ॥ [क्षत्रचूडामणिः - २.३०] ratnatrayaviśuddhaḥ san pātrasnehī parārthakṛt । paripālitadharmo hi bhavābdhestārako guruḥ ॥ [kṣatracūḍāmaṇiḥ - 2.30]<br>The person being pure like a jewel-traid, affectionate to worthy person, doing the welfare of others and protecting the Dharma, for the savior of the ocean of the world is the Guru<br>2. गुरुभक्तो भवाद्भीतो विनीतो धार्मिकः सुधीः । शान्तस्वान्तो ह्यतन्द्रालुः शिष्टः शिष्योऽयमिष्यते ॥ [क्षत्रचूडामणिः - २.३१]<br>gurubhakto bhavādbhīto vinīto dhārmikaḥ sudhīḥ । śāntasvānto hyatandrāluḥ śiṣṭaḥ śiṣyo’yamiṣyate ॥ [kṣatracūḍāmaṇiḥ - 2.31]<br>He will be a disciple, who is devotee of the teacher, fearing of the ocean of the world, humble, righteous, intelligent, calm, self-controlled, energetic and polite.
+</div>
 </div>
 </div>
 <div class="accordion-item">
@@ -316,20 +277,16 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Biography</span>
+<span class="badge bg-primary work-genre-badge">Biography</span>
 </p>
 </div>
 </div>
 </div>
-
 </div>
 
 
-</main></div>
 
-
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -730,7 +687,20 @@ Genre
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

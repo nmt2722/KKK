@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/soḍhala.html">Soḍhala</a>
 </p>
 </div>
@@ -228,7 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-The work is divided into five ucchvāsas (cantos) based on the progression of the plot. The following is a summary of each ucchvāsa: In the first ucchvāsa, Naravāhanadatta, the king of Vatsa, dreams of a beautiful princess named Udayasundarī. He sets out on a quest to find her and meets her at her father’s palace. Naravāhanadatta and Udayasundarī fall in love and get married, but their happiness is short-lived when Udayasundarī’s father passes away. In the second ucchvāsa, Naravāhanadatta becomes the king of Ujjayinī and faces a rebellion by one of his ministers, Kaliṅgasena. Naravāhanadatta defeats Kaliṅgasena and restores peace to his kingdom. He then goes on a pilgrimage to a sacred lake and is reunited with Udayasundarī. In the third ucchvāsa, Naravāhanadatta is crowned king of the demons and faces several challenges, including an attack by the demon king Māyā. Naravāhanadatta defeats Māyā with the help of a magical flying car and continues his rule over the demons. In the fourth ucchvāsa, Naravāhanadatta and his ministers visit a hidden city and meet a beautiful princess named Mṛgāvatī. The princess’s father captures Naravāhanadatta and his ministers, but they manage to escape. Naravāhanadatta and Mṛgāvatī fall in love, but they part ways due to various circumstances. In the fifth and final ucchvāsa, the focus shifts to Naravāhanadatta’s son, Sūryaprabhā. Sūryaprabhā goes on a quest to find his true love and faces several obstacles along the way. He eventually succeeds and marries his beloved. The story ends with a description of the happy ending for all the characters.
+The work is divided into five ucchvāsas (cantos) based on the progression of the plot. The following is a summary of each ucchvāsa:<br>In the first ucchvāsa, Naravāhanadatta, the king of Vatsa, dreams of a beautiful princess named Udayasundarī. He sets out on a quest to find her and meets her at her father’s palace. Naravāhanadatta and Udayasundarī fall in love and get married, but their happiness is short-lived when Udayasundarī’s father passes away.<br>In the second ucchvāsa, Naravāhanadatta becomes the king of Ujjayinī and faces a rebellion by one of his ministers, Kaliṅgasena. Naravāhanadatta defeats Kaliṅgasena and restores peace to his kingdom. He then goes on a pilgrimage to a sacred lake and is reunited with Udayasundarī.<br>In the third ucchvāsa, Naravāhanadatta is crowned king of the demons and faces several challenges, including an attack by the demon king Māyā. Naravāhanadatta defeats Māyā with the help of a magical flying car and continues his rule over the demons.<br>In the fourth ucchvāsa, Naravāhanadatta and his ministers visit a hidden city and meet a beautiful princess named Mṛgāvatī. The princess’s father captures Naravāhanadatta and his ministers, but they manage to escape. Naravāhanadatta and Mṛgāvatī fall in love, but they part ways due to various circumstances.<br>In the fifth and final ucchvāsa, the focus shifts to Naravāhanadatta’s son, Sūryaprabhā. Sūryaprabhā goes on a quest to find his true love and faces several obstacles along the way. He eventually succeeds and marries his beloved. The story ends with a description of the happy ending for all the characters.
 </div>
 </div>
 </div>
@@ -264,10 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Udayasundarīkathā is a significant contribution to Sanskrit literature. It showcases the language’s versatility and adaptability as a medium for storytelling, beyond its traditional use in religious and philosophical texts.</p>
-<p>The work’s intricate plot and imaginative storytelling techniques, such as the use of supernatural elements, contribute to Sanskrit literature’s richness and diversity. Udayasundarīkathā also adds to the canon of Indian romantic narratives, a genre that was previously underrepresented in Sanskrit literature.</p>
-<p>Moreover, Udayasundarīkathā’s portrayal of women characters is a notable contribution to Sanskrit literature. The female characters in the story are strong-willed and independent, with their own agency and motivations. This portrayal is relatively rare in Indian literature and adds to the work’s significance.</p>
-In addition, Udayasundarīkathā’s influence can be seen in later works of Indian literature. Its themes of love and adventure, as well as its use of supernatural elements, inspired several other romantic narratives in Indian languages. Therefore, Udayasundarīkathā’s contribution to Sanskrit literature extends beyond its own time and continues to inspire writers and readers alike.
+Udayasundarīkathā is a significant contribution to Sanskrit literature. It showcases the language’s versatility and adaptability as a medium for storytelling, beyond its traditional use in religious and philosophical texts.<br><br>The work’s intricate plot and imaginative storytelling techniques, such as the use of supernatural elements, contribute to Sanskrit literature’s richness and diversity. Udayasundarīkathā also adds to the canon of Indian romantic narratives, a genre that was previously underrepresented in Sanskrit literature.<br><br>Moreover, Udayasundarīkathā’s portrayal of women characters is a notable contribution to Sanskrit literature. The female characters in the story are strong-willed and independent, with their own agency and motivations. This portrayal is relatively rare in Indian literature and adds to the work’s significance.<br><br>In addition, Udayasundarīkathā’s influence can be seen in later works of Indian literature. Its themes of love and adventure, as well as its use of supernatural elements, inspired several other romantic narratives in Indian languages. Therefore, Udayasundarīkathā’s contribution to Sanskrit literature extends beyond its own time and continues to inspire writers and readers alike.
 </div>
 </div>
 </div>
@@ -294,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Poems</span>
+<span class="badge bg-primary work-genre-badge">Poems</span>
 </p>
 </div>
 </div>
@@ -705,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

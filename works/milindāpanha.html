@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/buddhaghoṣa.html">Buddhaghoṣa</a>
 </p>
 </div>
@@ -240,7 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-Milindāpanha is a dialogue between King Milinda and the Buddhist sage Nāgasena, and covers a wide range of Buddhist teachings and concepts. Here are some of the key topics covered in the text: 1. The nature of the self: The Milindāpanha discusses the Buddhist concept of anatta, or no-self, and explores the nature of the self and consciousness. 2. Karma and rebirth: The text explores the Buddhist concepts of karma and rebirth, and how these ideas relate to the pursuit of enlightenment. 3. Meditation: The Milindāpanha offers guidance on various forms of meditation, including mindfulness meditation and loving-kindness meditation. 4. The Noble Eightfold Path: The text describes the path to enlightenment as outlined in the Noble Eightfold Path, which includes right understanding, right intention, right speech, right action, right livelihood, right effort, right mindfulness, and right concentration. 5. The nature of language: The Milindāpanha explores the limitations of language and the difficulties of communicating complex philosophical concepts. 6. The nature of reality: The text discusses the nature of reality and the concept of emptiness, which is central to Buddhist philosophy. 7. Ethics: The Milindāpanha explores various ethical issues, including the nature of good and evil, and the role of morality in spiritual practice. Overall, the Milindāpanha covers a wide range of topics related to Buddhist philosophy and practice, and offers guidance and insights for practitioners seeking to deepen their understanding of the dharma.
+Milindāpanha is a dialogue between King Milinda and the Buddhist sage Nāgasena, and covers a wide range of Buddhist teachings and concepts. Here are some of the key topics covered in the text: <br>1. The nature of the self: The Milindāpanha discusses the Buddhist concept of anatta, or no-self, and explores the nature of the self and consciousness.<br>2. Karma and rebirth: The text explores the Buddhist concepts of karma and rebirth, and how these ideas relate to the pursuit of enlightenment.<br>3. Meditation: The Milindāpanha offers guidance on various forms of meditation, including mindfulness meditation and loving-kindness meditation.<br>4. The Noble Eightfold Path: The text describes the path to enlightenment as outlined in the Noble Eightfold Path, which includes right understanding, right intention, right speech, right action, right livelihood, right effort, right mindfulness, and right concentration.<br>5. The nature of language: The Milindāpanha explores the limitations of language and the difficulties of communicating complex philosophical concepts.<br>6. The nature of reality: The text discusses the nature of reality and the concept of emptiness, which is central to Buddhist philosophy.<br>7. Ethics: The Milindāpanha explores various ethical issues, including the nature of good and evil, and the role of morality in spiritual practice.<br>Overall, the Milindāpanha covers a wide range of topics related to Buddhist philosophy and practice, and offers guidance and insights for practitioners seeking to deepen their understanding of the dharma.
 </div>
 </div>
 </div>
@@ -264,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Milindāpanha is an important contribution to Sanskrit literature, as it provides a comprehensive exploration of Buddhist philosophy and practice in a format that is accessible and engaging to readers. The use of dialogue, parables, and everyday examples helped to popularize Buddhist teachings among a wider audience, and its influence can be seen in the many subsequent Buddhist texts that adopt a similar style. Additionally, Milindāpanha provides valuable insights into the history of Buddhism and the development of Buddhist thought, and is considered a key text for scholars studying the religion and its evolution. In a nutshell, Milindāpanha’s contribution to Sanskrit literature lies in its ability to convey complex philosophical concepts in a way that is both relatable and informative.</p>
-<hr>
-Milindāpanha is an important text in the Pali Canon, and is considered a central text in the Burmese Theravada tradition. It is also highly regarded by scholars of Buddhist studies and is widely studied in universities and monasteries around the world. The text takes the form of a dialogue between King Milinda (Menander I of Bactria) and the Buddhist monk Nāgasena, and covers a wide range of topics related to Buddhist doctrine, ethics, and practice. The text includes a number of stories and parables that illustrate key points of Buddhist teaching, and is notable for its clear and accessible style, which has made it popular with both scholars and general readers. Milindāpanha also touches on topics outside of Buddhism, such as philosophy, science, and metaphysics, and engages in debates with non-Buddhist thinkers. As such, it provides a valuable window into the intellectual and cultural milieu of ancient India.
+Milindāpanha is an important contribution to Sanskrit literature, as it provides a comprehensive exploration of Buddhist philosophy and practice in a format that is accessible and engaging to readers. The use of dialogue, parables, and everyday examples helped to popularize Buddhist teachings among a wider audience, and its influence can be seen in the many subsequent Buddhist texts that adopt a similar style. Additionally, Milindāpanha provides valuable insights into the history of Buddhism and the development of Buddhist thought, and is considered a key text for scholars studying the religion and its evolution. In a nutshell, Milindāpanha’s contribution to Sanskrit literature lies in its ability to convey complex philosophical concepts in a way that is both relatable and informative.<br><br>Milindāpanha is an important text in the Pali Canon, and is considered a central text in the Burmese Theravada tradition. It is also highly regarded by scholars of Buddhist studies and is widely studied in universities and monasteries around the world. The text takes the form of a dialogue between King Milinda (Menander I of Bactria) and the Buddhist monk Nāgasena, and covers a wide range of topics related to Buddhist doctrine, ethics, and practice. The text includes a number of stories and parables that illustrate key points of Buddhist teaching, and is notable for its clear and accessible style, which has made it popular with both scholars and general readers. Milindāpanha also touches on topics outside of Buddhism, such as philosophy, science, and metaphysics, and engages in debates with non-Buddhist thinkers. As such, it provides a valuable window into the intellectual and cultural milieu of ancient India.
 </div>
 </div>
 </div>
@@ -293,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Poems</span>
+<span class="badge bg-primary work-genre-badge">Poems</span>
 </p>
 </div>
 </div>
@@ -704,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

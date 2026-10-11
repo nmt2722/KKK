@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/śaktibhadra.html">Śaktibhadra</a>
 </p>
 </div>
@@ -228,7 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-Āścaryacūḍāmaṇi is a Sanskrit play that tells the story of a virtuous woman named Ratnamatī, who is abducted by the demon King Aṣṭāvakra and taken to his palace in the Himalayas. The play begins with a prologue in which the sage Mārkandeya explains that the story is based on a legend from the ancient text Padma Purāṇa. The main story then opens with Ratnamatī, a devoted wife, lamenting the absence of her husband, who has gone on a pilgrimage. As she is praying to Goddess Durgā, she is abducted by Aṣṭāvakra and taken to his palace. At the palace, Ratnamatī is initially afraid and resists the demon King’s advances. However, she gradually wins his trust and respect by her virtuous behaviour and intelligence. Aṣṭāvakra comes to appreciate Ratnamatī’s wisdom and falls in love with her. He offers her the chance to leave his palace, but she chooses to stay and continue serving him. Meanwhile, Ratnamatī’s husband, King Sudhanva, discovers that his wife has been abducted and sets out to rescue her. With the help of sage Nārada, he reaches the Himalayas and battles with Aṣṭāvakra. In the end, Aṣṭāvakra is defeated and Ratnamatī is reunited with her husband. The play explores themes of devotion, morality, and the power of love. It also includes elements of Hindu mythology and religious rituals. The character of Ratnamatī is portrayed as an ideal wife and devotee, who remains true to her values and faith even in difficult circumstances. Aṣṭāvakra, the demon King, is shown as a complex character who undergoes a transformation as a result of his interaction with Ratnamatī.
+Āścaryacūḍāmaṇi is a Sanskrit play that tells the story of a virtuous woman named Ratnamatī, who is abducted by the demon King Aṣṭāvakra and taken to his palace in the Himalayas. The play begins with a prologue in which the sage Mārkandeya explains that the story is based on a legend from the ancient text Padma Purāṇa. The main story then opens with Ratnamatī, a devoted wife, lamenting the absence of her husband, who has gone on a pilgrimage. As she is praying to Goddess Durgā, she is abducted by Aṣṭāvakra and taken to his palace.<br>At the palace, Ratnamatī is initially afraid and resists the demon King’s advances. However, she gradually wins his trust and respect by her virtuous behaviour and intelligence. Aṣṭāvakra comes to appreciate Ratnamatī’s wisdom and falls in love with her. He offers her the chance to leave his palace, but she chooses to stay and continue serving him. Meanwhile, Ratnamatī’s husband, King Sudhanva, discovers that his wife has been abducted and sets out to rescue her. With the help of sage Nārada, he reaches the Himalayas and battles with Aṣṭāvakra. In the end, Aṣṭāvakra is defeated and Ratnamatī is reunited with her husband.<br>The play explores themes of devotion, morality, and the power of love. It also includes elements of Hindu mythology and religious rituals. The character of Ratnamatī is portrayed as an ideal wife and devotee, who remains true to her values and faith even in difficult circumstances. Aṣṭāvakra, the demon King, is shown as a complex character who undergoes a transformation as a result of his interaction with Ratnamatī.
 </div>
 </div>
 </div>
@@ -240,7 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-Āścaryacūḍāmaṇi consists of ten acts (anvikṣikīs) and is based on a legend from the ancient text Padma Purana. Act 1: The play opens with a prologue in which the sage Mārkandeya introduces the story and the characters. He explains that the play is based on a legend from the Padma Purāṇa and praises the virtues of devotion and faith. Act 2: The second act introduces the heroine Ratnamatī, who is praying to Goddess Durgā for the safe return of her husband from a pilgrimage. Aṣṭāvakra, the demon King, appears and abducts her. Act 3: In the third act, Ratnamatī is taken to Aṣṭāvakra’s palace in the Himalayas. She is initially frightened and resists his advances, but eventually gains his trust by her virtue and intelligence. Act 4: The fourth act continues to explore the relationship between Ratnamatī and Aṣṭāvakra. Aṣṭāvakra realizes that Ratnamatī is a woman of great wisdom and offers her the chance to leave his palace, but she chooses to stay and continue serving him. Act 5: In the fifth act, the demon Māyā tries to seduce Ratnamatī, but she rejects him. Māyā then tells Aṣṭāvakra about Ratnamatī’s steadfastness, and Aṣṭāvakra becomes even more impressed with her. Act 6: The sixth act introduces King Sudhanva, Ratnamatī’s husband, who discovers that his wife has been abducted. He sets out to rescue her with the help of sage Nārada. Act 7: In the seventh act, Nārada meets with Aṣṭāvakra and tries to convince him to release Ratnamatī. Aṣṭāvakra refuses, but Nārada predicts that he will soon undergo a transformation. Act 8: The eighth act features a battle between Sudhanva and Aṣṭāvakra. Sudhanva is initially overpowered, but with Nārada’s help, he gains the upper hand. Act 9: The ninth act continues the battle between Sudhanva and Aṣṭāvakra. Aṣṭāvakra is eventually defeated, and Ratnamatī is reunited with her husband. Act 10: The final act concludes the story with a celebration of Ratnamatī’s virtues and the triumph of devotion over evil. The play ends with Mārkandeya praising the power of faith and the importance of righteous behaviour.
+Āścaryacūḍāmaṇi consists of ten acts (anvikṣikīs) and is based on a legend from the ancient text Padma Purana. <br>Act 1: The play opens with a prologue in which the sage Mārkandeya introduces the story and the characters. He explains that the play is based on a legend from the Padma Purāṇa and praises the virtues of devotion and faith.<br>Act 2: The second act introduces the heroine Ratnamatī, who is praying to Goddess Durgā for the safe return of her husband from a pilgrimage. Aṣṭāvakra, the demon King, appears and abducts her.<br>Act 3: In the third act, Ratnamatī is taken to Aṣṭāvakra’s palace in the Himalayas. She is initially frightened and resists his advances, but eventually gains his trust by her virtue and intelligence.<br>Act 4: The fourth act continues to explore the relationship between Ratnamatī and Aṣṭāvakra. Aṣṭāvakra realizes that Ratnamatī is a woman of great wisdom and offers her the chance to leave his palace, but she chooses to stay and continue serving him.<br>Act 5: In the fifth act, the demon Māyā tries to seduce Ratnamatī, but she rejects him. Māyā then tells Aṣṭāvakra about Ratnamatī’s steadfastness, and Aṣṭāvakra becomes even more impressed with her.<br>Act 6: The sixth act introduces King Sudhanva, Ratnamatī’s husband, who discovers that his wife has been abducted. He sets out to rescue her with the help of sage Nārada.<br>Act 7: In the seventh act, Nārada meets with Aṣṭāvakra and tries to convince him to release Ratnamatī. Aṣṭāvakra refuses, but Nārada predicts that he will soon undergo a transformation.<br>Act 8: The eighth act features a battle between Sudhanva and Aṣṭāvakra. Sudhanva is initially overpowered, but with Nārada’s help, he gains the upper hand.<br>Act 9: The ninth act continues the battle between Sudhanva and Aṣṭāvakra. Aṣṭāvakra is eventually defeated, and Ratnamatī is reunited with her husband.<br>Act 10: The final act concludes the story with a celebration of Ratnamatī’s virtues and the triumph of devotion over evil. The play ends with Mārkandeya praising the power of faith and the importance of righteous behaviour.
 </div>
 </div>
 </div>
@@ -264,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Āścaryacūḍāmaṇi is considered a significant contribution to Sanskrit literature for several reasons: 1. Synthesis of multiple genres: The play integrates elements of poetry, drama, and philosophy to create a unique form of literature that combines religious and secular themes. 2. Representation of women: The play challenges traditional gender roles by portraying the heroine Ratnamatī as a complex and independent character who is both a devoted wife and a spiritual seeker. This representation of women was innovative for its time and contributed to a more nuanced understanding of women’s roles in society. 3. Exploration of moral and ethical themes: The play explores themes of morality, loyalty, and virtue in a way that is both entertaining and thought-provoking. It presents a vision of life that integrates the spiritual and the worldly, and encourages audiences to reflect on the nature of right and wrong.</p>
-<hr>
-Āścaryacūḍāmaṇi has had a significant influence on Indian literature and culture. The play has been adapted into numerous regional languages and has inspired other works of literature and art. It has also been the subject of scholarly analysis and interpretation. Like many works of Sanskrit literature, Āścaryacūḍāmaṇi was originally written to be performed rather than read. It was likely performed in a court or temple setting with a troupe of actors and musicians. Today, the play continues to be performed in India and around the world, both in its original Sanskrit form and in translations.
+Āścaryacūḍāmaṇi is considered a significant contribution to Sanskrit literature for several reasons:<br>1. Synthesis of multiple genres: The play integrates elements of poetry, drama, and philosophy to create a unique form of literature that combines religious and secular themes.<br>2. Representation of women: The play challenges traditional gender roles by portraying the heroine Ratnamatī as a complex and independent character who is both a devoted wife and a spiritual seeker. This representation of women was innovative for its time and contributed to a more nuanced understanding of women’s roles in society.<br>3. Exploration of moral and ethical themes: The play explores themes of morality, loyalty, and virtue in a way that is both entertaining and thought-provoking. It presents a vision of life that integrates the spiritual and the worldly, and encourages audiences to reflect on the nature of right and wrong.<br><br>Āścaryacūḍāmaṇi has had a significant influence on Indian literature and culture. The play has been adapted into numerous regional languages and has inspired other works of literature and art. It has also been the subject of scholarly analysis and interpretation. Like many works of Sanskrit literature, Āścaryacūḍāmaṇi was originally written to be performed rather than read. It was likely performed in a court or temple setting with a troupe of actors and musicians. Today, the play continues to be performed in India and around the world, both in its original Sanskrit form and in translations.
 </div>
 </div>
 </div>
@@ -293,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Poems</span>
+<span class="badge bg-primary work-genre-badge">Poems</span>
 </p>
 </div>
 </div>
@@ -704,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

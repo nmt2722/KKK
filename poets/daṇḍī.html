@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,10 +222,10 @@ The timeline the poet is debatable. According to literary sources the first comm
 </p>
 </div>
 <div id="nav-daṇḍī-life" class="tab-pane fade" role="tabpanel">
-Daṇḍī was a Sanskrit writer, who used the nuances of grammar to pen down effectually.He was not only a poet, but also a prose writer who lived in Kāñcīpuram, Tamil Nadu. He was a scholar who was celebrated for his knowledge of Sanskrit grammar. Daṇḍīn was also a strong exponent of guṇaprasthānā which qualifies ślesa, prasāda, samatā, mādhurya, artha, vyaktī, that makes poetry anecstasy. Daṇḍī lost his father at a very young age at Kāñcī, and when the kingdom was attacked by the enemies, he was forced to leave the city. However, Daṇḍīn returns to Kāñcī at a later stage. Identifying his knowledge and writings, he was highly recognised in the court andwas accorded immensely under the patronage of Narasiṃhavarman II of Pallava reign. The Sanskrit commentators such as Rājaśekhara have applauded his works with purity. The padalālitya (The dancing of words) of Daṇḍīn is popular amongst the Sanskrit literary world. Another poem devised by philosopher and writer Ra¯jas´ekhara (fl.&nbsp;920 CE) accords Daṇḍīn by comparing him to trilogy of the world’s existence to enumerate Daṇḍīn,s powerful space in the literary world. trayo’gnayastrayo devāstrayo vedāstrayo guṇāḥ trayo daṇḍiprabandhāśca triṣu lokeṣu viśrutāḥ Meaning- There are three fires, three gods,three Vedas, three qualities, and three works by Daṇḍīn. Everything that is great in this triple worldcomes in threes.
+Daṇḍī was a Sanskrit writer, who used the nuances of grammar to pen down effectually.He was not only a poet, but also a prose writer who lived in Kāñcīpuram, Tamil Nadu. He was a scholar who was celebrated for his knowledge of Sanskrit grammar. Daṇḍīn was also a strong exponent of guṇaprasthānā which qualifies ślesa, prasāda, samatā, mādhurya, artha, vyaktī, that makes poetry anecstasy. Daṇḍī lost his father at a very young age at Kāñcī, and when the kingdom was attacked by the enemies, he was forced to leave the city. However, Daṇḍīn returns to Kāñcī at a later stage. Identifying his knowledge and writings, he was highly recognised in the court andwas accorded immensely under the patronage of Narasiṃhavarman II of Pallava reign. The Sanskrit commentators such as Rājaśekhara have applauded his works with purity. The padalālitya (The dancing of words) of Daṇḍīn is popular amongst the Sanskrit literary world. <br>Another poem devised by philosopher and writer Ra¯jas´ekhara (fl.&nbsp;920 CE) accords Daṇḍīn by comparing him to trilogy of the world’s existence to enumerate Daṇḍīn,s powerful space in the literary world.<br>trayo’gnayastrayo devāstrayo vedāstrayo guṇāḥ<br>trayo daṇḍiprabandhāśca triṣu lokeṣu viśrutāḥ<br>Meaning- There are three fires, three gods,three Vedas, three qualities, and three works by Daṇḍīn. Everything that is great in this triple worldcomes in threes.
 </div>
 <div id="nav-daṇḍī-contribution" class="tab-pane fade" role="tabpanel">
-Daṇḍi was a prolific Sanskrit poet, grammarian, and literary critic who made significant contributions to Sanskrit literature. His works have had a profound impact on the development of Indian literary tradition. One of Daṇḍi’s most significant contributions to Sanskrit literature is his work on poetics and literary criticism. His magnum opus, the “Kāvyādarśa,” is a treatise on the art of poetry that presents a systematic analysis of poetic devices, structures, and aesthetics. Daṇḍi’s work is notable for its innovative approach to the study of poetics, particularly his classification of Alaṅkāra (ornamentation) and Rasas (emotional states). These concepts have become central to the study of Indian literature and continue to be studied and discussed by scholars today. In addition to his work on poetics, Daṇḍi was also an accomplished poet in his own right. His epic poem, the “Daśakumāracarita” (Ten Princes), is a masterpiece of Sanskrit literature that tells the story of ten young princes who must navigate the challenges of courtly life and romantic relationships. The poem is notable for its engaging narrative style, vivid characterization, and exploration of themes such as love, friendship, and duty. Daṇḍi’s romantic tale, the “Avantisundarī,” is another important work of Sanskrit literature. The story follows the love affair between King Udayana of Vatsa and the beautiful princess Avantisundarī of Avanti. The narrative is known for its lyrical language, evocative imagery, and exploration of themes such as love, devotion, and self-sacrifice. Daṇḍi’s contributions to Sanskrit literature also extend to the field of grammar. He was one of the pioneers of the “Kātantra” school of Sanskrit grammar, which focused on the analysis of verbal roots and their derivatives. His work “Vākyapadīya” is a treatise on Sanskrit grammar that presents a systematic and comprehensive analysis of sentence structure, semantics, and syntax. Overall, Daṇḍi’s contributions to Sanskrit literature, including his work on poetics, literature, and grammar, have had a lasting impact on the development of Indian intellectual tradition. His insights and analysis continue to be studied and appreciated by scholars and enthusiasts of Sanskrit literature around the world, and his works are considered among the greatest treasures of Indian cultural heritage.
+Daṇḍi was a prolific Sanskrit poet, grammarian, and literary critic who made significant contributions to Sanskrit literature. His works have had a profound impact on the development of Indian literary tradition. One of Daṇḍi’s most significant contributions to Sanskrit literature is his work on poetics and literary criticism. His magnum opus, the "Kāvyādarśa," is a treatise on the art of poetry that presents a systematic analysis of poetic devices, structures, and aesthetics. Daṇḍi’s work is notable for its innovative approach to the study of poetics, particularly his classification of Alaṅkāra (ornamentation) and Rasas (emotional states). These concepts have become central to the study of Indian literature and continue to be studied and discussed by scholars today.<br>In addition to his work on poetics, Daṇḍi was also an accomplished poet in his own right. His epic poem, the "Daśakumāracarita" (Ten Princes), is a masterpiece of Sanskrit literature that tells the story of ten young princes who must navigate the challenges of courtly life and romantic relationships. The poem is notable for its engaging narrative style, vivid characterization, and exploration of themes such as love, friendship, and duty.<br>Daṇḍi’s romantic tale, the "Avantisundarī," is another important work of Sanskrit literature. The story follows the love affair between King Udayana of Vatsa and the beautiful princess Avantisundarī of Avanti. The narrative is known for its lyrical language, evocative imagery, and exploration of themes such as love, devotion, and self-sacrifice.<br>Daṇḍi’s contributions to Sanskrit literature also extend to the field of grammar. He was one of the pioneers of the "Kātantra" school of Sanskrit grammar, which focused on the analysis of verbal roots and their derivatives. His work "Vākyapadīya" is a treatise on Sanskrit grammar that presents a systematic and comprehensive analysis of sentence structure, semantics, and syntax.<br>Overall, Daṇḍi’s contributions to Sanskrit literature, including his work on poetics, literature, and grammar, have had a lasting impact on the development of Indian intellectual tradition. His insights and analysis continue to be studied and appreciated by scholars and enthusiasts of Sanskrit literature around the world, and his works are considered among the greatest treasures of Indian cultural heritage.
 </div>
 <div id="nav-daṇḍī-works" class="tab-pane fade" role="tabpanel">
 <ul class="list-group list-group-flush">
@@ -658,6 +646,19 @@ Daṇḍi was a prolific Sanskrit poet, grammarian, and literary critic who made
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

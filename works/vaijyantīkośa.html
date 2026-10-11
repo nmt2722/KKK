@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/yādavaprākāśa.html">Yādavaprākāśa</a>
 </p>
 </div>
@@ -228,8 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Vaijyantīkośa is a Sanskrit lexicon or dictionary primarily focused on providing definitions and explanations of Sanskrit words and their usage in various contexts, including in literature, philosophy, and everyday speech. Vaijyantīkośa is divided into two main sections: the Śabdaratnākara and the Artharatnākara.</p>
-The first section, the Śabdaratnākara, contains definitions of over 15,000 Sanskrit words, arranged alphabetically. Each entry includes information on the word’s gender, number, declension, and conjugation, as well as its meanings and usage in various contexts. The second section, the Artharatnākara, contains more detailed explanations of the meanings of various words, as well as discussions of their philosophical and cultural significance.
+Vaijyantīkośa is a Sanskrit lexicon or dictionary primarily focused on providing definitions and explanations of Sanskrit words and their usage in various contexts, including in literature, philosophy, and everyday speech. Vaijyantīkośa is divided into two main sections: the Śabdaratnākara and the Artharatnākara.<br><br>The first section, the Śabdaratnākara, contains definitions of over 15,000 Sanskrit words, arranged alphabetically. Each entry includes information on the word’s gender, number, declension, and conjugation, as well as its meanings and usage in various contexts. The second section, the Artharatnākara, contains more detailed explanations of the meanings of various words, as well as discussions of their philosophical and cultural significance.
 </div>
 </div>
 </div>
@@ -241,7 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-Vaijyantīkośa is primarily a lexicon or dictionary of Sanskrit words, arranged alphabetically, with their meanings and usage explained. It is divided into two main sections: Śabdaratnākara: This section contains definitions of over 15,000 Sanskrit words, arranged alphabetically. Each entry includes information on the word’s gender, number, declension, and conjugation, as well as its meanings and usage in various contexts. Artharatnākara: This section contains more detailed explanations of the meanings of various words, as well as discussions of their philosophical and cultural significance. It includes entries on topics such as grammar, literature, philosophy, religion, mythology, and history. In addition to the main sections, Vaijyantīkośa also includes an appendix with additional information on grammar, prosody, and metrics. The work is known for its comprehensive coverage of Sanskrit vocabulary, as well as for its detailed and nuanced explanations of the meanings and usage of various words.
+Vaijyantīkośa is primarily a lexicon or dictionary of Sanskrit words, arranged alphabetically, with their meanings and usage explained. It is divided into two main sections:<br>Śabdaratnākara: This section contains definitions of over 15,000 Sanskrit words, arranged alphabetically. Each entry includes information on the word’s gender, number, declension, and conjugation, as well as its meanings and usage in various contexts.<br>Artharatnākara: This section contains more detailed explanations of the meanings of various words, as well as discussions of their philosophical and cultural significance. It includes entries on topics such as grammar, literature, philosophy, religion, mythology, and history.<br>In addition to the main sections, Vaijyantīkośa also includes an appendix with additional information on grammar, prosody, and metrics. The work is known for its comprehensive coverage of Sanskrit vocabulary, as well as for its detailed and nuanced explanations of the meanings and usage of various words.
 </div>
 </div>
 </div>
@@ -265,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Vaijyantīkośa, authored by Yādavaprākāśa, is a valuable contribution to Sanskrit literature as it serves as a comprehensive lexicon that provides in-depth explanations of the meanings and usage of Sanskrit words. It is a significant resource for scholars and students of Sanskrit language and literature, aiding in the understanding of texts and enhancing the knowledge of the language. The work also offers insights into the cultural, philosophical, and historical significance of the words, making it a valuable resource for those interested in the history and culture of ancient India. The Vaijyantīkośa remains a significant and influential work in Sanskrit literature, demonstrating Yādavaprākāśa’s knowledge and scholarship in the field.</p>
-<hr>
-Vaijyantīkośa is a significant contribution to the field of Sanskrit lexicography and linguistics. It is known for its extensive treatment of synonyms and their usage in different contexts, which makes it a valuable resource for scholars studying the nuances of Sanskrit language and literature. The work is also notable for its incorporation of ideas from various schools of Indian philosophy, including Sāṅkhya, Nyāya, and Mīmāṃsā, which adds a unique philosophical dimension to its linguistic analysis. Vaijyantīkośa is an important reference work for students and scholars of Sanskrit language and literature, as well as Indian philosophy and culture.
+Vaijyantīkośa, authored by Yādavaprākāśa, is a valuable contribution to Sanskrit literature as it serves as a comprehensive lexicon that provides in-depth explanations of the meanings and usage of Sanskrit words. It is a significant resource for scholars and students of Sanskrit language and literature, aiding in the understanding of texts and enhancing the knowledge of the language. The work also offers insights into the cultural, philosophical, and historical significance of the words, making it a valuable resource for those interested in the history and culture of ancient India. The Vaijyantīkośa remains a significant and influential work in Sanskrit literature, demonstrating Yādavaprākāśa’s knowledge and scholarship in the field.<br><br>Vaijyantīkośa is a significant contribution to the field of Sanskrit lexicography and linguistics. It is known for its extensive treatment of synonyms and their usage in different contexts, which makes it a valuable resource for scholars studying the nuances of Sanskrit language and literature. The work is also notable for its incorporation of ideas from various schools of Indian philosophy, including Sāṅkhya, Nyāya, and Mīmāṃsā, which adds a unique philosophical dimension to its linguistic analysis. Vaijyantīkośa is an important reference work for students and scholars of Sanskrit language and literature, as well as Indian philosophy and culture.
 </div>
 </div>
 </div>
@@ -294,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Epic</span>
+<span class="badge bg-primary work-genre-badge">Epic</span>
 </p>
 </div>
 </div>
@@ -705,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/somadeva-sūri.html">Somadeva Sūri</a>
 </p>
 </div>
@@ -228,7 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-Yaśastilakacampū, sometimes known mononymously as Yaśastilaka is a campū (prose and verse) is a Sanskrit text that promotes the Jaina doctrine using the story of King Yaśodhara. The text in itself provides great information about the literary and socio-political aspects of the contemporary period, as well as the Jaina and non-Jaina philosophical and religious doctrines. It s notable as an encyclopaedic record of all these aspects in the subcontinent. It throws light on Jaina dogmatics, religious poetry, moral and religious stories, and myths and legends. Yaśastilakacampū has eight ashvashas and this story has been told in five ashvashas in very great in detail. However, Yaśastilakacampū may also be categorised as a domestic tragedy.
+Yaśastilakacampū, sometimes known mononymously as Yaśastilaka is a campū (prose and verse) is a Sanskrit text that promotes the Jaina doctrine using the story of King Yaśodhara. The text in itself provides great information about the literary and socio-political aspects of the contemporary period, as well as the Jaina and non-Jaina philosophical and religious doctrines. It s notable as an encyclopaedic record of all these aspects in the subcontinent.<br>It throws light on Jaina dogmatics, religious poetry, moral and religious stories, and myths and legends. Yaśastilakacampū has eight ashvashas and this story has been told in five ashvashas in very great in detail. However, Yaśastilakacampū may also be categorised as a domestic tragedy.
 </div>
 </div>
 </div>
@@ -240,8 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-It starts off with the story of the very ambitious king of Janapada – Mahiridatta, who starts nurturing the ambition of conquering new regions and owning weapons of great power. In his quest he came across the knowledge of a sword which can kill all the enemies, including the Kinnaras, Kimpuruṣas, and Vidyādharās. He found out that all of these enemies he could conquer with the help of this sword. However, to attain this sword, he would have to offer the lives of two human beings, male or female, who are endure with all auspicious signs Sakalalakṣaṇasampanna to Goddess Mahri. And therefore this king ordered some Daṇḍapāśikas (executioners) to fetch such two human beings. And they went in such two persons, and by chance they found a brother and a sister who were called Abhayaruci and Abhayamati. They were twins and they possessed all the necessary auspicious signs in their body. And therefore the Daṇḍapāśikas decided to catch them. And for that purpose they use many tricks and told those two human beings that is a boy and a girl, to come with them to the capital city of Maridatta, so that they will receive a great welcome and all the kindness city king, etc.<br>
-And thus those two were brought to the capital city Rajapura of the Yahudeya country, and they are brought to the temple of Mahri, which was very furious, fearsome, they could not understand what was going on. And then there comes the king with a sharp sword in his hand. They were very much surprised, but they were not afraid, because they were both the disciples of a Ṛṣi called Sudatta Muni. And therefore, they knew that life of anybody is after all ephemeral. Nobody’s life is permanent. Every moment can bring the death to any living being. An elephant, or a tiger, or a lion, or a human being, anyone. And therefore, they very calmly looked at the king who desired to kill them, to offer their blood to Goddess Mahri. And so, when the king was ready, he decided to face them. But as soon as he saw their faces, there was a change in his mind. He asked the twins where they come from and who their parents are. To this the twins started reciting the story of the good and just king of Avant – Yaśorgha and his son Yaśodhara .In due course of time, Yaśodhara was happily married to princess Amṛtamati. Yaśorgha retires to the forest to perform Austerities so that he could get emancipation or what is called Moksha. This Yaśodhara got a son named Yaśastilaka . And so, everything was perfect in their life. But unfortunately, this queen Amṛtamati had a secret in her life. She was in love with a paramour. All people she loved a mahout, an elephant keeper who was called Aṣṭavaṅka. So, he was the ugliest person in that country. But she was attracted by his voice. He was singing very melodiously and by that her mind was attracted and so she was secretly in touch with that mahout called Aṣṭavaṅka . On discovering the courtship of the queens, the king was furious. Furious to the extent that he decided to murder both lovers. On pulling out his sword, the thinks to himself – his queen may have sinner, but he should not be a sinner himself. Although he stopped himself from killing the queen and her lover, his mind remained disturbed. Many astrologers were consulted to remedy the king’s condition. A recommendation that came up was that he offers a bird to Goddess Mahri. Being a follower of Dharma and Ahimsā, the king refused to kill a bird. Instead, he was suggested by his concerned mother Candramati to get a model of a bird made from wheat flour and symbolically offered the bird to Mahri. He agreed to this too very reluctantly. For symbolically killing the bird once, the mother and son duo was reborn in this world seven times in various forms. In the final birth they were born as the brother and sister twins that were standing in front of Mahridatta at the time. This long narration visibly softened Mahridatta and he became eager to meet Sudatta and turn his disciple. Sudatta came of his own accord to the prospective convert and commenced a long discourse on Jaina doctrines.
+It starts off with the story of the very ambitious king of Janapada – Mahiridatta, who starts nurturing the ambition of conquering new regions and owning weapons of great power. In his quest he came across the knowledge of a sword which can kill all the enemies, including the Kinnaras, Kimpuruṣas, and Vidyādharās. He found out that all of these enemies he could conquer with the help of this sword. However, to attain this sword, he would have to offer the lives of two human beings, male or female, who are endure with all auspicious signs Sakalalakṣaṇasampanna to Goddess Mahri. And therefore this king ordered some Daṇḍapāśikas (executioners) to fetch such two human beings. And they went in such two persons, and by chance they found a brother and a sister who were called Abhayaruci and Abhayamati. They were twins and they possessed all the necessary auspicious signs in their body. And therefore the Daṇḍapāśikas decided to catch them. And for that purpose they use many tricks and told those two human beings that is a boy and a girl, to come with them to the capital city of Maridatta, so that they will receive a great welcome and all the kindness city king, etc. <br>And thus those two were brought to the capital city Rajapura of the Yahudeya country, and they are brought to the temple of Mahri, which was very furious, fearsome, they could not understand what was going on. And then there comes the king with a sharp sword in his hand. They were very much surprised, but they were not afraid, because they were both the disciples of a Ṛṣi called Sudatta Muni. And therefore, they knew that life of anybody is after all ephemeral. Nobody’s life is permanent. Every moment can bring the death to any living being. An elephant, or a tiger, or a lion, or a human being, anyone. And therefore, they very calmly looked at the king who desired to kill them, to offer their blood to Goddess Mahri. And so, when the king was ready, he decided to face them. But as soon as he saw their faces, there was a change in his mind.<br>He asked the twins where they come from and who their parents are. To this the twins started reciting the story of the good and just king of Avant – Yaśorgha and his son Yaśodhara .In due course of time, Yaśodhara was happily married to princess Amṛtamati. Yaśorgha retires to the forest to perform Austerities so that he could get emancipation or what is called Moksha. This Yaśodhara got a son named Yaśastilaka . And so, everything was perfect in their life. But unfortunately, this queen Amṛtamati had a secret in her life. She was in love with a paramour. All people she loved a mahout, an elephant keeper who was called Aṣṭavaṅka. So, he was the ugliest person in that country. But she was attracted by his voice. He was singing very melodiously and by that her mind was attracted and so she was secretly in touch with that mahout called Aṣṭavaṅka .<br>On discovering the courtship of the queens, the king was furious. Furious to the extent that he decided to murder both lovers. On pulling out his sword, the thinks to himself – his queen may have sinner, but he should not be a sinner himself. Although he stopped himself from killing the queen and her lover, his mind remained disturbed. Many astrologers were consulted to remedy the king’s condition. A recommendation that came up was that he offers a bird to Goddess Mahri. Being a follower of Dharma and Ahimsā, the king refused to kill a bird. Instead, he was suggested by his concerned mother Candramati to get a model of a bird made from wheat flour and symbolically offered the bird to Mahri. He agreed to this too very reluctantly. For symbolically killing the bird once, the mother and son duo was reborn in this world seven times in various forms. In the final birth they were born as the brother and sister twins that were standing in front of Mahridatta at the time. This long narration visibly softened Mahridatta and he became eager to meet Sudatta and turn his disciple. Sudatta came of his own accord to the prospective convert and commenced a long discourse on Jaina doctrines.
 </div>
 </div>
 </div>
@@ -265,7 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-Yaśastilaka of Somadeva Sūri is a mine of information. First might be mentioned Somadeva’s comprehension of the spirit poetry. The true poets are those whose words make familiar things unfamiliar and unfamiliar things familiar. A person has to study for a full year to understand fully the significance of the teachings of the Yaśastilakacampū. It produces a new eye to the mind, we all have two physical eyes but the third eye of the mind is produced on account of this jyōti. This campū is considered to be Akṣaramayajyōti; this is light in the form of letter. This is also a light this is Akṣara that which never dwindles. It produces the seed of intelligence. Only when one sees the world with that third eye, this Ātma becomes visible to everyone. In several verses that follow, Somadeva Sūri enlightens the reader on the greatness of his poetry and the spirit of what he considers to be true poetry, regardless of whether or not it is soothing on the ears. For example, he states that very learned people who enjoy the poetry of great poets, tend to read more such beautiful poetry again and again. Therefore, just like a person who eats sweets continuously, his tongue starts disliking sweets - at that moment the person needs something that is bitter, something that is not very sweet. When he eats it again he will develop a taste for this sweet thing. Similarly, just as the people who have eaten continuously sweets want to eat a few leaves of the neem tree to change the taste like that, learned people may read Somadeva Sūri’s poetry. With this statement, he is seen comparing his own poetry to the bitter leaves of the neem tree.
+Yaśastilaka of Somadeva Sūri is a mine of information. First might be mentioned Somadeva’s comprehension of the spirit poetry. The true poets are those whose words make familiar things unfamiliar and unfamiliar things familiar.<br>A person has to study for a full year to understand fully the significance of the teachings of the Yaśastilakacampū. It produces a new eye to the mind, we all have two physical eyes but the third eye of the mind is produced on account of this jyōti. This campū is considered to be Akṣaramayajyōti; this is light in the form of letter. This is also a light this is Akṣara that which never dwindles. It produces the seed of intelligence. Only when one sees the world with that third eye, this Ātma becomes visible to everyone. In several verses that follow, Somadeva Sūri enlightens the reader on the greatness of his poetry and the spirit of what he considers to be true poetry, regardless of whether or not it is soothing on the ears. For example, he states that very learned people who enjoy the poetry of great poets, tend to read more such beautiful poetry again and again. Therefore, just like a person who eats sweets continuously, his tongue starts disliking sweets - at that moment the person needs something that is bitter, something that is not very sweet. When he eats it again he will develop a taste for this sweet thing. Similarly, just as the people who have eaten continuously sweets want to eat a few leaves of the neem tree to change the taste like that, learned people may read Somadeva Sūri’s poetry. With this statement, he is seen comparing his own poetry to the bitter leaves of the neem tree.
 </div>
 </div>
 </div>
@@ -292,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Court poetry (kavya)</span>
+<span class="badge bg-primary work-genre-badge">Court poetry (kavya)</span>
 </p>
 </div>
 </div>
@@ -703,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

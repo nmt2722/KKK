@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/udbhaṭṭa.html">Udbhaṭṭa</a>
 </p>
 </div>
@@ -228,7 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-Alaṅkārasārasaṁgraha is a Sanskrit treatise on poetics that focuses on alaṅkāras or literary devices that are used to enhance the beauty and effectiveness of Sanskrit poetry. The text is divided into six Sargas or chapters. The first sarga discusses the definition and nature of poetry, including the different types of poetry and the qualities that make a poem beautiful. Udbhaṭṭa also explains the concept of rasa or aesthetic emotion, which is considered to be the ultimate goal of poetry. The second sarga covers the different types of sound-based alaṅkāras, such as alliteration, assonance, and rhyme. Udbhaṭṭa provides examples of each type of alaṅkāra and explains how they can be used to enhance the beauty and meaning of a poem. The third sarga covers the different types of meaning-based alaṅkāras, such as metaphor, simile, and hyperbole. Again, Udbhaṭṭa provides examples of each type of alaṅkāra and explains how they can be used to enhance the beauty and meaning of a poem. The fourth sarga covers the different types of mixed alaṅkāras, which combine both sound-based and meaning-based alaṅkāras. Udbhaṭṭa provides examples of each type of alaṅkāra and explains how they can be used to enhance the beauty and meaning of a poem. The fifth sarga discusses the process of poetic creation, including the role of the poet, the importance of imagination and inspiration, and the different stages of composition. Udbhaṭṭa also provides advice on how to compose poetry effectively. The sixth and final sarga provides a summary of the alaṅkāras discussed in the previous sargās and their usage in poetry. Udbhaṭṭa concludes the text by emphasizing the importance of alaṅkāras in creating beautiful and effective poetry. Alaṅkārasārasaṁgraha is considered to be one of the most important works on poetics in the Sanskrit tradition, and its influence can be seen in the work of many later poets and scholars.
+Alaṅkārasārasaṁgraha is a Sanskrit treatise on poetics that focuses on alaṅkāras or literary devices that are used to enhance the beauty and effectiveness of Sanskrit poetry. The text is divided into six Sargas or chapters. The first sarga discusses the definition and nature of poetry, including the different types of poetry and the qualities that make a poem beautiful. Udbhaṭṭa also explains the concept of rasa or aesthetic emotion, which is considered to be the ultimate goal of poetry.<br>The second sarga covers the different types of sound-based alaṅkāras, such as alliteration, assonance, and rhyme. Udbhaṭṭa provides examples of each type of alaṅkāra and explains how they can be used to enhance the beauty and meaning of a poem. The third sarga covers the different types of meaning-based alaṅkāras, such as metaphor, simile, and hyperbole. Again, Udbhaṭṭa provides examples of each type of alaṅkāra and explains how they can be used to enhance the beauty and meaning of a poem.<br>The fourth sarga covers the different types of mixed alaṅkāras, which combine both sound-based and meaning-based alaṅkāras. Udbhaṭṭa provides examples of each type of alaṅkāra and explains how they can be used to enhance the beauty and meaning of a poem. The fifth sarga discusses the process of poetic creation, including the role of the poet, the importance of imagination and inspiration, and the different stages of composition. Udbhaṭṭa also provides advice on how to compose poetry effectively.<br>The sixth and final sarga provides a summary of the alaṅkāras discussed in the previous sargās and their usage in poetry. Udbhaṭṭa concludes the text by emphasizing the importance of alaṅkāras in creating beautiful and effective poetry. Alaṅkārasārasaṁgraha is considered to be one of the most important works on poetics in the Sanskrit tradition, and its influence can be seen in the work of many later poets and scholars.
 </div>
 </div>
 </div>
@@ -240,12 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Chapter 1: Kāvyaprakaraṇa (Nature of poetry) Definition and nature of poetry Qualities of beautiful poetry Different types of poetry Rasa (aesthetic emotion) as the ultimate goal of poetry</p>
-<p>Chapter 2: Śabdālaṅkāra (Sound-based figures of speech) Definition and importance of sound-based figures of speech Different types of sound-based figures of speech, including alliteration, assonance, and rhyme Examples of each type of sound-based figure of speech Usage and effects of sound-based figures of speech in poetry</p>
-<p>Chapter 3: Arthālaṅkāra (Meaning-based figures of speech) Definition and importance of meaning-based figures of speech Different types of meaning-based figures of speech, including metaphor, simile, and hyperbole Examples of each type of meaning-based figure of speech Usage and effects of meaning-based figures of speech in poetry</p>
-<p>Chapter 4: Mithyālaṅkāra (Mixed figures of speech) Definition and importance of mixed figures of speech Different types of mixed figures of speech, which combine sound-based and meaning-based figures of speech Examples of each type of mixed figure of speech Usage and effects of mixed figures of speech in poetry</p>
-<p>Chapter 5: Kāvyasaṁsthāpana (Establishment of poetry) Role of the poet in the creation of poetry Importance of imagination and inspiration in poetic creation Different stages of poetic composition, including idea formation, word selection, and editing Advice on how to compose poetry effectively</p>
-Chapter 6: Saṅgraha (Summary) Summary of the alaṅkāras discussed in the previous chapters Usage of alaṅkāras in poetry Importance of alaṅkāras in creating beautiful and effective poetry
+Chapter 1: Kāvyaprakaraṇa (Nature of poetry)<br>Definition and nature of poetry<br>Qualities of beautiful poetry<br>Different types of poetry<br>Rasa (aesthetic emotion) as the ultimate goal of poetry<br><br>Chapter 2: Śabdālaṅkāra (Sound-based figures of speech)<br>Definition and importance of sound-based figures of speech<br>Different types of sound-based figures of speech, including alliteration, assonance, and rhyme<br>Examples of each type of sound-based figure of speech<br>Usage and effects of sound-based figures of speech in poetry<br><br>Chapter 3: Arthālaṅkāra (Meaning-based figures of speech)<br>Definition and importance of meaning-based figures of speech<br>Different types of meaning-based figures of speech, including metaphor, simile, and hyperbole<br>Examples of each type of meaning-based figure of speech<br>Usage and effects of meaning-based figures of speech in poetry<br><br>Chapter 4: Mithyālaṅkāra (Mixed figures of speech)<br>Definition and importance of mixed figures of speech<br>Different types of mixed figures of speech, which combine sound-based and meaning-based figures of speech<br>Examples of each type of mixed figure of speech<br>Usage and effects of mixed figures of speech in poetry<br><br>Chapter 5: Kāvyasaṁsthāpana (Establishment of poetry)<br>Role of the poet in the creation of poetry<br>Importance of imagination and inspiration in poetic creation<br>Different stages of poetic composition, including idea formation, word selection, and editing<br>Advice on how to compose poetry effectively<br><br>Chapter 6: Saṅgraha (Summary)<br>Summary of the alaṅkāras discussed in the previous chapters<br>Usage of alaṅkāras in poetry<br>Importance of alaṅkāras in creating beautiful and effective poetry
 </div>
 </div>
 </div>
@@ -269,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Alaṅkārasārasaṁgraha written by Udbhaṭṭa made a significant contribution to Sanskrit literature by systematizing and codifying the various figures of speech used in poetry. Udbhaṭṭa’s work not only identified and classified the alaṅkāras, but also provided detailed explanations of their usage and effects. This work was highly influential and served as a reference for future Sanskrit poets, who used it to enhance their own poetic skills. Alaṅkārasārasaṁgraha’s emphasis on rasa and practical guidance for poetic composition also contributed to the development of Indian aesthetics and the understanding of poetry as an art form. Therefore, Udbhaṭṭa’s work remains an important contribution to Sanskrit literature and Indian poetics.</p>
-<hr>
-Alaṅkārasārasaṁgraha is not only an important work on Sanskrit poetics but is also considered a significant work in the field of Indian literary theory. It has been extensively studied and commented upon by scholars over the centuries, and its influence can be seen in many subsequent works on poetics and aesthetics in Sanskrit. Additionally, it has also been translated into several languages, including English, making it accessible to a wider audience. Its enduring popularity is a testament to its timeless insights into the art of poetry and the use of literary devices to create aesthetic appeal.
+Alaṅkārasārasaṁgraha written by Udbhaṭṭa made a significant contribution to Sanskrit literature by systematizing and codifying the various figures of speech used in poetry. Udbhaṭṭa’s work not only identified and classified the alaṅkāras, but also provided detailed explanations of their usage and effects. This work was highly influential and served as a reference for future Sanskrit poets, who used it to enhance their own poetic skills. Alaṅkārasārasaṁgraha’s emphasis on rasa and practical guidance for poetic composition also contributed to the development of Indian aesthetics and the understanding of poetry as an art form. Therefore, Udbhaṭṭa’s work remains an important contribution to Sanskrit literature and Indian poetics.<br><br>Alaṅkārasārasaṁgraha is not only an important work on Sanskrit poetics but is also considered a significant work in the field of Indian literary theory. It has been extensively studied and commented upon by scholars over the centuries, and its influence can be seen in many subsequent works on poetics and aesthetics in Sanskrit. Additionally, it has also been translated into several languages, including English, making it accessible to a wider audience. Its enduring popularity is a testament to its timeless insights into the art of poetry and the use of literary devices to create aesthetic appeal.
 </div>
 </div>
 </div>
@@ -298,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Social Drama</span>
+<span class="badge bg-primary work-genre-badge">Social Drama</span>
 </p>
 </div>
 </div>
@@ -709,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

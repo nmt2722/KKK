@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/śūdraka.html">Śūdraka</a>
 </p>
 </div>
@@ -240,7 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-The prologue of Mṛicchakaṭika states that its poet was a king renowned as “Śūdraka”. He had performed Aśvamedha (horse sacrifice) ritual to prove his superiority, and immolated himself at the age of 110 years, after crowning his son as the new king. The prologue describes him as a distinguished wise man, who had gained knowledge of the Ṛgveda, the Sāmaveda, mathematics, the Kāmaśāstra and the art of training elephants. The first four acts of Mṛicchakaṭika are virtually a copy of the corresponding acts from Bhāsa’s unfinished play Cārudatta. One theory is that the poet of Mṛicchakaṭika simply finished Bhāsa’s play out of respect, styling himself as the “little servant” of Bhāsa. The play opens with a traditional benediction in praise of Siva; it is followed by remarks about the audience, details concerning the author, and a witty bit of patter between the stage manager and his pert wife concerning their poverty. The plot proceeds to expand upon the theme of material poverty and spiritual wealth. The play is in a Prakaraṇa. The main plot of the play revolves around the passionate love between the protagonist, Cārudatta - a prominent but poor Brahmin merchant of Ujjain-and the veritably beautiful Gaṇikā, a courtesan but with a noble mind of the same city. Vasantasēna was a courtesan of Ujjayini according to ancient Indian literature, who earned fame and prosperity due to her finesse in various art forms such as singing, dancing, poetry, courting, etc. and her beauty. She is the protagonist of the play. Several exquisitely interwoven subplots portraying the contemporary society - a tyrannical king, an overbearing brother-in-law of the king, the political upheaval, and the resultant rebellion waiting to erupt - pepper the play. According to Ryder (1905), it is the variety of issues - such as a Gaṇikā’s ardent love for a virtuous but a married man, the married man’s silent passion for the Gaṇikā, a shampooer ’s gambling, the making of a hole in the wall by a thief to steal a gold casket, Abhisārika’s proceeding to her lover ’s abode under a storm, the swapping of bullock-carts that led to the strangulation of Vasantasēna in the garden, and the escape of an imprisoned rebel from the jail to finally replace the despotic king - expounded in the different Acts of the play; the skill with which different characters such as Sansthānaka, Sarvilaka, Maitrēya, Madanikā, and Dhūta, the silent wife of Cārudatta are drawn from every class of society to expound the socio-politico-cultural issues; and the infusion of subtle humour, that too, through the foolish utterances of the villain of the play, Sansthānaka- that make Mṛcchakaṭika stand out as a preeminent Sanskrit play. To appreciate Sudraka’s ingenuity in characterization, one example is enough: Sansthānaka, the antihero of the play, who is an amalgamation of ignorant conceit, brutal lust, and animal-spirits in abusing his nearness to the power-centre, has the cheek to say, after strangulating an innocent woman, to his Vita: “Yehi! Nalinyam pravesya kredavaha -Oh, come! Let’s plunge into the pond and play”. In Mṛcchakaṭika, the Vidūṣaka behaves very sensibly, cautioning his friend against his reckless philanthropy and his relationship with a courtesan, without of course offending him. Śūdraka has indeed vested each of his characters with a special trait that distinguishes each from the other characters of the play.
+The prologue of Mṛicchakaṭika states that its poet was a king renowned as "Śūdraka". He had performed Aśvamedha (horse sacrifice) ritual to prove his superiority, and immolated himself at the age of 110 years, after crowning his son as the new king. The prologue describes him as a distinguished wise man, who had gained knowledge of the Ṛgveda, the Sāmaveda, mathematics, the Kāmaśāstra and the art of training elephants. The first four acts of Mṛicchakaṭika are virtually a copy of the corresponding acts from Bhāsa’s unfinished play Cārudatta. One theory is that the poet of Mṛicchakaṭika simply finished Bhāsa’s play out of respect, styling himself as the "little servant" of Bhāsa. The play opens with a traditional benediction in praise of Siva; it is followed by remarks about the audience, details concerning the author, and a witty bit of patter between the stage manager and his pert wife concerning their poverty. The plot proceeds to expand upon the theme of material poverty and spiritual wealth. The play is in a Prakaraṇa. The main plot of the play revolves around the passionate love between the protagonist, Cārudatta - a prominent but poor Brahmin merchant of Ujjain-and the veritably beautiful Gaṇikā, a courtesan but with a noble mind of the same city. Vasantasēna was a courtesan of Ujjayini according to ancient Indian literature, who earned fame and prosperity due to her finesse in various art forms such as singing, dancing, poetry, courting, etc. and her beauty. She is the protagonist of the play. Several exquisitely interwoven subplots portraying the contemporary society - a tyrannical king, an overbearing brother-in-law of the king, the political upheaval, and the resultant rebellion waiting to erupt - pepper the play. According to Ryder (1905), it is the variety of issues - such as a Gaṇikā’s ardent love for a virtuous but a married man, the married man’s silent passion for the Gaṇikā, a shampooer ’s gambling, the making of a hole in the wall by a thief to steal a gold casket, Abhisārika’s proceeding to her lover ’s abode under a storm, the swapping of bullock-carts that led to the strangulation of Vasantasēna in the garden, and the escape of an imprisoned rebel from the jail to finally replace the despotic king - expounded in the different Acts of the play; the skill with which different characters such as Sansthānaka, Sarvilaka, Maitrēya, Madanikā, and Dhūta, the silent wife of Cārudatta are drawn from every class of society to expound the socio-politico-cultural issues; and the infusion of subtle humour, that too, through the foolish utterances of the villain of the play, Sansthānaka- that make Mṛcchakaṭika stand out as a preeminent Sanskrit play. To appreciate Sudraka’s ingenuity in characterization, one example is enough: Sansthānaka, the antihero of the play, who is an amalgamation of ignorant conceit, brutal lust, and animal-spirits in abusing his nearness to the power-centre, has the cheek to say, after strangulating an innocent woman, to his Vita: "Yehi! Nalinyam pravesya kredavaha -Oh, come! Let’s plunge into the pond and play”. In Mṛcchakaṭika, the Vidūṣaka behaves very sensibly, cautioning his friend against his reckless philanthropy and his relationship with a courtesan, without of course offending him. Śūdraka has indeed vested each of his characters with a special trait that distinguishes each from the other characters of the play.
 </div>
 </div>
 </div>
@@ -264,7 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-“Mṛcchakaṭika” is a highly regarded play in Sanskrit literature, and it has made significant contributions to the development of Sanskrit literature in several ways: Language and style: “Mṛcchakaṭika” is known for its lyrical and poetic language, which has set a high standard for Sanskrit literature. The play’s style is characterized by its use of metaphor, symbolism, and imagery, which have become hallmarks of Sanskrit poetry and drama. Social commentary: The play deals with social issues that were relevant to its time, such as the role of women in society, the corruption of the ruling class, and the struggle of the common people. The play’s commentary on these issues has made it a valuable historical document and a source of inspiration for social reformers. Human psychology and emotions: “Mṛcchakaṭika” explores the complexities of human psychology and emotions, such as love, jealousy, greed, and compassion. The play’s nuanced portrayal of these emotions has influenced the development of Sanskrit literature and drama. Influence on later literature: “Mṛcchakaṭika” has inspired several later works of literature, including the famous Sanskrit drama “Śakuntalā” by Kāḷidāsa. The play’s influence can also be seen in other forms of Indian literature, such as poetry and fiction. In a nutshell, ” Mṛcchakaṭika” as a play remains a valuable and influential work of Sanskrit literature today.
+"Mṛcchakaṭika" is a highly regarded play in Sanskrit literature, and it has made significant contributions to the development of Sanskrit literature in several ways: Language and style: "Mṛcchakaṭika" is known for its lyrical and poetic language, which has set a high standard for Sanskrit literature. The play’s style is characterized by its use of metaphor, symbolism, and imagery, which have become hallmarks of Sanskrit poetry and drama.<br>Social commentary: The play deals with social issues that were relevant to its time, such as the role of women in society, the corruption of the ruling class, and the struggle of the common people. The play’s commentary on these issues has made it a valuable historical document and a source of inspiration for social reformers.<br>Human psychology and emotions: “Mṛcchakaṭika" explores the complexities of human psychology and emotions, such as love, jealousy, greed, and compassion. The play’s nuanced portrayal of these emotions has influenced the development of Sanskrit literature and drama.<br>Influence on later literature: “Mṛcchakaṭika" has inspired several later works of literature, including the famous Sanskrit drama "Śakuntalā" by Kāḷidāsa. The play’s influence can also be seen in other forms of Indian literature, such as poetry and fiction.<br>In a nutshell, " Mṛcchakaṭika" as a play remains a valuable and influential work of Sanskrit literature today.
 </div>
 </div>
 </div>
@@ -291,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Lyric</span>
+<span class="badge bg-primary work-genre-badge">Lyric</span>
 </p>
 </div>
 </div>
@@ -702,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

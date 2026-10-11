@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,7 +222,7 @@ Works (1)
 </p>
 </div>
 <div id="nav-rājānaka-mahimabhaṭṭa-life" class="tab-pane fade" role="tabpanel">
-Rājānaka Mahimabhaṭṭa was a renowned Sanskrit poet and scholar who lived during the 11th century, specifically between 1020 and 1050 AD. He is known for his literary works, particularly for his treatise on grammar and poetics, the Vyaktivivēka. Not much is known about his personal life. It is believed that he was born in the town of Veṅgi, which was located in the present-day state of Andhra Pradesh in India. He was likely a Brāhmaṇa by birth and received traditional education in Sanskrit language, literature, and philosophy. Rājānaka Mahimabhaṭṭa was a prominent figure in the court of the Eastern Cālukya Kings, who ruled the region of Veṅgi during his time. He served as a court poet and scholar and enjoyed the patronage of the ruling dynasty. He was also well-respected in the scholarly circles of his time and was known for his expertise in various fields such as grammar, poetics, and philosophy.
+Rājānaka Mahimabhaṭṭa was a renowned Sanskrit poet and scholar who lived during the 11th century, specifically between 1020 and 1050 AD. He is known for his literary works, particularly for his treatise on grammar and poetics, the Vyaktivivēka.<br>Not much is known about his personal life. It is believed that he was born in the town of Veṅgi, which was located in the present-day state of Andhra Pradesh in India. He was likely a Brāhmaṇa by birth and received traditional education in Sanskrit language, literature, and philosophy.<br>Rājānaka Mahimabhaṭṭa was a prominent figure in the court of the Eastern Cālukya Kings, who ruled the region of Veṅgi during his time. He served as a court poet and scholar and enjoyed the patronage of the ruling dynasty. He was also well-respected in the scholarly circles of his time and was known for his expertise in various fields such as grammar, poetics, and philosophy.
 </div>
 <div id="nav-rājānaka-mahimabhaṭṭa-contribution" class="tab-pane fade" role="tabpanel">
 Rājānaka Mahimabhaṭṭa made several significant contributions to Sanskrit literature through his work as a scholar and poet. The most notable of these contributions is his magnum opus, Vyaktivivēka, a comprehensive treatise on Sanskrit grammar and poetics. Vyaktivivēka is a significant contribution to Sanskrit literature in several ways. It is a comprehensive work that covers various aspects of Sanskrit grammar and poetics, providing a detailed and systematic explanation of these topics. This has made it an important resource for scholars and students of Sanskrit, and has helped to preserve and promote the study of Sanskrit language and literature. Mahimabhaṭṭa takes a descriptive approach, analysing the language and literature as it is used by poets and authors, rather than prescribing strict rules. This approach allows for a more nuanced and flexible understanding of Sanskrit language and literature, and has influenced the study of Sanskrit grammar and poetics. The text provides a detailed analysis of literary devices and meters, and offers examples from famous Sanskrit texts. This has helped to shape the way that Sanskrit literature is studied and understood, and has contributed to the development of literary theory in Sanskrit literature.
@@ -652,6 +640,19 @@ Rājānaka Mahimabhaṭṭa made several significant contributions to Sanskrit l
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

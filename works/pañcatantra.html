@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/viṣṇuśarmā.html">Viṣṇuśarmā</a>
 </p>
 </div>
@@ -228,7 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-Pañcatantra, translated to “five strategies”, has always been an exception. It has not just entertained and hailed the importance of morality, besides defining it, but has also educated people about the intricacies of life – relationships, particularly. In Ancient India, there was a kingdom named as ‘Mahilāropya and ‘Amaraśakti was the king. The king had three sons who were not interested in education in any way. This left the king constantly worried about their education and their future as his successors. One day he asked for advice from his ministers regarding this issue. The prime minister suggested that he approach a man called Paṇḍita Viṣṇuśarmā. Viṣṇuśarmā was a well-versed Brāhmaṇa. Amaraśakti took up the advice of his minister and called upon Viṣṇuśarmā. He asked whether Viṣṇuśarmā would accept his sons as his disciples and educate them. Viṣṇuśarmā accepted the challenge and took an oath of teaching the princes and making them well learned within six months. He, of course, kept the promise. It is said that Viṣṇuśarmā’s objective was to instruct three ignorant princes in the principles of polity, by means of stories. It is written in Campū&nbsp;style— a combination of prose and verse, and&nbsp;is divided into five “tantras” or parts:&nbsp; (1)Mitra-bheda or “Estrangement of friends”: The basic theme story is of a lion and a bull. Most of the stories from Pañcatantra falls into this section of Tantra. (2) Mitra-samprāpti or “Winning friends” The basic theme story is of the friendship among a dove, a crow, a mouse, a tortoise and a deer and explains the importance of gaining and retaining good friends. (3) Kākolūkīyam or “Of crows and owls”/ “War and peace” The basic theme story is about crows and owls. It explains the war and peace situation and the strategy of handling enemies. (4)Labdhapranāśam or “Loss of gains” The basic theme story is of a monkey and crocodile. It explains how one can lose previously earned things because of one’s own foolishness. (5) Aparīkshitakārakam or “Ill-considered actions” The basic theme story is of a merchant and his silly guest. It explains that the hasty deeds can lead us to permanent loss of things or people. To teach his students in a short period of time, Viṣṇuśarmā creatively used the stories of different animals and human beings. As his students were not so eager to study through the routine method he found an exciting and entertaining method, that is, teaching through narration or with the help of stories.
+Pañcatantra, translated to “five strategies”, has always been an exception. It has not just entertained and hailed the importance of morality, besides defining it, but has also educated people about the intricacies of life – relationships, particularly. In Ancient India, there was a kingdom named as ‘Mahilāropya and ‘Amaraśakti was the king. The king had three sons who were not interested in education in any way. This left the king constantly worried about their education and their future as his successors. One day he asked for advice from his ministers regarding this issue. The prime minister suggested that he approach a man called Paṇḍita Viṣṇuśarmā. Viṣṇuśarmā was a well-versed Brāhmaṇa. Amaraśakti took up the advice of his minister and called upon Viṣṇuśarmā. He asked whether Viṣṇuśarmā would accept his sons as his disciples and educate them. Viṣṇuśarmā accepted the challenge and took an oath of teaching the princes and making them well learned within six months. He, of course, kept the promise. It is said that Viṣṇuśarmā’s objective was to instruct three ignorant princes in the principles of polity, by means of stories. It is written in Campū&nbsp;style— a combination of prose and verse, and&nbsp;is divided into five “tantras” or parts:&nbsp; (1)Mitra-bheda or “Estrangement of friends”:<br>The basic theme story is of a lion and a bull. Most of the stories from Pañcatantra falls into this section of Tantra.<br>(2) Mitra-samprāpti or “Winning friends”<br>The basic theme story is of the friendship among a dove, a crow, a mouse, a tortoise and a deer and explains the importance of gaining and retaining good friends.<br>(3) Kākolūkīyam or “Of crows and owls”/ “War and peace”<br>The basic theme story is about crows and owls. It explains the war and peace situation and the strategy of handling enemies.<br> (4)Labdhapranāśam or “Loss of gains”<br> The basic theme story is of a monkey and crocodile. It explains how one can lose previously earned things because of one’s own foolishness.<br>(5) Aparīkshitakārakam or “Ill-considered actions”<br>The basic theme story is of a merchant and his silly guest. It explains that the hasty deeds can lead us to permanent loss of things or people.<br> To teach his students in a short period of time, Viṣṇuśarmā creatively used the stories of different animals and human beings. As his students were not so eager to study through the routine method he found an exciting and entertaining method, that is, teaching through narration or with the help of stories.
 </div>
 </div>
 </div>
@@ -264,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Pañcatantra is a masterpiece of Sanskrit literature that has contributed significantly to Indian culture and has had a lasting impact on world literature. The Pañcatantra is an excellent example of storytelling and has had a profound impact on Indian literature. It is a significant source of inspiration for writers and poets, and its influence can be seen in the works of many Indian authors. The work is known for its use of simple and elegant language. It is easy to read and understand, making it accessible to people of all ages and backgrounds. The Pañcatantra contains valuable insights into human behaviour and psychology. The fables in the Pañcatantra teach moral lessons through the actions of animals, making it an excellent tool for teaching ethical and moral values. The stories have been translated into many languages and have had a profound impact on world literature. Its stories have been adapted into plays, movies, and television shows.</p>
-<hr>
-Pañcatantra has its own story of moving from place to place and from one language to other language. During the last 1,500 years there have been at least 200 translations of Pañcatantra in about 60 languages of the World. Aesop fables, Arabian Nights, Sindbad and more than thirty to fifty percent of the Western nursery rhymes and ballads have their origin in Pañcatantra and Jātaka stories (Dudes 1995). Pañcatantra migrated to Iran in the 600 BC, to be translated for the first time in a foreign language (Pehlavi) with a title Kalilah wa Dimnah (De Blois 1990). Bud then translated it into Old Syrian language in 570CE (Yuka 1999). This Syrian version went into Germany and was dressed in German in 1876 CE by Bickell and then again by Schulthess in 1911 CE. The third important translation of Pañcatantra was done after two centuries in Baghdad in 750 CE in Arabic. This Pañcatantra translation enjoyed great popularity and is considered as masterpiece of Arabic narrative literature. Almost all pre-modern translations of Pañcatantra in Europe have their roots in this Arabic translation. (Irwin 2006). With the help of which one can see how it was transferred and got a place in world literature. The popularity of Pañcatantra lies in its simple yet elegant style and rich content.
+Pañcatantra is a masterpiece of Sanskrit literature that has contributed significantly to Indian culture and has had a lasting impact on world literature. The Pañcatantra is an excellent example of storytelling and has had a profound impact on Indian literature. It is a significant source of inspiration for writers and poets, and its influence can be seen in the works of many Indian authors. The work is known for its use of simple and elegant language. It is easy to read and understand, making it accessible to people of all ages and backgrounds. The Pañcatantra contains valuable insights into human behaviour and psychology. The fables in the Pañcatantra teach moral lessons through the actions of animals, making it an excellent tool for teaching ethical and moral values. The stories have been translated into many languages and have had a profound impact on world literature. Its stories have been adapted into plays, movies, and television shows.<br><br>Pañcatantra has its own story of moving from place to place and from one language to other language. During the last 1,500 years there have been at least 200 translations of Pañcatantra in about 60 languages of the World. Aesop fables, Arabian Nights, Sindbad and more than thirty to fifty percent of the Western nursery rhymes and ballads have their origin in Pañcatantra and Jātaka stories (Dudes 1995). Pañcatantra migrated to Iran in the 600 BC, to be translated for the first time in a foreign language (Pehlavi) with a title Kalilah wa Dimnah (De Blois 1990). Bud then translated it into Old Syrian language in 570CE (Yuka 1999). This Syrian version went into Germany and was dressed in German in 1876 CE by Bickell and then again by Schulthess in 1911 CE. The third important translation of Pañcatantra was done after two centuries in Baghdad in 750 CE in Arabic. This Pañcatantra translation enjoyed great popularity and is considered as masterpiece of Arabic narrative literature. Almost all pre-modern translations of Pañcatantra in Europe have their roots in this Arabic translation. (Irwin 2006). With the help of which one can see how it was transferred and got a place in world literature. The popularity of Pañcatantra lies in its simple yet elegant style and rich content.
 </div>
 </div>
 </div>
@@ -278,7 +264,7 @@ Quotable Quotations
 </h2>
 <div id="work-acc-quotations" class="accordion-collapse collapse">
 <div class="accordion-body">
-1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; मातृवत्परदारेषु परद्रव्येषु लोष्टवत् । आत्मवत्सर्वभूतेषु यः पश्यति स पण्डितः ॥ [पञ्चतन्त्रम्] mātṛvatparadāreṣu paradravyeṣu loṣṭavat । ātmavatsarvabhūteṣu yaḥ paśyati sa paṇḍitaḥ ॥ [pañcatantram] A man who treats another woman like a mother, another’s property like a stick, and all human being like himself is called a wise man. 2. केनामृतमिदं सृष्टं मित्रमित्यक्षरद्वयम् । आपदां च परित्राणं शोकसन्तापभेषजम् ॥ [मित्रसंप्राप्तिः – ६२] kenāmṛtamidaṃ sṛṣṭaṃ mitramityakṣaradvayam । āpadāṃ ca paritrāṇaṃ śokasantāpabheṣajam ॥ [mitrasaṃprāptiḥ – 62] A friend is like nectar, acting as a savior in times of emergency, and as a remedy in times of grief and sorrow.
+1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; मातृवत्परदारेषु परद्रव्येषु लोष्टवत् । आत्मवत्सर्वभूतेषु यः पश्यति स पण्डितः ॥ [पञ्चतन्त्रम्] mātṛvatparadāreṣu paradravyeṣu loṣṭavat । ātmavatsarvabhūteṣu yaḥ paśyati sa paṇḍitaḥ ॥ [pañcatantram]<br>A man who treats another woman like a mother, another’s property like a stick, and all human being like himself is called a wise man.<br>2. केनामृतमिदं सृष्टं मित्रमित्यक्षरद्वयम् । आपदां च परित्राणं शोकसन्तापभेषजम् ॥ [मित्रसंप्राप्तिः – ६२]<br>kenāmṛtamidaṃ sṛṣṭaṃ mitramityakṣaradvayam । āpadāṃ ca paritrāṇaṃ śokasantāpabheṣajam ॥ [mitrasaṃprāptiḥ – 62]<br>A friend is like nectar, acting as a savior in times of emergency, and as a remedy in times of grief and sorrow.
 </div>
 </div>
 </div>
@@ -291,7 +277,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Humor</span>
+<span class="badge bg-primary work-genre-badge">Humor</span>
 </p>
 </div>
 </div>
@@ -702,6 +688,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/somadevabhaṭṭa.html">Somadevabhaṭṭa</a>
 </p>
 </div>
@@ -228,7 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-The Kathāsaritsāgara, also known as the Ocean of the Streams of Stories, is a Sanskrit text from the 11th century that contains Indian fairy tales and legends. Similar to other stories, myths, and epics, a Śaiva named Somadeva retells the Kathāsaritsāgara. Although the main story of Kathāsaritsāgara is not well-known, it is found that it is an adaptation of the Bṛhatkathā (Big Story), an Indian epic written by Guṇāḍhya, which is frequently compared to Vyāsa, the author of the Mahābhārata and a character in it. Somadeva gives us the legendary history of it in his first book, showing how it was related in turn by Śiva, Puṣpadanta, Kāṇabhūti, Guṇāḍhya, and Śātavāhana. The latter initially rejected it, and in anguish, Guṇāḍhya began to burn it leaf by leaf, resulting in the loss of 600,000 distiches. Śātavāhana reappears and saves the remaining couplets (1,000,000), known as the Bṛhatkathā. He added a lambaka, or book, to it, extolling its remarkable history. Somadeva keeps the entire book, which accounts for roughly half of our first volume. Guṇāḍhya was credited as the author of the Bṛhatkathā, although it was not written in Sanskrit but rather in the inappropriate and archaic Paisaci language. Kathāsaritsāgara is a nested story with 18 lambakas (books), 124 tarangas (chapters called waves), and approximately 22,000 Ślokas (distiches) in addition to prose sections. The Śloka is divided into two half-verses of 16 syllables each. While the Kathāsaritsāgara is a collection of many stories and legends, it gave the story of Udayana and his son special attention. The first story in the Kathāsaritsāgara follows Puṣpadanta and the curse placed on him by the Mountain Goddess as he travels around in human form to cure his affliction. The Kingship was passed down through three generations in the story of Udayana and his son, Naravāhanadatta. The Kathāsaritsāgara, rich in legends and folklore, also refers to other Hindu stories, such as the Ramayana and the Mahābhārata. Somadeva, as a Śaiva, tailors his adaptation of Guṇāḍhya’s Bṛhatkathā to favour Śiva because Śiva is the primary God to whom the characters turn and who provides the most assistance. The Kathāsaritsāgara is not well known for its moral tales, but all the stories presented contain a life lesson.
+The Kathāsaritsāgara, also known as the Ocean of the Streams of Stories, is a Sanskrit text from the 11th century that contains Indian fairy tales and legends. Similar to other stories, myths, and epics, a Śaiva named Somadeva retells the Kathāsaritsāgara. Although the main story of Kathāsaritsāgara is not well-known, it is found that it is an adaptation of the Bṛhatkathā (Big Story), an Indian epic written by Guṇāḍhya, which is frequently compared to Vyāsa, the author of the Mahābhārata and a character in it. Somadeva gives us the legendary history of it in his first book, showing how it was related in turn by Śiva, Puṣpadanta, Kāṇabhūti, Guṇāḍhya, and Śātavāhana. The latter initially rejected it, and in anguish, Guṇāḍhya began to burn it leaf by leaf, resulting in the loss of 600,000 distiches. Śātavāhana reappears and saves the remaining couplets (1,000,000), known as the Bṛhatkathā. He added a lambaka, or book, to it, extolling its remarkable history. Somadeva keeps the entire book, which accounts for roughly half of our first volume. Guṇāḍhya was credited as the author of the Bṛhatkathā, although it was not written in Sanskrit but rather in the inappropriate and archaic Paisaci language. <br>Kathāsaritsāgara is a nested story with 18 lambakas (books), 124 tarangas (chapters called waves), and approximately 22,000 Ślokas (distiches) in addition to prose sections. The Śloka is divided into two half-verses of 16 syllables each. While the Kathāsaritsāgara is a collection of many stories and legends, it gave the story of Udayana and his son special attention. The first story in the Kathāsaritsāgara follows Puṣpadanta and the curse placed on him by the Mountain Goddess as he travels around in human form to cure his affliction. The Kingship was passed down through three generations in the story of Udayana and his son, Naravāhanadatta.<br>The Kathāsaritsāgara, rich in legends and folklore, also refers to other Hindu stories, such as the Ramayana and the Mahābhārata. Somadeva, as a Śaiva, tailors his adaptation of Guṇāḍhya’s Bṛhatkathā to favour Śiva because Śiva is the primary God to whom the characters turn and who provides the most assistance. The Kathāsaritsāgara is not well known for its moral tales, but all the stories presented contain a life lesson.
 </div>
 </div>
 </div>
@@ -240,7 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-Book no. Lambaka Taramgas Count of Slōkas 1 Kathāpita (Foundation) 1-8, 818 2 Kathāmukha (Introduction) 9-14, 871 3 Lavanaka 15-20, 1198 4 Naravāhanadattajanana (Birth of Naravāhanadatta) 21-23, 501 5 Caturdārika (The Four Wives) 24-26, 818 6 Madanamaṅkuka 27-34, 1544 7 Ratnaprabhā 35-43, 1421 8 Sūryaprabhā 44-50, 115 9 Alaṅkāravati 51-56, 4929 10 Śaktiyasas 57-66, 1120 11 Vēlā 67, 220 12 Sasaṅkavati 68-103, 993 13 Madirāvati 104, 624 14 Pan̄ca (The Five) 105-108, 1628 15 Mahābhiśēka (The Imperial Coronation) 109-110, 1739 16 Surataman̄jari 111-113, 2128 17 Padmāvati 114-119, 301 18 Visamaśīlā 120-124, 420
+Book no. Lambaka Taramgas Count of Slōkas<br>1 Kathāpita (Foundation) 1-8, 818<br>2 Kathāmukha (Introduction) 9-14, 871<br>3 Lavanaka 15-20, 1198<br>4 Naravāhanadattajanana (Birth of Naravāhanadatta) 21-23, 501<br>5 Caturdārika (The Four Wives) 24-26, 818<br>6 Madanamaṅkuka 27-34, 1544<br>7 Ratnaprabhā 35-43, 1421<br>8 Sūryaprabhā 44-50, 115<br>9 Alaṅkāravati 51-56, 4929<br>10 Śaktiyasas 57-66, 1120<br>11 Vēlā 67, 220<br>12 Sasaṅkavati 68-103, 993<br>13 Madirāvati 104, 624<br>14 Pan̄ca (The Five) 105-108, 1628<br>15 Mahābhiśēka (The Imperial Coronation) 109-110, 1739<br>16 Surataman̄jari 111-113, 2128<br>17 Padmāvati 114-119, 301<br>18 Visamaśīlā 120-124, 420
 </div>
 </div>
 </div>
@@ -264,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Somadeva’s Kathāsaritsāgara world is vibrant and filled with kings, thieves, con artists, merchants, and courtesans. There’s war and romance, intrigue and heroism, wit and, on rare occasions, wisdom. The Kathāsaritsāgara, like Viṣṇuśarmā’s Pañcatantra, is concerned with life and living, but unlike the Pañcatantra’s fables, the Kathāsaritsāgara’s stories teach no moral lessons. Neither are the stories constrained by any dominant theme, religion, or point of view; instead, they ramble through their magical world with no plan or purpose other than entertainment. Hence it distinguishes the work in Sanskrit literature.</p>
-<hr>
-Somadeva claims that the long tale was written for the amusement of Sūryavatī, wife of King Ananta of Kashmir, at whose court Somadeva was a poet. The tragic history of Kashmir at this time - Ananta’s two sons- Kalaśa, the worthless degenerate life and Hara, the brilliant but ruthless life. Ananta’s suicide, Sūryavatī’s self-immolation on his funeral pyre, and the resulting chaos - serve as a dark and grim backdrop for Somadeva’s tales. The frame story is the story of Naravāhanadatta, son of the legendary king Udayana, and his adventures with beautiful damsels and battles with enemies. This main story is the foundation for up to 350 tales, making it the most extensive existing collection of Indian legends. Somadeva claims that his work is a faithful, albeit abridged, translation of a much more a comprehensive collection of stories known as the Bṛhatkathā, or Great tale, written by Guṇāḍhya in the lost Paisaci dialect.
+Somadeva’s Kathāsaritsāgara world is vibrant and filled with kings, thieves, con artists, merchants, and courtesans. There’s war and romance, intrigue and heroism, wit and, on rare occasions, wisdom. The Kathāsaritsāgara, like Viṣṇuśarmā’s Pañcatantra, is concerned with life and living, but unlike the Pañcatantra’s fables, the Kathāsaritsāgara’s stories teach no moral lessons. Neither are the stories constrained by any dominant theme, religion, or point of view; instead, they ramble through their magical world with no plan or purpose other than entertainment. Hence it distinguishes the work in Sanskrit literature.<br><br>Somadeva claims that the long tale was written for the amusement of Sūryavatī, wife of King Ananta of Kashmir, at whose court Somadeva was a poet. The tragic history of Kashmir at this time - Ananta’s two sons- Kalaśa, the worthless degenerate life and Hara, the brilliant but ruthless life. Ananta’s suicide, Sūryavatī’s self-immolation on his funeral pyre, and the resulting chaos - serve as a dark and grim backdrop for Somadeva’s tales. The frame story is the story of Naravāhanadatta, son of the legendary king Udayana, and his adventures with beautiful damsels and battles with enemies.<br>This main story is the foundation for up to 350 tales, making it the most extensive existing collection of Indian legends. Somadeva claims that his work is a faithful, albeit abridged, translation of a much more a comprehensive collection of stories known as the Bṛhatkathā, or Great tale, written by Guṇāḍhya in the lost Paisaci dialect.
 </div>
 </div>
 </div>
@@ -293,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Poems</span>
+<span class="badge bg-primary work-genre-badge">Poems</span>
 </p>
 </div>
 </div>
@@ -704,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

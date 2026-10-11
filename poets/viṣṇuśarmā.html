@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,10 +222,10 @@ Works (1)
 </p>
 </div>
 <div id="nav-viṣṇuśarmā-life" class="tab-pane fade" role="tabpanel">
-Viṣṇuśarmā is believed to have lived in India during the 3rd century BCE, possibly in the kingdom of Pāṭalīputra (modern-day Patna). He was a Brāhmaṇa scholar and a master of the Sanskrit language. Viṣṇuśarmā is considered a master storyteller and his work has been widely translated into several languages. There are different accounts on which king did Viṣṇuśarmā serve as a court poet, and it is not clear which one is accurate. Some sources suggest that he served as a court poet for the King of Mahilāropya, which is believed to have been a city in ancient India. Others suggest that he served as a court poet for the King of the city of Pāṭalīputra, which was an important center of power during ancient times. It is possible that he served more than one king during his lifetime. It is also clear that Viṣṇuśarmā was a respected scholar and poet who enjoyed the patronage of the royalty of his time, and his works continue to be studied and appreciated by scholars and readers alike. He is said to have been a scholar of political science and a teacher to the sons of a king. He taught the young princes through stories the principles of good governance, and to impart important moral lessons about life and the world. Viṣṇuśarmā is best known for his work “Pañcatantram,” which is a collection of animal fables that teach moral lessons. The fables of the Pañcatantra have had an immense influence over world culture, showcasing India’s unique outlook towards life. The exact time and location where the Pañcatantra was written is not known for sure, but some scholars believe that it was composed between 200 BCE and 300 CE in the region of present-day Kashmir, while others suggest it may have originated in the southern Indian state of Andhra Pradesh. Some scholars suggest that few terminologies in Ślokas of Viṣṇuśarmā’s Pañcatantra are similar to Śatakatraya, a collection of poems written by Bhartṛhari - a Sanskrit poet and philosopher who is believed to have lived in the 5th century CE, which was much before the time of Viṣṇuśarmā. His work also held similarities to Jataka stories. However, Pañcatantra is considered India’s most influential contributions to world literature. While the exact details of Viṣṇuśarmā’s life may be lost to history, his legacy lives on through the enduring power and wisdom of the Pañcatantra, which continues to inspire and educate readers around the world.
+Viṣṇuśarmā is believed to have lived in India during the 3rd century BCE, possibly in the kingdom of Pāṭalīputra (modern-day Patna). He was a Brāhmaṇa scholar and a master of the Sanskrit language. Viṣṇuśarmā is considered a master storyteller and his work has been widely translated into several languages. There are different accounts on which king did Viṣṇuśarmā serve as a court poet, and it is not clear which one is accurate. Some sources suggest that he served as a court poet for the King of Mahilāropya, which is believed to have been a city in ancient India. Others suggest that he served as a court poet for the King of the city of Pāṭalīputra, which was an important center of power during ancient times. It is possible that he served more than one king during his lifetime. It is also clear that Viṣṇuśarmā was a respected scholar and poet who enjoyed the patronage of the royalty of his time, and his works continue to be studied and appreciated by scholars and readers alike. He is said to have been a scholar of political science and a teacher to the sons of a king. He taught the young princes through stories the principles of good governance, and to impart important moral lessons about life and the world. Viṣṇuśarmā is best known for his work "Pañcatantram," which is a collection of animal fables that teach moral lessons. The fables of the Pañcatantra have had an immense influence over world culture, showcasing India’s unique outlook towards life. The exact time and location where the Pañcatantra was written is not known for sure, but some scholars believe that it was composed between 200 BCE and 300 CE in the region of present-day Kashmir, while others suggest it may have originated in the southern Indian state of Andhra Pradesh. Some scholars suggest that few terminologies in Ślokas of Viṣṇuśarmā’s Pañcatantra are similar to Śatakatraya, a collection of poems written by Bhartṛhari - a Sanskrit poet and philosopher who is believed to have lived in the 5th century CE, which was much before the time of Viṣṇuśarmā. His work also held similarities to Jataka stories. However, Pañcatantra is considered India’s most influential contributions to world literature. While the exact details of Viṣṇuśarmā’s life may be lost to history, his legacy lives on through the enduring power and wisdom of the Pañcatantra, which continues to inspire and educate readers around the world.
 </div>
 <div id="nav-viṣṇuśarmā-contribution" class="tab-pane fade" role="tabpanel">
-Viṣṇuśarmā’s contribution to Sanskrit literature is significant because of the timeless appeal of the Pañcatantra stories. The fables have been adapted and retold in various languages, and their influence can be seen in literature from around the world. The Pañcatantra has also been used as a source of inspiration for other works of literature, including the famous “Arabian Nights.” The Pañcatantra has had a significant impact on Indian culture as well. The stories have been used to teach moral values and principles to generations of children, and they continue to be an important part of Indian folklore and popular culture. The book has also had a profound impact on Indian art and has been the subject of numerous paintings, sculptures, and other works of art. In conclusion, Viṣṇuśarmā’s contribution to Sanskrit literature through the Pañcatantra is significant and enduring. The fables continue to be popular today and have influenced literature, art, and culture around the world. Viṣṇuśarmā’s work is a testament to the power of storytelling and its ability to communicate complex moral and ethical concepts in a simple, easily understandable manner.
+Viṣṇuśarmā’s contribution to Sanskrit literature is significant because of the timeless appeal of the Pañcatantra stories. The fables have been adapted and retold in various languages, and their influence can be seen in literature from around the world. The Pañcatantra has also been used as a source of inspiration for other works of literature, including the famous "Arabian Nights." The Pañcatantra has had a significant impact on Indian culture as well. The stories have been used to teach moral values and principles to generations of children, and they continue to be an important part of Indian folklore and popular culture. The book has also had a profound impact on Indian art and has been the subject of numerous paintings, sculptures, and other works of art. In conclusion, Viṣṇuśarmā’s contribution to Sanskrit literature through the Pañcatantra is significant and enduring. The fables continue to be popular today and have influenced literature, art, and culture around the world. Viṣṇuśarmā’s work is a testament to the power of storytelling and its ability to communicate complex moral and ethical concepts in a simple, easily understandable manner.
 </div>
 <div id="nav-viṣṇuśarmā-works" class="tab-pane fade" role="tabpanel">
 <ul class="list-group list-group-flush">
@@ -652,6 +640,19 @@ Viṣṇuśarmā’s contribution to Sanskrit literature is significant because 
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

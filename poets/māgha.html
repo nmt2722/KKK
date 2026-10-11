@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,7 +222,7 @@ As per available sources, the time of the poet can be predicted as the 7th or th
 </p>
 </div>
 <div id="nav-māgha-life" class="tab-pane fade" role="tabpanel">
-The life history of Māgha is available from the concluding verses of his work “Praśasti”. Such autobiographical details can be rarely seen in the works of poets. In one of the verses, he says sarvādhikārī sukṛtādhikāri śrīdharmalambasya babhūva rājñaḥ As per this verse, Māgha hailed from a place called “Gurjara”–presently it may be in Gujarat. There was a King called Dharmalabhā who was also known as Dharmanābha. This king’s minister Suprabha dēvāwas the grandfather of the Poet Māgha. Suprabhadeva had a son named Dhaṭṭaka. Dhaṭṭaka was a very tolerant and diligent follower of the rules of Dharma. People used to hear Dhaṭṭaka work with great reverence and used to obey his words as they used to follow the words of Vyāsa. Dhaṭṭaka’s son Māgha created the “Mahākāvya”, the epic poem that included the word “Sri ’’ in every last stanza of every sarga. (Bhāravi, another great poet mentioned the word “Lakṣmī’’ in the last stanza of every sarga). Māgha calls this a beautiful epic poem of “Lakṣmīpati” (Husband of/Consort of Lakṣmī). . He calls Kṛṣṇa Lakṣmīpati and it is the story of Kṛṣṇa slaying Śiśupāla. Very humbly, Māgha says Sūktikīrti dhurāśeya– He says that he had agreed to be recognized as a great poet. Even though it is good greed, he humbly calls bad greed and thus he acknowledges the lack of qualification to become a good poet. All these details are found at the end of Śiśupālavadha.
+The life history of Māgha is available from the concluding verses of his work “Praśasti”. Such autobiographical details can be rarely seen in the works of poets. In one of the verses, he says<br>sarvādhikārī sukṛtādhikāri śrīdharmalambasya babhūva rājñaḥ <br>As per this verse, Māgha hailed from a place called “Gurjara”–presently it may be in Gujarat. There was a King called Dharmalabhā who was also known as Dharmanābha. This king’s minister Suprabha dēvāwas the grandfather of the Poet Māgha. <br>Suprabhadeva had a son named Dhaṭṭaka. Dhaṭṭaka was a very tolerant and diligent follower of the rules of Dharma. People used to hear Dhaṭṭaka work with great reverence and used to obey his words as they used to follow the words of Vyāsa.<br>Dhaṭṭaka’s son Māgha created the “Mahākāvya”, the epic poem that included the word “Sri ’’ in every last stanza of every sarga. (Bhāravi, another great poet mentioned the word “Lakṣmī’’ in the last stanza of every sarga). Māgha calls this a beautiful epic poem of “Lakṣmīpati” (Husband of/Consort of Lakṣmī). . He calls Kṛṣṇa Lakṣmīpati and it is the story of Kṛṣṇa slaying Śiśupāla. Very humbly, Māgha says Sūktikīrti dhurāśeya– He says that he had agreed to be recognized as a great poet. Even though it is good greed, he humbly calls bad greed and thus he acknowledges the lack of qualification to become a good poet. All these details are found at the end of Śiśupālavadha.
 </div>
 <div id="nav-māgha-contribution" class="tab-pane fade" role="tabpanel">
 <p class="text-muted">
@@ -654,6 +642,19 @@ No information available.
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

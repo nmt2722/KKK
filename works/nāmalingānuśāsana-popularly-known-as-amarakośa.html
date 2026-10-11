@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/amarasiṃha.html">Amarasiṃha</a>
 </p>
 </div>
@@ -240,7 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-Amarakośa has three sections- (kāndam). Each section is classified into several chapters- (varga). First section has ten chapters- Svarvarga, Vyōmavarga, Kālavarga, Dhīvarga, Śabdādivarga, Nātyavarga, Pātālabhogivarga, Narakavarga, Vārivarga, and Bhūmivarga. Second section has nine chapters- Puravarga, Śailavarga, Vanauṣadhivarga, Simhādivarga, Nṛvarga, Brahmavarga, Kṣatriyavarga Vaishyavarga, Śūdravarga. Third section has five chapters- Viśeṣyanighnavarga, Sankīrnavarga, Nānārthavarga, Avyayavarga, and Lingasangrahavarga. As the name of the chapters suggest, the words are grouped accordingly. First index contains additional words given by Kṣīrasvāmin as well as those of Amarasiṃha which are specially remarked upon in the commentary. Second index is the list of words in Kṣīrasvāmin’s text of Amarakośa.
+Amarakośa has three sections- (kāndam). Each section is classified into several chapters- (varga). First section has ten chapters- Svarvarga, Vyōmavarga, Kālavarga, Dhīvarga, Śabdādivarga, Nātyavarga, Pātālabhogivarga, Narakavarga, Vārivarga, and Bhūmivarga. Second section has nine chapters- Puravarga, Śailavarga, Vanauṣadhivarga, Simhādivarga, Nṛvarga, Brahmavarga, Kṣatriyavarga Vaishyavarga, Śūdravarga. <br>Third section has five chapters- Viśeṣyanighnavarga, Sankīrnavarga, Nānārthavarga, Avyayavarga, and Lingasangrahavarga. As the name of the chapters suggest, the words are grouped accordingly. <br>First index contains additional words given by Kṣīrasvāmin as well as those of Amarasiṃha which are specially remarked upon in the commentary. Second index is the list of words in Kṣīrasvāmin’s text of Amarakośa.
 </div>
 </div>
 </div>
@@ -264,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Its popularity is evinced by a host of commentaries written by eminent scholars of various regions and religions. All lexicons of later origin and glosses of classical Sanskrit literature are replete with quotations from the Amarakośa. Thousands of Sanskrit scholars learn it by heart even today. This testifies to its usefulness to every class of Sanskrit students of different religions. The śabda kalpadruma and the Amara-Bhāratī preserve the list of as many as forty-one commentaries.</p>
-<hr>
-1)&nbsp;&nbsp;&nbsp; A sizeable number of commentaries preserved in the government and private libraries of India and abroad are still coming to light. Eighteen commentaries other than the listed above are available in the Government Oriental Manuscripts Library, Chennai. Some of these commentaries are in languages other than Sanskrit. It is a well-known fact that translations of the Amarakośa into Chinese and Tibetan have been discovered not long ago.
+Its popularity is evinced by a host of commentaries written by eminent scholars of various regions and religions. All lexicons of later origin and glosses of classical Sanskrit literature are replete with quotations from the Amarakośa. Thousands of Sanskrit scholars learn it by heart even today. This testifies to its usefulness to every class of Sanskrit students of different religions. The śabda kalpadruma and the Amara-Bhāratī preserve the list of as many as forty-one commentaries.<br><br>1)&nbsp;&nbsp;&nbsp; A sizeable number of commentaries preserved in the government and private libraries of India and abroad are still coming to light. Eighteen commentaries other than the listed above are available in the Government Oriental Manuscripts Library, Chennai. Some of these commentaries are in languages other than Sanskrit. It is a well-known fact that translations of the Amarakośa into Chinese and Tibetan have been discovered not long ago.
 </div>
 </div>
 </div>
@@ -278,9 +264,8 @@ Quotable Quotations
 </h2>
 <div id="work-acc-quotations" class="accordion-collapse collapse">
 <div class="accordion-body">
-<ol type="1">
-<li>मिथ्यादृष्टिर्नास्तिकता व्यापादो द्रोहचिन्तनम् [अमरकोषः - ] False doctrine is atheism and wish to injure is an evil intent.
-</li></ol></div>
+1. मिथ्यादृष्टिर्नास्तिकता व्यापादो द्रोहचिन्तनम् [अमरकोषः - ] False doctrine is atheism and wish to injure is an evil intent.
+</div>
 </div>
 </div>
 <div class="accordion-item">
@@ -292,20 +277,16 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Scripture (Hindu, Buddhist and Jain)</span>
+<span class="badge bg-primary work-genre-badge">Scripture (Hindu, Buddhist and Jain)</span>
 </p>
 </div>
 </div>
 </div>
-
 </div>
 
 
-</main></div>
 
-
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -706,7 +687,20 @@ Genre
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

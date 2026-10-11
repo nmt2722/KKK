@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/daṇḍī.html">Daṇḍī</a>
 </p>
 </div>
@@ -228,10 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>The text of Avantisundarī is available in broken form, which was discovered in the year1924 by M. Rāmakṛṣṇakavi. Scholars like V. Raghavan, S. K. Pillai, and P. V. Kane mentions that the story of Rājavāhana in both the texts are overlapping and there is a possibility that Avantisundarī be the lost introduction of Daśakumāracarita. The story of Avantisundarī is lengthier which narrates the attack of a commanding army and its confrontation and resurgence. The merits of a king are well established in the tale, where the king loses to the battle, while his heir is in deep pressure to win it back. The story plot directly deals with the worthiness of a king to win or lose a battle, which is closely related to Avantisundarī. The first part of the story introduces to the author Daṇḍīn. Avantisundarī tells the story of King Udayana of Vatsa and his pursuit of the beautiful princess Avantisundarī, who is being held captive in the city of Ujjayinī. The work is divided into eight chapters, each of which follows the progress of the king’s quest to win the princess’s hand in marriage. The narrative is filled with dramatic twists and turns, as Udayana faces numerous obstacles and challenges in his pursuit of Avantisundarī.</p>
-<p>Along the way, Udayana must contend with a variety of adversaries, including a powerful rival king and a vengeful courtesan. He also faces personal trials and tribulations, such as a temporary loss of his eyesight and a near-fatal encounter with a serpent.</p>
-<p>Despite the many obstacles he faces, Udayana remains determined to win Avantisundarī’s heart. His unwavering love and devotion eventually win her over, and the two are married in a joyous ceremony that marks the culmination of their romantic journey.</p>
-Avantisundarī is known for its exquisite poetry and skillful use of language, as well as its vivid descriptions of courtly life and romantic passion. It is regarded as one of the greatest works of classical Sanskrit literature, and continues to be studied and admired by scholars and enthusiasts of Indian literature and culture.
+The text of Avantisundarī is available in broken form, which was discovered in the year1924 by M. Rāmakṛṣṇakavi. Scholars like V. Raghavan, S. K. Pillai, and P. V. Kane mentions that the story of Rājavāhana in both the texts are overlapping and there is a possibility that Avantisundarī be the lost introduction of Daśakumāracarita. The story of Avantisundarī is lengthier which narrates the attack of a commanding army and its confrontation and resurgence. The merits of a king are well established in the tale, where the king loses to the battle, while his heir is in deep pressure to win it back. The story plot directly deals with the worthiness of a king to win or lose a battle, which is closely related to Avantisundarī. The first part of the story introduces to the author Daṇḍīn. Avantisundarī tells the story of King Udayana of Vatsa and his pursuit of the beautiful princess Avantisundarī, who is being held captive in the city of Ujjayinī. The work is divided into eight chapters, each of which follows the progress of the king’s quest to win the princess’s hand in marriage. The narrative is filled with dramatic twists and turns, as Udayana faces numerous obstacles and challenges in his pursuit of Avantisundarī.<br><br>Along the way, Udayana must contend with a variety of adversaries, including a powerful rival king and a vengeful courtesan. He also faces personal trials and tribulations, such as a temporary loss of his eyesight and a near-fatal encounter with a serpent.<br><br>Despite the many obstacles he faces, Udayana remains determined to win Avantisundarī’s heart. His unwavering love and devotion eventually win her over, and the two are married in a joyous ceremony that marks the culmination of their romantic journey.<br><br>Avantisundarī is known for its exquisite poetry and skillful use of language, as well as its vivid descriptions of courtly life and romantic passion. It is regarded as one of the greatest works of classical Sanskrit literature, and continues to be studied and admired by scholars and enthusiasts of Indian literature and culture.
 </div>
 </div>
 </div>
@@ -243,14 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Avantisundarī is a romantic tale in Sanskrit literature, which is divided into eight chapters. The contents of each chapter are as follows: Chapter 1: The tale begins with the introduction of King Udayana, who is seeking a suitable bride. He hears of the princess Avantisundarī’s beauty and decides to win her hand in marriage. He sets out on a journey to Ujjayinī, where the princess is held captive.</p>
-<p>Chapter 2: Udayana enters Ujjayinī in disguise and meets Avantisundarī for the first time. He falls deeply in love with her, but she is initially reluctant to reciprocate his feelings.</p>
-<p>Chapter 3: Udayana begins to court Avantisundarī in earnest, sending her gifts and serenading her with songs. However, she remains hesitant and unconvinced.</p>
-<p>Chapter 4: Udayana is challenged to a battle by the powerful king of Ujjayinī, who also desires Avantisundarī’s hand in marriage. Udayana emerges victorious, but the princess remains unswayed.</p>
-<p>Chapter 5: Udayana temporarily loses his eyesight after being bitten by a poisonous insect. Avantisundarī takes pity on him and nurses him back to health, causing him to fall even more deeply in love with her.</p>
-<p>Chapter 6: Udayana is confronted by a vengeful courtesan who seeks to thwart his courtship of Avantisundarī. He must navigate her schemes and deceptions in order to win the princess’s hand.</p>
-<p>Chapter 7: Udayana is bitten by a venomous serpent and appears to be on the brink of death. Avantisundarī is heartbroken and confesses her love for him, praying for his recovery.</p>
-Chapter 8: Udayana recovers from his illness and is finally able to win Avantisundarī’s hand in marriage. The tale concludes with their joyous wedding and the celebration of their love.
+Avantisundarī is a romantic tale in Sanskrit literature, which is divided into eight chapters. The contents of each chapter are as follows: Chapter 1: The tale begins with the introduction of King Udayana, who is seeking a suitable bride. He hears of the princess Avantisundarī’s beauty and decides to win her hand in marriage. He sets out on a journey to Ujjayinī, where the princess is held captive.<br><br>Chapter 2: Udayana enters Ujjayinī in disguise and meets Avantisundarī for the first time. He falls deeply in love with her, but she is initially reluctant to reciprocate his feelings.<br><br>Chapter 3: Udayana begins to court Avantisundarī in earnest, sending her gifts and serenading her with songs. However, she remains hesitant and unconvinced.<br><br>Chapter 4: Udayana is challenged to a battle by the powerful king of Ujjayinī, who also desires Avantisundarī’s hand in marriage. Udayana emerges victorious, but the princess remains unswayed.<br><br>Chapter 5: Udayana temporarily loses his eyesight after being bitten by a poisonous insect. Avantisundarī takes pity on him and nurses him back to health, causing him to fall even more deeply in love with her.<br><br>Chapter 6: Udayana is confronted by a vengeful courtesan who seeks to thwart his courtship of Avantisundarī. He must navigate her schemes and deceptions in order to win the princess’s hand.<br><br>Chapter 7: Udayana is bitten by a venomous serpent and appears to be on the brink of death. Avantisundarī is heartbroken and confesses her love for him, praying for his recovery.<br><br>Chapter 8: Udayana recovers from his illness and is finally able to win Avantisundarī’s hand in marriage. The tale concludes with their joyous wedding and the celebration of their love.
 </div>
 </div>
 </div>
@@ -286,9 +264,8 @@ Quotable Quotations
 </h2>
 <div id="work-acc-quotations" class="accordion-collapse collapse">
 <div class="accordion-body">
-<ol type="1">
-<li>तदल्पमपि नापेक्ष्यं काव्ये दुष्टं कथञ्चन। स्याद् वपुः सुन्दरमपि श्वित्रेणैकेन दुर्भगम्॥ [काव्यादर्शः -१.७] There should not be even the slightest useless or defective element in the composition, [because] it destroys all the efforts made. Just like white leprosy makes a beautiful body ugly.
-</li></ol></div>
+1. तदल्पमपि नापेक्ष्यं काव्ये दुष्टं कथञ्चन। स्याद् वपुः सुन्दरमपि श्वित्रेणैकेन दुर्भगम्॥ [काव्यादर्शः -१.७] There should not be even the slightest useless or defective element in the composition, [because] it destroys all the efforts made. Just like white leprosy makes a beautiful body ugly.
+</div>
 </div>
 </div>
 <div class="accordion-item">
@@ -300,20 +277,16 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Scripture (Hindu, Buddhist and Jain)</span>
+<span class="badge bg-primary work-genre-badge">Scripture (Hindu, Buddhist and Jain)</span>
 </p>
 </div>
 </div>
 </div>
-
 </div>
 
 
-</main></div>
 
-
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -714,7 +687,20 @@ Genre
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

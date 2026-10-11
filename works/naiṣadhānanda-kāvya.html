@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/āryakṣemīśvara.html">Āryakṣemīśvara</a>
 </p>
 </div>
@@ -252,7 +240,7 @@ Uniqueness
 </h2>
 <div id="work-acc-uniqueness" class="accordion-collapse collapse">
 <div class="accordion-body">
-Naiṣadhānanda kāvya is known for its unique style of narration and the way it weaves together different stories and sub-plots. The poem is also notable for its depiction of the characters, who are portrayed with a depth of emotion and complexity that was not common in Sanskrit literature of the time. One of the most unique aspects of the poem is the way it blends together elements of the Rāmāyaṇa, the Mahābhārata, and other Sanskrit texts, creating a rich tapestry of myth, legend, and history. The poem also features a number of innovative literary devices, including vivid imagery, complex metaphors, and intricate wordplay. Another unique aspect of the poem is its use of the “prakaraṇa” genre, which was a relatively new form of Sanskrit literature at the time. Prakaraṇas are narrative poems that focus on a single story or theme, and Naiṣadhānanda kāvya is one of the earliest and most influential examples of this genre.
+Naiṣadhānanda kāvya is known for its unique style of narration and the way it weaves together different stories and sub-plots. The poem is also notable for its depiction of the characters, who are portrayed with a depth of emotion and complexity that was not common in Sanskrit literature of the time. One of the most unique aspects of the poem is the way it blends together elements of the Rāmāyaṇa, the Mahābhārata, and other Sanskrit texts, creating a rich tapestry of myth, legend, and history. The poem also features a number of innovative literary devices, including vivid imagery, complex metaphors, and intricate wordplay. Another unique aspect of the poem is its use of the "prakaraṇa" genre, which was a relatively new form of Sanskrit literature at the time. Prakaraṇas are narrative poems that focus on a single story or theme, and Naiṣadhānanda kāvya is one of the earliest and most influential examples of this genre.
 </div>
 </div>
 </div>
@@ -264,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Naiṣadhānanda Kāvya is considered a significant contribution to Sanskrit literature for its poetic excellence, philosophical content, and literary style. It is a prime example of the Kāvya genre, which incorporates poetry, drama, and prose, and is known for its intricate use of language, imagery, and symbolism. The work is notable for its unique approach to the story of King Nala and Princess Damayanti, which is a popular theme in Indian literature. Āryakṣemīśvara deviates from the traditional storyline and focuses on the inner emotional and spiritual turmoil of the characters, particularly Nala, as he grapples with his loss of power and identity. The poem also explores the themes of love, desire, and the quest for self-realization. It incorporates elements of Vēdānta philosophy, including the concept of Maya and the path to spiritual enlightenment. The work has been praised for its use of metaphor and symbolism to convey these complex philosophical concepts.</p>
-<hr>
-Naiṣadhānanda kāvya is considered to be one of the most important works of Āryakṣemīśvara and is known for its unique style and poetic excellence. The poem is also noteworthy for its portrayal of the character of Nala, which is considered to be one of the finest characterizations in Sanskrit literature. The poem has been widely praised for its use of language, with many scholars noting its rich and nuanced use of Sanskrit vocabulary and grammar. It has also been noted for its vivid descriptions of nature and landscapes, which are said to evoke a sense of wonder and awe in the reader. Naiṣadhānanda kāvya has been translated into several languages, including English, and continues to be studied and admired by scholars of Sanskrit literature around the world.
+Naiṣadhānanda Kāvya is considered a significant contribution to Sanskrit literature for its poetic excellence, philosophical content, and literary style. It is a prime example of the Kāvya genre, which incorporates poetry, drama, and prose, and is known for its intricate use of language, imagery, and symbolism. The work is notable for its unique approach to the story of King Nala and Princess Damayanti, which is a popular theme in Indian literature. Āryakṣemīśvara deviates from the traditional storyline and focuses on the inner emotional and spiritual turmoil of the characters, particularly Nala, as he grapples with his loss of power and identity. The poem also explores the themes of love, desire, and the quest for self-realization. It incorporates elements of Vēdānta philosophy, including the concept of Maya and the path to spiritual enlightenment. The work has been praised for its use of metaphor and symbolism to convey these complex philosophical concepts.<br><br>Naiṣadhānanda kāvya is considered to be one of the most important works of Āryakṣemīśvara and is known for its unique style and poetic excellence. The poem is also noteworthy for its portrayal of the character of Nala, which is considered to be one of the finest characterizations in Sanskrit literature. The poem has been widely praised for its use of language, with many scholars noting its rich and nuanced use of Sanskrit vocabulary and grammar. It has also been noted for its vivid descriptions of nature and landscapes, which are said to evoke a sense of wonder and awe in the reader. Naiṣadhānanda kāvya has been translated into several languages, including English, and continues to be studied and admired by scholars of Sanskrit literature around the world.
 </div>
 </div>
 </div>
@@ -293,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Humor</span>
+<span class="badge bg-primary work-genre-badge">Humor</span>
 </p>
 </div>
 </div>
@@ -704,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

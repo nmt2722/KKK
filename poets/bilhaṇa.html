@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,10 +222,10 @@ Works (3)
 </p>
 </div>
 <div id="nav-bilhaṇa-life" class="tab-pane fade" role="tabpanel">
-Bilhaṇa is a renowned Sanskrit poet who lived in India during the 11th century AD. He was born in the town of Warangal, which is located in present-day Telangana state in South India. Bilhaṇa was a Kshatriya caste member, traditionally associated with the warrior class in Hindu society. Bilhaṇa is most famous for his three significant works of poetry: Vikramāṇkadevacaritam, Karṇasundarī, and Caurapañcāśikā. Vikramāṇkadevacaritam is a long narrative poem that tells the story of the legendary king Vikramāditya, while Karṇasundarī is a romantic tale of a young woman named Karṇasundarī and her lover Candrāpīḍa. Caurapañcāśikā is a collection of fifty stanzas that explore the nature of love and desire. In addition to his poetry, Bilhaṇa was known for his warrior and military commander skills. He served as a general in the army of the Kalyāṇī Chālukya dynasty, which ruled over parts of South India during the 11th century. Bilhaṇa’s military exploits are celebrated in the Vikramāṇkadevacaritam, which includes vivid descriptions of battles and warfare. Despite his success as a poet and warrior, Bilhaṇa faced significant challenges in his personal life. According to some accounts, he was forced to flee Warangal after his father was killed in a political dispute. Bilhaṇa eventually found refuge at the court of the Kalyāṇī Chālukya king Vikramāditya VI, where he could pursue his poetic and military ambitions. Bilhaṇa’s life and works are essential for their insights into the culture and society of medieval India. His poetry reflects the values and beliefs of his time, including the importance of love, honour, and courage in both personal and political life. Today, Bilhaṇa is remembered as one of the greatest Sanskrit poets of the medieval period, and his works continue to be studied and admired by scholars and readers worldwide.
+Bilhaṇa is a renowned Sanskrit poet who lived in India during the 11th century AD. He was born in the town of Warangal, which is located in present-day Telangana state in South India. Bilhaṇa was a Kshatriya caste member, traditionally associated with the warrior class in Hindu society.<br>Bilhaṇa is most famous for his three significant works of poetry: Vikramāṇkadevacaritam, Karṇasundarī, and Caurapañcāśikā. Vikramāṇkadevacaritam is a long narrative poem that tells the story of the legendary king Vikramāditya, while Karṇasundarī is a romantic tale of a young woman named Karṇasundarī and her lover Candrāpīḍa. Caurapañcāśikā is a collection of fifty stanzas that explore the nature of love and desire.<br>In addition to his poetry, Bilhaṇa was known for his warrior and military commander skills. He served as a general in the army of the Kalyāṇī Chālukya dynasty, which ruled over parts of South India during the 11th century. Bilhaṇa’s military exploits are celebrated in the Vikramāṇkadevacaritam, which includes vivid descriptions of battles and warfare.<br>Despite his success as a poet and warrior, Bilhaṇa faced significant challenges in his personal life. According to some accounts, he was forced to flee Warangal after his father was killed in a political dispute. Bilhaṇa eventually found refuge at the court of the Kalyāṇī Chālukya king Vikramāditya VI, where he could pursue his poetic and military ambitions.<br>Bilhaṇa’s life and works are essential for their insights into the culture and society of medieval India. His poetry reflects the values and beliefs of his time, including the importance of love, honour, and courage in both personal and political life. Today, Bilhaṇa is remembered as one of the greatest Sanskrit poets of the medieval period, and his works continue to be studied and admired by scholars and readers worldwide.
 </div>
 <div id="nav-bilhaṇa-contribution" class="tab-pane fade" role="tabpanel">
-Bilhaṇa made several significant contributions to Sanskrit literature during his lifetime. His most notable works, Vikramāṇkadevacaritam, Karṇasundarī, and Caurapañcāśikā, are all highly regarded for their literary merit, unique style, and thematic depth. Vikramāṇkadevacaritam, for example, is a masterpiece of courtly poetry and is widely considered one of the greatest works of Sanskrit literature. Its use of the narrative framework is unique, allowing for a complex interweaving of multiple storylines and characters. Bilhaṇa’s lyrical and poetic language, combined with his vivid descriptions of landscapes and textures, makes the work an enduring masterpiece of Indian literature. Karṇasundarī is also a significant work in Sanskrit literature and is notable for its use of the Śṛṅgāra rasa, or the sentiment of love, as its central theme. The poem explores the protagonist’s emotional journey, Karṇasundarī, as she falls in love with a young warrior. Finally, Caurapañcāśikā is an essential contribution to the genre of romantic poetry and is notable for its use of the thief as its narrator and protagonist. Bilhaṇa’s portrayal of the thief as a charming and witty character, who uses his skills to win the heart of his beloved, is a unique and refreshing take on the theme of love and desire. In summary, Bilhaṇa’s contributions to Sanskrit literature have had a lasting impact on Indian culture and continue to be celebrated and studied.
+Bilhaṇa made several significant contributions to Sanskrit literature during his lifetime. His most notable works, Vikramāṇkadevacaritam, Karṇasundarī, and Caurapañcāśikā, are all highly regarded for their literary merit, unique style, and thematic depth.<br>Vikramāṇkadevacaritam, for example, is a masterpiece of courtly poetry and is widely considered one of the greatest works of Sanskrit literature. Its use of the narrative framework is unique, allowing for a complex interweaving of multiple storylines and characters. Bilhaṇa’s lyrical and poetic language, combined with his vivid descriptions of landscapes and textures, makes the work an enduring masterpiece of Indian literature.<br>Karṇasundarī is also a significant work in Sanskrit literature and is notable for its use of the Śṛṅgāra rasa, or the sentiment of love, as its central theme. The poem explores the protagonist’s emotional journey, Karṇasundarī, as she falls in love with a young warrior. <br>Finally, Caurapañcāśikā is an essential contribution to the genre of romantic poetry and is notable for its use of the thief as its narrator and protagonist. Bilhaṇa’s portrayal of the thief as a charming and witty character, who uses his skills to win the heart of his beloved, is a unique and refreshing take on the theme of love and desire.<br>In summary, Bilhaṇa’s contributions to Sanskrit literature have had a lasting impact on Indian culture and continue to be celebrated and studied.
 </div>
 <div id="nav-bilhaṇa-works" class="tab-pane fade" role="tabpanel">
 <ul class="list-group list-group-flush">
@@ -658,6 +646,19 @@ Bilhaṇa made several significant contributions to Sanskrit literature during h
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

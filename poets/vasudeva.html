@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,11 +222,10 @@ Works (6)
 </p>
 </div>
 <div id="nav-vasudeva-life" class="tab-pane fade" role="tabpanel">
-His work “Vāsudevavijaya Mahākāvya” is considered to be one of the finest examples of Sanskrit epic poetry and has been studied and admired by generations of scholars and poets. Despite the lack of information about his life, Vasudeva’s contribution to Sanskrit literature and poetry has left a lasting impact, and his work continues to be celebrated and studied to this day.
+His work "Vāsudevavijaya Mahākāvya" is considered to be one of the finest examples of Sanskrit epic poetry and has been studied and admired by generations of scholars and poets.<br>Despite the lack of information about his life, Vasudeva’s contribution to Sanskrit literature and poetry has left a lasting impact, and his work continues to be celebrated and studied to this day.
 </div>
 <div id="nav-vasudeva-contribution" class="tab-pane fade" role="tabpanel">
-<p>Vasudeva was an important figure in classical Sanskrit literature, and his works made a significant contribution to the development of the language and literature. Some of his contributions include:</p>
-Development of the Mahākāvya genre: Vasudeva’s “Vāsudevavijaya Mahākāvya” is one of the finest examples of the Mahākāvya genre, which developed during the medieval period of Sanskrit literature. His work helped to establish the Mahākāvya as a distinct genre in classical Sanskrit literature. Use of colloquial language: While Sanskrit was traditionally a language of the elite, Vasudeva used colloquial language in his works to make them accessible to a wider audience. This helped to democratize Sanskrit literature and make it more inclusive. Use of metaphors and symbolism: Vasudeva was skilled in the use of metaphors and symbolism, which added depth and complexity to his works. His use of these literary devices helped to elevate Sanskrit literature and make it more nuanced. Promotion of Vaiṣṇavaism: Vasudeva was a devotee of Lord Vishnu and his works often reflected his devotion to the deity. Through his poetry, Vasudeva helped to promote Vaishnavism, which had a profound impact on Indian culture and society. Overall, Vasudeva’s contributions to classical Sanskrit literature helped to shape the language and elevate it to new heights. His works remain an important part of the Sanskrit literary canon and continue to inspire scholars and writers today.
+Vasudeva was an important figure in classical Sanskrit literature, and his works made a significant contribution to the development of the language and literature. Some of his contributions include:<br><br>Development of the Mahākāvya genre: Vasudeva’s "Vāsudevavijaya Mahākāvya" is one of the finest examples of the Mahākāvya genre, which developed during the medieval period of Sanskrit literature. His work helped to establish the Mahākāvya as a distinct genre in classical Sanskrit literature.<br>Use of colloquial language: While Sanskrit was traditionally a language of the elite, Vasudeva used colloquial language in his works to make them accessible to a wider audience. This helped to democratize Sanskrit literature and make it more inclusive.<br>Use of metaphors and symbolism: Vasudeva was skilled in the use of metaphors and symbolism, which added depth and complexity to his works. His use of these literary devices helped to elevate Sanskrit literature and make it more nuanced.<br>Promotion of Vaiṣṇavaism: Vasudeva was a devotee of Lord Vishnu and his works often reflected his devotion to the deity. Through his poetry, Vasudeva helped to promote Vaishnavism, which had a profound impact on Indian culture and society.<br>Overall, Vasudeva’s contributions to classical Sanskrit literature helped to shape the language and elevate it to new heights. His works remain an important part of the Sanskrit literary canon and continue to inspire scholars and writers today.
 </div>
 <div id="nav-vasudeva-works" class="tab-pane fade" role="tabpanel">
 <ul class="list-group list-group-flush">
@@ -668,6 +655,19 @@ Development of the Mahākāvya genre: Vasudeva’s “Vāsudevavijaya Mahākāvy
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

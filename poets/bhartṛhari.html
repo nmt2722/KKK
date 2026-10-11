@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,13 +222,7 @@ Works (1)
 </p>
 </div>
 <div id="nav-bhartṛhari-life" class="tab-pane fade" role="tabpanel">
-<p>The life of Bhartṛhari, the Sanskrit poet, philosopher, and grammarian, is not very well documented, and much of what is known about him comes from legends and stories passed down through the centuries. Bhartṛhari was born in the 5th century CE, in the city of Ujjain in central India. It has been alleged that he was of regal descent and the brother of Vikramāditya. It is also believed that not only did he belong to a raining family, but that he was next in succession to the crown, and that, disgusted the world. Due to this he resigned in favour of his brother Vikramāditya.</p>
-<p>He is the reputed author of 3 Śatakas or centuries of couplets:- 1. Śṛṅgāraśataka– a purely amatory poem 2. Nītiśataka – on polity and ethics 3. Vairāgyaśataka– on religious austerity.</p>
-<p>Beyond words and traditions there is no particular evidence trapped credits the authorship of the Śatakas to Bhartṛhari. the theory that Bhartṛhari was a Prince who quits the world in disgust was also derived from a somewhat vague allusion formed out of the second śloka of the Nītiśataka.</p>
-<p>According to legends, Bhartṛhari was disillusioned with love and worldly pleasures. Although a loving ruler his mind was always engrossed about Love and Romance. He had over 100 beautiful women for his wives. No wonder he spent negligible time in the affairs of the state. He was particularly obsessed with his youngest wife Piṅgalā, she was beautiful and charming. Vikramāditya complained to the Bhartṛhari about the affair of the youngest queen with the king’s charioteer and advised him to banish her for the sake of the kingdom. The king was too obsessed with her to heed to his brother’s advice, in fact when the queen heard of this from her sources, she manipulated the king and in turn banished Vikramāditya from the kingdom! Sometime thereafter one fine day a yogi came to his court and presented the king with an apple, which he said would bless the consumer with ‘youth and longevity’ on eating. The king wanted queen Piṅgalā to have the apple, so that she would always look young for him. But queen Piṅgalā passed it on to the charioteer with whom she had a secret affair. The charioteer, who was in love with a prostitute, presented the apple to her. The prostitute thought ‘it would be better if someone deserving ate this’, she always liked the king, and wanted to have him as his client so she took the apple to the king and presented it back to him.</p>
-<p>Now, Bhartṛhari was astonished to see the apple back in his hand, and enquired as to how she got it. She told that she got it from the charioteer, the king sent men to bring the charioteer, he told the king that he got it from the queen, and confessed of his affair with the queen.</p>
-<p>It was presumably due to this reason that his faith in worldly matters was shaken and he decided to renounce his royal life and Retire into the forest as an ascetic, seeking spiritual enlightenment and detachment from the world. It was during his years as a wandering ascetic, Bhartṛhari composed his famous works, including the Śṛṅgāraśataka, Vairāgyaśataka, and Nītiśataka. These works explore themes such as love, detachment, ethics, and human psychology, and are highly regarded for their poetic elegance and philosophical depth.</p>
-Bhartṛhari’s later life and death are shrouded in mystery. According to some legends, he died while meditating in a cave in the Himalayas, while others suggest that he returned to Ujjain and lived out the rest of his life in obscurity.
+The life of Bhartṛhari, the Sanskrit poet, philosopher, and grammarian, is not very well documented, and much of what is known about him comes from legends and stories passed down through the centuries. Bhartṛhari was born in the 5th century CE, in the city of Ujjain in central India. It has been alleged that he was of regal descent and the brother of Vikramāditya. It is also believed that not only did he belong to a raining family, but that he was next in succession to the crown, and that, disgusted the world. Due to this he resigned in favour of his brother Vikramāditya.<br><br>He is the reputed author of 3 Śatakas or centuries of couplets:-<br>1. Śṛṅgāraśataka– a purely amatory poem<br>2. Nītiśataka – on polity and ethics<br>3. Vairāgyaśataka– on religious austerity.<br><br>Beyond words and traditions there is no particular evidence trapped credits the authorship of the Śatakas to Bhartṛhari. the theory that Bhartṛhari was a Prince who quits the world in disgust was also derived from a somewhat vague allusion formed out of the second śloka of the Nītiśataka.<br><br>According to legends, Bhartṛhari was disillusioned with love and worldly pleasures. Although a loving ruler his mind was always engrossed about Love and Romance. He had over 100 beautiful women for his wives. No wonder he spent negligible time in the affairs of the state. He was particularly obsessed with his youngest wife Piṅgalā, she was beautiful and charming. Vikramāditya complained to the Bhartṛhari about the affair of the youngest queen with the king’s charioteer and advised him to banish her for the sake of the kingdom. The king was too obsessed with her to heed to his brother’s advice, in fact when the queen heard of this from her sources, she manipulated the king and in turn banished Vikramāditya from the kingdom! <br>Sometime thereafter one fine day a yogi came to his court and presented the king with an apple, which he said would bless the consumer with ‘youth and longevity’ on eating. The king wanted queen Piṅgalā to have the apple, so that she would always look young for him. But queen Piṅgalā passed it on to the charioteer with whom she had a secret affair. The charioteer, who was in love with a prostitute, presented the apple to her. The prostitute thought ‘it would be better if someone deserving ate this’, she always liked the king, and wanted to have him as his client so she took the apple to the king and presented it back to him.<br><br>Now, Bhartṛhari was astonished to see the apple back in his hand, and enquired as to how she got it. She told that she got it from the charioteer, the king sent men to bring the charioteer, he told the king that he got it from the queen, and confessed of his affair with the queen.<br><br>It was presumably due to this reason that his faith in worldly matters was shaken and he decided to renounce his royal life and Retire into the forest as an ascetic, seeking spiritual enlightenment and detachment from the world. It was during his years as a wandering ascetic, Bhartṛhari composed his famous works, including the Śṛṅgāraśataka, Vairāgyaśataka, and Nītiśataka. These works explore themes such as love, detachment, ethics, and human psychology, and are highly regarded for their poetic elegance and philosophical depth. <br><br>Bhartṛhari’s later life and death are shrouded in mystery. According to some legends, he died while meditating in a cave in the Himalayas, while others suggest that he returned to Ujjain and lived out the rest of his life in obscurity.
 </div>
 <div id="nav-bhartṛhari-contribution" class="tab-pane fade" role="tabpanel">
 <p class="text-muted">
@@ -660,6 +642,19 @@ No information available.
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

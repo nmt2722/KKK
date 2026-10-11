@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/yādavaprākāśa.html">Yādavaprākāśa</a>
 </p>
 </div>
@@ -228,7 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-Yādavabhāṣya is a Sanskrit text authored by the poet Yādavaprākāśa. It is a commentary on the Sanskrit grammar text, the Aṣṭādhyāyī of Pāṇini. Yādavabhāṣya provides a comprehensive and detailed analysis of Pāṇini’s grammar, including explanations of the different rules, concepts, and terminology used in the Aṣṭādhyāyī. Yādavabhāṣya is known for its clear and concise language, as well as its systematic approach to explaining the intricacies of Sanskrit grammar. Yādavaprākāśa’s commentary is particularly valuable because it includes numerous examples and illustrations to help readers understand the concepts discussed in the Aṣṭādhyāyī. Yādavabhāṣya also includes discussions on the historical context of the Aṣṭādhyāyī and its influence on later Sanskrit literature.
+Yādavabhāṣya is a Sanskrit text authored by the poet Yādavaprākāśa. It is a commentary on the Sanskrit grammar text, the Aṣṭādhyāyī of Pāṇini. Yādavabhāṣya provides a comprehensive and detailed analysis of Pāṇini’s grammar, including explanations of the different rules, concepts, and terminology used in the Aṣṭādhyāyī.<br>Yādavabhāṣya is known for its clear and concise language, as well as its systematic approach to explaining the intricacies of Sanskrit grammar. Yādavaprākāśa’s commentary is particularly valuable because it includes numerous examples and illustrations to help readers understand the concepts discussed in the Aṣṭādhyāyī. Yādavabhāṣya also includes discussions on the historical context of the Aṣṭādhyāyī and its influence on later Sanskrit literature.
 </div>
 </div>
 </div>
@@ -240,9 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Yādavabhāṣya by Yādavaprākāśa is a comprehensive commentary on the Aṣṭādhyāyī, which is a foundational text on Sanskrit grammar. The work is divided into eight chapters, each corresponding to one of the eight chapters of the Aṣṭādhyāyī.</p>
-<p>In Yādavabhāṣya, Yādavaprākāśa provides detailed explanations of the various rules, concepts, and terminology used in the Aṣṭādhyāyī. He discusses topics such as the classification of words, the formation of compounds, and the use of suffixes and prefixes. He also provides numerous examples and illustrations to help readers understand the concepts discussed in the Aṣṭādhyāyī.</p>
-In addition to his explanations of the Aṣṭādhyāyī, Yādavaprākāśa also includes discussions on the historical context of the text and its influence on later Sanskrit literature. He analyses the relationship between the Aṣṭādhyāyī and other Sanskrit texts, including the Mahābhārata and the Rāmāyaṇa.
+Yādavabhāṣya by Yādavaprākāśa is a comprehensive commentary on the Aṣṭādhyāyī, which is a foundational text on Sanskrit grammar. The work is divided into eight chapters, each corresponding to one of the eight chapters of the Aṣṭādhyāyī.<br><br>In Yādavabhāṣya, Yādavaprākāśa provides detailed explanations of the various rules, concepts, and terminology used in the Aṣṭādhyāyī. He discusses topics such as the classification of words, the formation of compounds, and the use of suffixes and prefixes. He also provides numerous examples and illustrations to help readers understand the concepts discussed in the Aṣṭādhyāyī.<br><br>In addition to his explanations of the Aṣṭādhyāyī, Yādavaprākāśa also includes discussions on the historical context of the text and its influence on later Sanskrit literature. He analyses the relationship between the Aṣṭādhyāyī and other Sanskrit texts, including the Mahābhārata and the Rāmāyaṇa.
 </div>
 </div>
 </div>
@@ -266,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Yādavabhāṣya by Yādavaprākāśa has made a significant contribution to Sanskrit literature by providing a clear and comprehensive analysis of the Aṣṭādhyāyī, which is a foundational text on Sanskrit grammar. Yādavaprākāśa’s commentary has been instrumental in helping scholars and students understand the intricacies of Sanskrit grammar, and has had a lasting influence on the study of Sanskrit literature. Yādavabhāṣya has also helped to preserve the knowledge and tradition of Sanskrit grammar, ensuring that it continues to be studied and appreciated by generations to come.</p>
-<hr>
-Yādavabhāṣya is not only an important commentary on the Aṣṭādhyāyī, but it also contains valuable insights into the history, culture, and philosophy of ancient India. Yādavaprākāśa’s writing style is known for its simplicity, clarity, and logical approach, making it accessible to both experts and beginners in the field of Sanskrit grammar. Additionally, Yādavabhāṣya has been widely translated into other languages, which has helped to spread its knowledge and influence beyond the Sanskrit-speaking world.
+Yādavabhāṣya by Yādavaprākāśa has made a significant contribution to Sanskrit literature by providing a clear and comprehensive analysis of the Aṣṭādhyāyī, which is a foundational text on Sanskrit grammar. Yādavaprākāśa’s commentary has been instrumental in helping scholars and students understand the intricacies of Sanskrit grammar, and has had a lasting influence on the study of Sanskrit literature. Yādavabhāṣya has also helped to preserve the knowledge and tradition of Sanskrit grammar, ensuring that it continues to be studied and appreciated by generations to come.<br><br>Yādavabhāṣya is not only an important commentary on the Aṣṭādhyāyī, but it also contains valuable insights into the history, culture, and philosophy of ancient India. Yādavaprākāśa’s writing style is known for its simplicity, clarity, and logical approach, making it accessible to both experts and beginners in the field of Sanskrit grammar. Additionally, Yādavabhāṣya has been widely translated into other languages, which has helped to spread its knowledge and influence beyond the Sanskrit-speaking world.
 </div>
 </div>
 </div>
@@ -295,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Poems</span>
+<span class="badge bg-primary work-genre-badge">Poems</span>
 </p>
 </div>
 </div>
@@ -706,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

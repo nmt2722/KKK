@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/hemacandra.html">Hemacandra</a>
 </p>
 </div>
@@ -228,8 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Bālabhārata is a Sanskrit epic poem which retells the Hindu epic, the Mahābhārata, from a Jain perspective. The poem consists of 18 cantos and over 8,000 verses. The story follows the same basic plot as the Mahābhārata, but with some significant differences. The central conflict is still between the Pāṇḍavas and the Kauravas, but in Bālabhārata, the characters are portrayed as Jain saints and the battles are fought not with weapons, but with spiritual wisdom.</p>
-One of the main themes of the poem is non-violence, or ahimsa, which is a central principle of Jainism. This is reflected in the way the characters approach their conflicts, seeking peaceful resolutions rather than resorting to violence. Bālabhārata also includes elements of Jain philosophy, such as the idea of karma and the importance of asceticism and renunciation. The poem emphasizes the importance of leading a virtuous life, and the consequences of actions both in this life and in the next. Overall, Bālabhārata is an important work of Jain literature and a unique perspective on the Mahābhārata story. It offers insight into Jain philosophy and ethics, and presents a vision of a world where conflicts are resolved peacefully through spiritual wisdom.
+Bālabhārata is a Sanskrit epic poem which retells the Hindu epic, the Mahābhārata, from a Jain perspective. The poem consists of 18 cantos and over 8,000 verses. The story follows the same basic plot as the Mahābhārata, but with some significant differences. The central conflict is still between the Pāṇḍavas and the Kauravas, but in Bālabhārata, the characters are portrayed as Jain saints and the battles are fought not with weapons, but with spiritual wisdom.<br><br>One of the main themes of the poem is non-violence, or ahimsa, which is a central principle of Jainism. This is reflected in the way the characters approach their conflicts, seeking peaceful resolutions rather than resorting to violence. Bālabhārata also includes elements of Jain philosophy, such as the idea of karma and the importance of asceticism and renunciation. The poem emphasizes the importance of leading a virtuous life, and the consequences of actions both in this life and in the next. Overall, Bālabhārata is an important work of Jain literature and a unique perspective on the Mahābhārata story. It offers insight into Jain philosophy and ethics, and presents a vision of a world where conflicts are resolved peacefully through spiritual wisdom.
 </div>
 </div>
 </div>
@@ -241,19 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Bālabhārata is a retelling of the Hindu epic, the Mahābhārata, from a Jain perspective. The poem consists of 18 cantos and over 8,000 verses. Here is a brief summary of the content of the work:</p>
-<p>Canto 1: The story begins with the birth of the Pāṇḍava and Kaurava princes, and their early years.</p>
-<p>Canto 2: The rivalry between the Pāṇḍavas and Kauravas begins to take shape, with the Pāṇḍavas being mistreated by their cousins.</p>
-<p>Canto 3: The Pāṇḍavas embark on a journey to obtain a magical weapon, while the Kauravas plot against them.</p>
-<p>Canto 4: The Pāṇḍavas and Kauravas engage in a series of contests and battles, with the Pāṇḍavas emerging victorious.</p>
-<p>Canto 5: The Pāṇḍavas are exiled to the forest for 12 years, where they encounter various rishis and holy men.</p>
-<p>Canto 6: The Pāṇḍavas continue their journey in the forest, where they learn about the importance of non-violence and other Jain principles.</p>
-<p>Canto 7: The Kauravas continue to plot against the Pāṇḍavas, but their schemes are foiled by various deities and supernatural beings.</p>
-<p>Canto 8: The Pāṇḍavas return from their exile and seek to reclaim their kingdom, but must engage in a final battle with the Kauravas.</p>
-<p>Canto 9: The battle between the Pāṇḍavas and Kauravas begins, but rather than fighting with weapons, they engage in a battle of spiritual wisdom.</p>
-<p>Canto 10: The Pāṇḍavas emerge victorious, and the Kauravas accept defeat and seek forgiveness for their actions.</p>
-<p>Canto 11-16: The poem describes the aftermath of the battle, with the Pāṇḍavas ruling over their kingdom and promoting Jain principles.</p>
-Canto 17-18: The final cantos of the poem describe the ultimate fate of the various characters, including their rebirths and the consequences of their actions in this life.
+Bālabhārata is a retelling of the Hindu epic, the Mahābhārata, from a Jain perspective. The poem consists of 18 cantos and over 8,000 verses. Here is a brief summary of the content of the work:<br><br>Canto 1: The story begins with the birth of the Pāṇḍava and Kaurava princes, and their early years.<br><br>Canto 2: The rivalry between the Pāṇḍavas and Kauravas begins to take shape, with the Pāṇḍavas being mistreated by their cousins.<br><br>Canto 3: The Pāṇḍavas embark on a journey to obtain a magical weapon, while the Kauravas plot against them.<br><br>Canto 4: The Pāṇḍavas and Kauravas engage in a series of contests and battles, with the Pāṇḍavas emerging victorious.<br><br>Canto 5: The Pāṇḍavas are exiled to the forest for 12 years, where they encounter various rishis and holy men.<br><br>Canto 6: The Pāṇḍavas continue their journey in the forest, where they learn about the importance of non-violence and other Jain principles.<br><br>Canto 7: The Kauravas continue to plot against the Pāṇḍavas, but their schemes are foiled by various deities and supernatural beings.<br><br>Canto 8: The Pāṇḍavas return from their exile and seek to reclaim their kingdom, but must engage in a final battle with the Kauravas.<br><br>Canto 9: The battle between the Pāṇḍavas and Kauravas begins, but rather than fighting with weapons, they engage in a battle of spiritual wisdom.<br><br>Canto 10: The Pāṇḍavas emerge victorious, and the Kauravas accept defeat and seek forgiveness for their actions.<br><br>Canto 11-16: The poem describes the aftermath of the battle, with the Pāṇḍavas ruling over their kingdom and promoting Jain principles.<br><br>Canto 17-18: The final cantos of the poem describe the ultimate fate of the various characters, including their rebirths and the consequences of their actions in this life.
 </div>
 </div>
 </div>
@@ -265,7 +240,7 @@ Uniqueness
 </h2>
 <div id="work-acc-uniqueness" class="accordion-collapse collapse">
 <div class="accordion-body">
-Bālabhārata is a unique work of literature in several ways. Firstly, it is a retelling of the Hindu epic, the Mahābhārata, from a Jain perspective, which sets it apart from other versions of the story. The Jain interpretation emphasizes the importance of non-violence and spiritual wisdom over material power, which is a central tenet of Jain philosophy. Secondly, Bālabhārata is a work of poetry, composed in Sanskrit, which is known for its lyrical beauty and complexity. Hemacandra’s use of language and imagery adds depth and richness to the story, making it a masterpiece of Indian literature. Finally, the poem offers a vision of a world where conflicts are resolved peacefully through spiritual wisdom and virtuous living. It promotes the principles of Jainism, such as non-violence, compassion, and detachment, and encourages readers to aspire towards these ideals.
+Bālabhārata is a unique work of literature in several ways. Firstly, it is a retelling of the Hindu epic, the Mahābhārata, from a Jain perspective, which sets it apart from other versions of the story. The Jain interpretation emphasizes the importance of non-violence and spiritual wisdom over material power, which is a central tenet of Jain philosophy.<br>Secondly, Bālabhārata is a work of poetry, composed in Sanskrit, which is known for its lyrical beauty and complexity. Hemacandra’s use of language and imagery adds depth and richness to the story, making it a masterpiece of Indian literature.<br>Finally, the poem offers a vision of a world where conflicts are resolved peacefully through spiritual wisdom and virtuous living. It promotes the principles of Jainism, such as non-violence, compassion, and detachment, and encourages readers to aspire towards these ideals.
 </div>
 </div>
 </div>
@@ -277,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Bālabhārata is an important contribution to Sanskrit literature for several reasons. Firstly, it is a unique retelling of the Mahābhārata from a Jain perspective, which adds a new dimension to the story and expands the scope of interpretation. This demonstrates the flexibility and adaptability of Sanskrit literature, which can accommodate a wide range of perspectives and viewpoints. Secondly, Bālabhārata is a work of poetry, composed in a highly sophisticated and refined form of Sanskrit. Hemacandra’s mastery of the language is evident in the richness of his imagery, the complexity of his metaphors, and the depth of his philosophical insights. This makes Bālabhārata a masterpiece of Indian poetry and a testament to the enduring power of the Sanskrit language. Finally, Bālabhārata reflects the values and ideals of Jain philosophy, such as non-violence, compassion, and detachment, which are an important part of Indian culture and literature. By promoting these values through a classic story, Hemacandra has made a significant contribution to Sanskrit literature and to the broader cultural and philosophical heritage of India.</p>
-<hr>
-Bālabhārata is notable for being one of the few surviving Jain retellings of the Mahābhārata. The Jain version of the Mahābhārata differs from the Hindu version in several significant ways. For example, the Jain version emphasizes non-violence and non-attachment, and portrays the main characters in a more positive light. Additionally, the Jain version often includes stories and teachings that are not found in the Hindu version. Bālabhārata is also notable for its use of the śārdūlavikrīḍita meter, which is a highly complex and sophisticated form of Sanskrit poetry. This meter is characterized by its intricate patterns of short and long syllables, and is considered one of the most difficult meters in Sanskrit literature. Hemacandra’s mastery of this meter is evident in the beauty and complexity of his poetry, and demonstrates his skill as a poet and scholar.
+Bālabhārata is an important contribution to Sanskrit literature for several reasons. Firstly, it is a unique retelling of the Mahābhārata from a Jain perspective, which adds a new dimension to the story and expands the scope of interpretation. This demonstrates the flexibility and adaptability of Sanskrit literature, which can accommodate a wide range of perspectives and viewpoints. Secondly, Bālabhārata is a work of poetry, composed in a highly sophisticated and refined form of Sanskrit. Hemacandra’s mastery of the language is evident in the richness of his imagery, the complexity of his metaphors, and the depth of his philosophical insights. This makes Bālabhārata a masterpiece of Indian poetry and a testament to the enduring power of the Sanskrit language. Finally, Bālabhārata reflects the values and ideals of Jain philosophy, such as non-violence, compassion, and detachment, which are an important part of Indian culture and literature. By promoting these values through a classic story, Hemacandra has made a significant contribution to Sanskrit literature and to the broader cultural and philosophical heritage of India.<br><br>Bālabhārata is notable for being one of the few surviving Jain retellings of the Mahābhārata. The Jain version of the Mahābhārata differs from the Hindu version in several significant ways. For example, the Jain version emphasizes non-violence and non-attachment, and portrays the main characters in a more positive light. Additionally, the Jain version often includes stories and teachings that are not found in the Hindu version. Bālabhārata is also notable for its use of the śārdūlavikrīḍita meter, which is a highly complex and sophisticated form of Sanskrit poetry. This meter is characterized by its intricate patterns of short and long syllables, and is considered one of the most difficult meters in Sanskrit literature. Hemacandra’s mastery of this meter is evident in the beauty and complexity of his poetry, and demonstrates his skill as a poet and scholar.
 </div>
 </div>
 </div>
@@ -306,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Epic Drama</span>
+<span class="badge bg-primary work-genre-badge">Epic Drama</span>
 </p>
 </div>
 </div>
@@ -717,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

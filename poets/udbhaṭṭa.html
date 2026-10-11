@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,12 +222,10 @@ Works (3)
 </p>
 </div>
 <div id="nav-udbhaṭṭa-life" class="tab-pane fade" role="tabpanel">
-<p>It is believed that Udbhaṭṭa lived in India during the 8th century CE. He was called as Bhaṭṭōdbatta Udhbhaṭṭācārya by many. Some scholars speculate that he may have been from the northern part of India, while others suggest that he may have been from the Kashmir region. However, there is no consensus on his place of origin.</p>
-<p>Despite the lack of information about his life, Udbhaṭṭa is remembered for his contribution to the field of poetics through his work on the various alaṅkaras or figures of speech used in Sanskrit literature. The Alaṅkārasārasaṁgraha is considered an important work on poetics in Sanskrit literature and has had a significant influence on the development of literary theory and criticism in India.</p>
-Udbhaṭṭa’s legacy is mainly through his work, which is still studied and appreciated by scholars of Sanskrit literature and poetics. His insights into the use of various figures of speech have helped to shape the way that Sanskrit poetry is read and understood.
+It is believed that Udbhaṭṭa lived in India during the 8th century CE. He was called as Bhaṭṭōdbatta Udhbhaṭṭācārya by many. Some scholars speculate that he may have been from the northern part of India, while others suggest that he may have been from the Kashmir region. However, there is no consensus on his place of origin.<br><br>Despite the lack of information about his life, Udbhaṭṭa is remembered for his contribution to the field of poetics through his work on the various alaṅkaras or figures of speech used in Sanskrit literature. The Alaṅkārasārasaṁgraha is considered an important work on poetics in Sanskrit literature and has had a significant influence on the development of literary theory and criticism in India.<br><br>Udbhaṭṭa’s legacy is mainly through his work, which is still studied and appreciated by scholars of Sanskrit literature and poetics. His insights into the use of various figures of speech have helped to shape the way that Sanskrit poetry is read and understood.
 </div>
 <div id="nav-udbhaṭṭa-contribution" class="tab-pane fade" role="tabpanel">
-Udbhaṭṭa was a prolific and influential Sanskrit scholar and writer who made significant contributions to various fields of classical Sanskrit literature. He was a master of alaṅkāra-śāstra or poetics, and his works in this field, including the Kāvyālaṅkāra-sārasaṅgraha, have been highly influential in shaping the theory and practice of Sanskrit poetics. Apart from poetics, Udbhaṭṭa also wrote commentaries and critical works on other important texts such as the Nāṭya śāstra and the Bhāmaha’s Kāvyalakṣaṇa. His commentary on the Nāṭya śāstra, known as the Ṭīkā, is considered to be one of the most authoritative and comprehensive works on this subject. Udbhaṭṭa was also an accomplished writer of poetry and drama, and his works in these fields display a deep understanding of poetics and a mastery of language and style. His contribution to Sanskrit literature in general lies in his innovative and insightful ideas on poetics, his meticulous analysis and interpretation of classical texts, and his artistic genius as a poet and dramatist.
+Udbhaṭṭa was a prolific and influential Sanskrit scholar and writer who made significant contributions to various fields of classical Sanskrit literature. He was a master of alaṅkāra-śāstra or poetics, and his works in this field, including the Kāvyālaṅkāra-sārasaṅgraha, have been highly influential in shaping the theory and practice of Sanskrit poetics.<br>Apart from poetics, Udbhaṭṭa also wrote commentaries and critical works on other important texts such as the Nāṭya śāstra and the Bhāmaha’s Kāvyalakṣaṇa. His commentary on the Nāṭya śāstra, known as the Ṭīkā, is considered to be one of the most authoritative and comprehensive works on this subject.<br>Udbhaṭṭa was also an accomplished writer of poetry and drama, and his works in these fields display a deep understanding of poetics and a mastery of language and style. His contribution to Sanskrit literature in general lies in his innovative and insightful ideas on poetics, his meticulous analysis and interpretation of classical texts, and his artistic genius as a poet and dramatist.
 </div>
 <div id="nav-udbhaṭṭa-works" class="tab-pane fade" role="tabpanel">
 <ul class="list-group list-group-flush">
@@ -660,6 +646,19 @@ Udbhaṭṭa was a prolific and influential Sanskrit scholar and writer who made
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

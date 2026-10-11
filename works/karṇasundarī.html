@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/bilhaṇa.html">Bilhaṇa</a>
 </p>
 </div>
@@ -228,7 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-Karṇasundarī is a Sanskrit poetic work that tells the story of the love affair between King Vikramāditya VI of the Western Chālukya dynasty and a beautiful courtesan named Karṇasundarī. The story is set in the ancient Indian kingdom of Kalyāṇa, where the king falls in love with Karṇasundarī at first sight. Despite the fact that Karṇasundarī is already in love with another man, she eventually agrees to become the king’s lover. The two lovers are deeply devoted to each other, but their happiness is short-lived. The king’s jealous queen, aware of his affair, conspires to separate them. She arranges for Karṇasundarī’s lover to be imprisoned and then accuses her of being a spy. Karṇasundarī is taken to the palace and sentenced to death, but the king intervenes and saves her life. Instead, he decides to exile her from the kingdom, and the two lovers part ways. Karṇasundarī spends years wandering in the forests, pining for her lost love. Meanwhile, the king becomes embroiled in a war and dies on the battlefield. The poem ends on a tragic note, with Karṇasundarī dying of a broken heart upon hearing the news of the king’s death. The work is known for its lyrical quality, vivid imagery, and intricate wordplay. It is also notable for its depiction of the complexities of love and human emotions.
+Karṇasundarī is a Sanskrit poetic work that tells the story of the love affair between King Vikramāditya VI of the Western Chālukya dynasty and a beautiful courtesan named Karṇasundarī.<br>The story is set in the ancient Indian kingdom of Kalyāṇa, where the king falls in love with Karṇasundarī at first sight. Despite the fact that Karṇasundarī is already in love with another man, she eventually agrees to become the king’s lover. The two lovers are deeply devoted to each other, but their happiness is short-lived. The king’s jealous queen, aware of his affair, conspires to separate them. She arranges for Karṇasundarī’s lover to be imprisoned and then accuses her of being a spy.<br>Karṇasundarī is taken to the palace and sentenced to death, but the king intervenes and saves her life. Instead, he decides to exile her from the kingdom, and the two lovers part ways. Karṇasundarī spends years wandering in the forests, pining for her lost love. Meanwhile, the king becomes embroiled in a war and dies on the battlefield. The poem ends on a tragic note, with Karṇasundarī dying of a broken heart upon hearing the news of the king’s death.<br>The work is known for its lyrical quality, vivid imagery, and intricate wordplay. It is also notable for its depiction of the complexities of love and human emotions.
 </div>
 </div>
 </div>
@@ -240,7 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-Karṇasundarī is a poetic work of 112 verses, divided into seven chapters. Here is a summary of the contents of each chapter: The first chapter introduces the main characters, King Vikramāditya VI and Karṇasundarī, and describes their initial meeting. The second chapter depicts the two’s growing attraction and secret meetings. The third chapter focuses on Karṇasundarī’s inner conflict between her love for the king and her loyalty to her current lover. The fourth chapter describes the queen’s discovery of the affair and her subsequent schemes to separate the two lovers. The fifth chapter portrays the trial of Karṇasundarī and her subsequent exile from the kingdom. The sixth chapter follows Karṇasundarī’s wanderings in the forests and her longing for the king. The seventh and final chapter depicts the story’s tragic end, with the king’s death and Karṇasundarī’s eventual demise due to her overwhelming grief. Throughout the work, Bilhaṇa weaves in themes of love, loyalty, betrayal, and the inevitable fate of mortals. The work is known for its complex wordplay, vivid imagery, and depiction of the human condition.
+Karṇasundarī is a poetic work of 112 verses, divided into seven chapters. Here is a summary of the contents of each chapter:<br>The first chapter introduces the main characters, King Vikramāditya VI and Karṇasundarī, and describes their initial meeting.<br>The second chapter depicts the two’s growing attraction and secret meetings.<br>The third chapter focuses on Karṇasundarī’s inner conflict between her love for the king and her loyalty to her current lover.<br>The fourth chapter describes the queen’s discovery of the affair and her subsequent schemes to separate the two lovers.<br>The fifth chapter portrays the trial of Karṇasundarī and her subsequent exile from the kingdom.<br>The sixth chapter follows Karṇasundarī’s wanderings in the forests and her longing for the king.<br>The seventh and final chapter depicts the story’s tragic end, with the king’s death and Karṇasundarī’s eventual demise due to her overwhelming grief.<br>Throughout the work, Bilhaṇa weaves in themes of love, loyalty, betrayal, and the inevitable fate of mortals. The work is known for its complex wordplay, vivid imagery, and depiction of the human condition.
 </div>
 </div>
 </div>
@@ -264,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Karṇasundarī is considered one of the most important works of Sanskrit literature, both for its poetic excellence and its historical significance. The work belongs to the genre of court poetry, which flourished during the medieval period in India. Bilhaṇa, the author of Karṇasundarī, was a master of language and literary devices. He used complex wordplay, metaphors, and similes to create vivid and lyrical descriptions of the characters, setting, and emotions. His style was highly influential and was later emulated by other Sanskrit poets. The work is also significant for portraying courtesans and their role in medieval Indian courts. It provides a glimpse into the lives and experiences of these women, who were highly respected for their beauty, intelligence, and artistic talents. Furthermore, Karṇasundarī is notable for exploring love, loyalty, betrayal, and the human condition. Its nuanced and complex portrayal of emotions and relationships makes it a valuable contribution to Sanskrit literature.</p>
-<hr>
-Karṇasundarī is an important work of Sanskrit literature and has been highly regarded for its literary excellence, philosophical depth, and portrayal of complex human emotions. The work’s unique structure, in which the story is presented in letters between the two main characters, has been praised for its innovative style. In addition to its literary merits, Karṇasundarī has also been appreciated for its philosophical insights. The work explores the themes of karma, dharma, and the nature of reality, and offers a nuanced portrayal of human relationships and the conflicts that can arise within them.
+Karṇasundarī is considered one of the most important works of Sanskrit literature, both for its poetic excellence and its historical significance. The work belongs to the genre of court poetry, which flourished during the medieval period in India.<br>Bilhaṇa, the author of Karṇasundarī, was a master of language and literary devices. He used complex wordplay, metaphors, and similes to create vivid and lyrical descriptions of the characters, setting, and emotions. His style was highly influential and was later emulated by other Sanskrit poets.<br>The work is also significant for portraying courtesans and their role in medieval Indian courts. It provides a glimpse into the lives and experiences of these women, who were highly respected for their beauty, intelligence, and artistic talents. Furthermore, Karṇasundarī is notable for exploring love, loyalty, betrayal, and the human condition. Its nuanced and complex portrayal of emotions and relationships makes it a valuable contribution to Sanskrit literature.<br><br>Karṇasundarī is an important work of Sanskrit literature and has been highly regarded for its literary excellence, philosophical depth, and portrayal of complex human emotions. The work’s unique structure, in which the story is presented in letters between the two main characters, has been praised for its innovative style.<br>In addition to its literary merits, Karṇasundarī has also been appreciated for its philosophical insights. The work explores the themes of karma, dharma, and the nature of reality, and offers a nuanced portrayal of human relationships and the conflicts that can arise within them.
 </div>
 </div>
 </div>
@@ -293,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Scripture (Hindu, Buddhist and Jain)</span>
+<span class="badge bg-primary work-genre-badge">Scripture (Hindu, Buddhist and Jain)</span>
 </p>
 </div>
 </div>
@@ -704,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/guṇāḍhya.html">Guṇāḍhya</a>
 </p>
 </div>
@@ -228,7 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-Bṛhatkathā, also known as “the Great Narrative,” is an ancient Indian epic believed to have been written by Guṇāḍhya in a language called Paiśācī, &nbsp;the language of common people of the border regions of Northwest India, which is not well understood. While the original text is lost, there are several later adaptations in both Sanskrit and vernacular languages which provide commentary on the work. The exact date of the composition is uncertain, but based on references made by later Sanskrit poets such as Daṇḍin, Subandhu, and Bāṇa, it is believed to have existed in the 6th century CE or even earlier. For instance, if the story of Udayana by poet Bhāsa, which was also adapted by Harśa in Ratnāvalī, was inspired by Bṛhatkathā, it would have to be older than Bhāsa’s time, estimated to be before the 3rd century CE.The work narrates the adventures of many big traders (Written in story in story style), who scaled the mountains churned the ocean in search of wealth of gold, gems, pearls etc. According to the story, Guṇāḍhya was only able to preserve 700,000 Ślokas, while the author himself destroyed the remaining ones out of frustration.
+Bṛhatkathā, also known as "the Great Narrative," is an ancient Indian epic believed to have been written by Guṇāḍhya in a language called Paiśācī, &nbsp;the language of common people of the border regions of Northwest India, which is not well understood. While the original text is lost, there are several later adaptations in both Sanskrit and vernacular languages which provide commentary on the work. The exact date of the composition is uncertain, but based on references made by later Sanskrit poets such as Daṇḍin, Subandhu, and Bāṇa, it is believed to have existed in the 6th century CE or even earlier. For instance, if the story of Udayana by poet Bhāsa, which was also adapted by Harśa in Ratnāvalī, was inspired by Bṛhatkathā, it would have to be older than Bhāsa’s time, estimated to be before the 3rd century CE.The work narrates the adventures of many big traders (Written in story in story style), who scaled the mountains churned the ocean in search of wealth of gold, gems, pearls etc. According to the story, Guṇāḍhya was only able to preserve 700,000 Ślokas, while the author himself destroyed the remaining ones out of frustration.
 </div>
 </div>
 </div>
@@ -240,7 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-The reason for Mālyavān being cursed by Pārvatī and forced to be born as a human who is Guṇāḍhya himself has a backstory. Once Pārvatī asked Śiva to tell her a unique and interesting story that no one had heard before. To ensure privacy, Nandikeśa was instructed to guard the door and not allow anyone inside while Śiva narrated the story of the Vidyādharas to Pārvatī. However, Puṣpadanta, who was the chief of the genie-guards of Śiva and had unrestricted access to him, entered the room without permission and heard the story standing in a concealed spot. He later shared the story with his wife, Jayā, who, on another occasion, told it to Pārvatī, who was upset to hear a story that she believed was supposed to be unique. After some investigation, Śiva found out how Puṣpadanta had obtained the story and explained it to Pārvatī. She then cursed Puṣpadanta and Mālyavān, who spoke on Puṣpadanta’s behalf, turning them both into humans. Pārvatī then revealed that the curse could be broken by telling the story to a devil named Kāṇabhūti, who resided in the Vindhya mountains. Puṣpadanta was reincarnated as Vararuci in the city of Kauśāṃbī, and Mālyavān as Guṇāḍhya in the city of Supratiṣṭhita. They were instructed to share the stories they had heard from Kāṇabhūti and only then would the curse be lifted from them. It took Guṇāḍhya seven years to create a Mahākāvya by writing stories in the satanic language and compiling them into seven lakh granthas. He faced the challenge of not having any writing materials and had to resort to using leaves, blood, and twigs. Once he began reading his book, all the devas gathered in the sky to listen. Upon hearing it, Kāṇabhūti was released from the curse. This book, which contains seven lakh granthas, is known as the Bṛhatkathā. When he finished the book, his disciples suggested that he present it to King Sātavāhana to ensure its survival. However, when the King read the book, he didn’t like it due to its elaborate language and satanic nature. Guṇāḍhya, feeling dejected, burned all but one lakh of granthas in a fire-pit, with his disciples watching in tears. The wild animals of the forest also flocked to the place to listen to Guṇāḍhya’s reading before he burned each leaf. Meanwhile, the King fell ill, and it was discovered that the dry flesh he had been eating was the cause. The hunters who supplied the meat reported that all the animals were gathered around Guṇāḍhya, listening to him read and burn his book. Sātavāhana fell ill and the palace physicians attributed it to the dry flesh he had been consuming. The cook accused the hunters who supplied the meat, and upon questioning, the hunters revealed that they could only obtain such meat as all the animals were listening to Guṇāḍhya, who was reading from a book and burning the pages. Sātavāhana went to Guṇāḍhya and prostrated before him. Guṇāḍhya spoke in a satanic language, telling Sātavāhana his story from the curse on Puṣpadanta to the destruction of his own work. He gave Sātavāhana the remaining one lakh of granthas and then jumped into the fire. Sātavāhana and the disciples of Guṅāḍhya went back to the palace with the ‘Bṛhatkathā’, which contained the story of Naravāhanadatta. The King added a preface to the book explaining how it came to be written in a satanic language, and it became very famous. (Pīṭhānulaṃbaka Kathāsarit sāgara).
+The reason for Mālyavān being cursed by Pārvatī and forced to be born as a human who is Guṇāḍhya himself has a backstory. Once Pārvatī asked Śiva to tell her a unique and interesting story that no one had heard before. To ensure privacy, Nandikeśa was instructed to guard the door and not allow anyone inside while Śiva narrated the story of the Vidyādharas to Pārvatī. However, Puṣpadanta, who was the chief of the genie-guards of Śiva and had unrestricted access to him, entered the room without permission and heard the story standing in a concealed spot. He later shared the story with his wife, Jayā, who, on another occasion, told it to Pārvatī, who was upset to hear a story that she believed was supposed to be unique. After some investigation, Śiva found out how Puṣpadanta had obtained the story and explained it to Pārvatī. She then cursed Puṣpadanta and Mālyavān, who spoke on Puṣpadanta’s behalf, turning them both into humans. Pārvatī then revealed that the curse could be broken by telling the story to a devil named Kāṇabhūti, who resided in the Vindhya mountains. Puṣpadanta was reincarnated as Vararuci in the city of Kauśāṃbī, and Mālyavān as Guṇāḍhya in the city of Supratiṣṭhita. They were instructed to share the stories they had heard from Kāṇabhūti and only then would the curse be lifted from them. It took Guṇāḍhya seven years to create a Mahākāvya by writing stories in the satanic language and compiling them into seven lakh granthas. He faced the challenge of not having any writing materials and had to resort to using leaves, blood, and twigs. Once he began reading his book, all the devas gathered in the sky to listen. Upon hearing it, Kāṇabhūti was released from the curse. This book, which contains seven lakh granthas, is known as the Bṛhatkathā.<br> When he finished the book, his disciples suggested that he present it to King Sātavāhana to ensure its survival. However, when the King read the book, he didn’t like it due to its elaborate language and satanic nature. Guṇāḍhya, feeling dejected, burned all but one lakh of granthas in a fire-pit, with his disciples watching in tears. The wild animals of the forest also flocked to the place to listen to Guṇāḍhya’s reading before he burned each leaf. Meanwhile, the King fell ill, and it was discovered that the dry flesh he had been eating was the cause. The hunters who supplied the meat reported that all the animals were gathered around Guṇāḍhya, listening to him read and burn his book. Sātavāhana fell ill and the palace physicians attributed it to the dry flesh he had been consuming. The cook accused the hunters who supplied the meat, and upon questioning, the hunters revealed that they could only obtain such meat as all the animals were listening to Guṇāḍhya, who was reading from a book and burning the pages. Sātavāhana went to Guṇāḍhya and prostrated before him. Guṇāḍhya spoke in a satanic language, telling Sātavāhana his story from the curse on Puṣpadanta to the destruction of his own work. He gave Sātavāhana the remaining one lakh of granthas and then jumped into the fire. Sātavāhana and the disciples of Guṅāḍhya went back to the palace with the ‘Bṛhatkathā’, which contained the story of Naravāhanadatta. The King added a preface to the book explaining how it came to be written in a satanic language, and it became very famous. (Pīṭhānulaṃbaka Kathāsarit sāgara).
 </div>
 </div>
 </div>
@@ -291,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Lyric</span>
+<span class="badge bg-primary work-genre-badge">Lyric</span>
 </p>
 </div>
 </div>
@@ -702,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,12 +222,10 @@ Works (1)
 </p>
 </div>
 <div id="nav-śrīvara-life" class="tab-pane fade" role="tabpanel">
-Śrīvara was a significant Sanskrit scholar and poet who was active in Kashmir in the fifteenth century. Addressing himself as ‘Śrīvara Paṇḍita’ (Brāhmaṇa); was from a not-so-famous Brāhmaṇa family- unlike Kalhaṇa or Jonarāja, who were well-known Sanskrit scholars and his predecessors. A devotee of Ardhanārīśvara, Śrīvara lived in Śrīnagara as evident in his detailed description of the city. Śrīvara was the disciple of Jonarāja and studied Sanskrit literature under his tutelage. Śrīvara continued the work of his teacher’s Rājataraṅgiṇī and chronicled the history he had personally witnessed. Sultān zayn al ābdīn nurtured Śrīvara as his own son. To show his gratitude for the gifts of villages, gold, the life he enjoyed due to the affection of the sultān, Śrīvara named his sequel of Rājataraṅgiṇī as Jain-Rājataraṅgiṇī, shortening the first name of Sultān zayn al to ‘Jain’. Sultān zayn al ābdīn’s son Sultān Hyder Śāh respected Śrīvara and appointed him as the teacher of his son- Hasan Śāh. All the three sultāns loved Śrīvara and respected him. Śrīvara used to entertain them with philosophy, literature, history, and his own songs and talks. Though Śrīvara was of secular thinking, he expressed his views without hesitation. He supported Hindu ideologies and traditions. He was heavily influenced by Advaita philosophy. Śrīvara had deep knowledge of scriptures and various arts and sciences like music- musical instruments, dance, poetry, yoga, Āyurveda, Astrology etc. He was a Kashmiri in his outlook on life.<br>
-Śrīvara’s work on Jain- Rājataraṅgiṇī breaks off with Maḥmūd Śāh’s (first) dethronement followed by Fatḥ Śāh’s accession to the throne. The abrupt end of his account was however not because of Śrīvara’s death. Nineteen years later we hear from him again in the prelude to Śrīvara where his prologue has been dated to his Sanskrit translation of Jāmi’s Persian Yusof o Zoleykhā, titled ‘Kathākautukam’ - as April 18, 1505. The sudden interruption of Śrīvara’s Jain- Rājataraṅgiṇī, coinciding with the transition of power in 1486, could be associated with his removal from the position of court biographer. Śrīvara completed his Sanskrit rendering of Jāmi’s Persian composition (1483) only twenty-two years after its publication in Herat.
+Śrīvara was a significant Sanskrit scholar and poet who was active in Kashmir in the fifteenth century. Addressing himself as ‘Śrīvara Paṇḍita’ (Brāhmaṇa); was from a not-so-famous Brāhmaṇa family- unlike Kalhaṇa or Jonarāja, who were well-known Sanskrit scholars and his predecessors. A devotee of Ardhanārīśvara, Śrīvara lived in Śrīnagara as evident in his detailed description of the city. <br>Śrīvara was the disciple of Jonarāja and studied Sanskrit literature under his tutelage. Śrīvara continued the work of his teacher’s Rājataraṅgiṇī and chronicled the history he had personally witnessed. <br>Sultān zayn al ābdīn nurtured Śrīvara as his own son. To show his gratitude for the gifts of villages, gold, the life he enjoyed due to the affection of the sultān, Śrīvara named his sequel of Rājataraṅgiṇī as Jain-Rājataraṅgiṇī, shortening the first name of Sultān zayn al to ‘Jain’. Sultān zayn al ābdīn’s son Sultān Hyder Śāh respected Śrīvara and appointed him as the teacher of his son- Hasan Śāh. All the three sultāns loved Śrīvara and respected him. Śrīvara used to entertain them with philosophy, literature, history, and his own songs and talks. <br>Though Śrīvara was of secular thinking, he expressed his views without hesitation. He supported Hindu ideologies and traditions. He was heavily influenced by Advaita philosophy. Śrīvara had deep knowledge of scriptures and various arts and sciences like music- musical instruments, dance, poetry, yoga, Āyurveda, Astrology etc. He was a Kashmiri in his outlook on life. <br>Śrīvara’s work on Jain- Rājataraṅgiṇī breaks off with Maḥmūd Śāh’s (first) dethronement followed by Fatḥ Śāh’s accession to the throne. The abrupt end of his account was however not because of Śrīvara’s death. Nineteen years later we hear from him again in the prelude to Śrīvara where his prologue has been dated to his Sanskrit translation of Jāmi’s Persian Yusof o Zoleykhā, titled ‘Kathākautukam’ - as April 18, 1505. The sudden interruption of Śrīvara’s Jain- Rājataraṅgiṇī, coinciding with the transition of power in 1486, could be associated with his removal from the position of court biographer. Śrīvara completed his Sanskrit rendering of Jāmi’s Persian composition (1483) only twenty-two years after its publication in Herat.
 </div>
 <div id="nav-śrīvara-contribution" class="tab-pane fade" role="tabpanel">
-Śrīvara, as a contemporary historian, was left with only occasional retrospective additions going back to 1451. His accounts, the Jaina- and Rājataraṅgiṇīs, written as an eyewitness, are characterised by remarkably detailed density that hardly leaves out any aspect of his contemporary horizon of observation and reflection on everyday Kashmiri culture, court life, politics, religion, and society. The consolidation of the religious and political influence of a group of Sayyids, who had migrated from Baihaq in Iran under earlier Śāhmīrī Sulṭāns such as Sikandar, and the dynamics triggered by their attempts under Hasan Śāh and Maḥmūd Śāh to participate in the reign, culminated in a devastating civil war between factions of indigenous Kashmiris (kāśmīrika) and the immigrants from abroad (paradeśīya, vaideśika). These events are of research interest for tracing the historical ramifications of the Islamisation process in Kāśmīr. In terms of richness of detail of everyday culture including its material aspects, Śrīvara’s work is the most abundant source on Indo-Persian rule in early modern India and the living conditions under omnipresent threats of famines, natural disasters, and warfare. But the reflection of these histories in Sanskrit poetry needs more notice. Kathākautukam was described by the Austrian scholar and historian of Sanskrit M Winternitz as an adaptation rather than translation of Jami’s poem. In his words it is an “amalgamation of the Hebrew story, Persian romantic ballad and the Indian Siva cult.” In this description he omitted mention of another important contributory source, namely, Islam.<br>
-The Sanskrit poem’s narrative also includes a list of names – like Adam – taken from Jami and the Semite scriptures. Yakub and Yusuf are identifiable and mentioned as such in this translation. Others remain in the original forms in which they occur in the Sanskrit text. Only one, Ajajamesra, was rendered as Mesra-born. Bearing in mind its accompanying reference to a river, Mesra is obviously Egypt, and Nila the River Nile. The Sanskrit text also has references to various divinities and heroes from Indian mythology. All their names are given in the original form. The principal mention in Kathākautukam is that of the great god Śiva, also presented in his cosmic aspect, and referred to by the poet with various synonyms, many of which are well-known. Śrīvara uses both Indian and Semite origin in the narrative sequences of the work. They also make evident its composite cultural background. A good example of this is in the narration of chapter 10, of the boy Yusuf’s abandonment in a forest and his rescue from a well with the help of the god Śankara and the angel Gabriel. There are several others, which a brief reading would easily locate. Śrīvara received the patronage of three successive rulers, Zainulabidin, his son Hyder Śāh and grandson Hasan Śāh, in the fifteenth century. Dr.&nbsp;Nagarajan notes that this coincided with the brief rule of Sultans, who were independent of the Delhi Sultanate and showed great interest in Vālmīki Ramayana, Yogavāsiṣṭha, Bṛhatkathā, Purāṇas and Dharmaśāstra.
+Śrīvara, as a contemporary historian, was left with only occasional retrospective additions going back to 1451. His accounts, the Jaina- and Rājataraṅgiṇīs, written as an eyewitness, are characterised by remarkably detailed density that hardly leaves out any aspect of his contemporary horizon of observation and reflection on everyday Kashmiri culture, court life, politics, religion, and society. The consolidation of the religious and political influence of a group of Sayyids, who had migrated from Baihaq in Iran under earlier Śāhmīrī Sulṭāns such as Sikandar, and the dynamics triggered by their attempts under Hasan Śāh and Maḥmūd Śāh to participate in the reign, culminated in a devastating civil war between factions of indigenous Kashmiris (kāśmīrika) and the immigrants from abroad (paradeśīya, vaideśika). These events are of research interest for tracing the historical ramifications of the Islamisation process in Kāśmīr. In terms of richness of detail of everyday culture including its material aspects, Śrīvara’s work is the most abundant source on Indo-Persian rule in early modern India and the living conditions under omnipresent threats of famines, natural disasters, and warfare. But the reflection of these histories in Sanskrit poetry needs more notice.<br> Kathākautukam was described by the Austrian scholar and historian of Sanskrit M Winternitz as an adaptation rather than translation of Jami’s poem. In his words it is an “amalgamation of the Hebrew story, Persian romantic ballad and the Indian Siva cult.” In this description he omitted mention of another important contributory source, namely, Islam. <br>The Sanskrit poem’s narrative also includes a list of names – like Adam – taken from Jami and the Semite scriptures. Yakub and Yusuf are identifiable and mentioned as such in this translation. Others remain in the original forms in which they occur in the Sanskrit text. Only one, Ajajamesra, was rendered as Mesra-born. Bearing in mind its accompanying reference to a river, Mesra is obviously Egypt, and Nila the River Nile.<br>The Sanskrit text also has references to various divinities and heroes from Indian mythology. All their names are given in the original form. The principal mention in Kathākautukam is that of the great god Śiva, also presented in his cosmic aspect, and referred to by the poet with various synonyms, many of which are well-known.<br> Śrīvara uses both Indian and Semite origin in the narrative sequences of the work. They also make evident its composite cultural background. A good example of this is in the narration of chapter 10, of the boy Yusuf’s abandonment in a forest and his rescue from a well with the help of the god Śankara and the angel Gabriel. There are several others, which a brief reading would easily locate. <br>Śrīvara received the patronage of three successive rulers, Zainulabidin, his son Hyder Śāh and grandson Hasan Śāh, in the fifteenth century. Dr.&nbsp;Nagarajan notes that this coincided with the brief rule of Sultans, who were independent of the Delhi Sultanate and showed great interest in Vālmīki Ramayana, Yogavāsiṣṭha, Bṛhatkathā, Purāṇas and Dharmaśāstra.
 </div>
 <div id="nav-śrīvara-works" class="tab-pane fade" role="tabpanel">
 <ul class="list-group list-group-flush">
@@ -654,6 +640,19 @@ The Sanskrit poem’s narrative also includes a list of names – like Adam – 
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

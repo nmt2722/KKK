@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/abhinanda.html">Abhinanda</a>
 </p>
 </div>
@@ -240,13 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>The work consists of 19 cantos, and the contents of the work are as follows: Canto 1: The work begins with a salutation to Lord Śiva, followed by an invocation to Sarasvatī, the Goddess of learning. The author introduces himself and his patron, and explains the purpose of the work.</p>
-<p>Canto 2-5: The story begins with a description of the kingdom of the Vidyādharās and the birth of Candrāpīḍa, the Prince of the Vidyādharās. We learn about his childhood and his education, and are introduced to other characters, including his mother and the sage Nārada.</p>
-<p>Canto 6-7: We are introduced to Kādambarī, the Princess of Kuntalā, and her childhood. We learn about her beauty and her accomplishments, and about the court of her father, King Śūdraka.</p>
-<p>Canto 8-10: The meeting of Kādambarī and Candrāpīḍa is described, and they fall in love. However, their love is complicated by various obstacles, including a magical spell that prevents them from meeting in person.</p>
-<p>Canto 11-14: We are introduced to other characters who play a role in the story, including the King of Kuntalā, his minister, and a sorcerer named Garuḍa. There are various intrigues and political machinations, and we learn about the history of the kingdom of Kuntalā.</p>
-<p>Canto 15-17: The story takes a mystical turn, with a description of a journey to the underworld and encounters with various supernatural beings. There are also philosophical reflections on the nature of reality and the human condition.</p>
-Canto 18-19: The story comes to a climax, with the resolution of the various plot threads and the union of Kādambarī and Candrāpīḍa. The work ends with a final reflection on the power of love and the transience of life.
+The work consists of 19 cantos, and the contents of the work are as follows: Canto 1: The work begins with a salutation to Lord Śiva, followed by an invocation to Sarasvatī, the Goddess of learning. The author introduces himself and his patron, and explains the purpose of the work.<br><br>Canto 2-5: The story begins with a description of the kingdom of the Vidyādharās and the birth of Candrāpīḍa, the Prince of the Vidyādharās. We learn about his childhood and his education, and are introduced to other characters, including his mother and the sage Nārada.<br><br>Canto 6-7: We are introduced to Kādambarī, the Princess of Kuntalā, and her childhood. We learn about her beauty and her accomplishments, and about the court of her father, King Śūdraka.<br><br>Canto 8-10: The meeting of Kādambarī and Candrāpīḍa is described, and they fall in love. However, their love is complicated by various obstacles, including a magical spell that prevents them from meeting in person.<br><br>Canto 11-14: We are introduced to other characters who play a role in the story, including the King of Kuntalā, his minister, and a sorcerer named Garuḍa. There are various intrigues and political machinations, and we learn about the history of the kingdom of Kuntalā.<br><br>Canto 15-17: The story takes a mystical turn, with a description of a journey to the underworld and encounters with various supernatural beings. There are also philosophical reflections on the nature of reality and the human condition.<br><br>Canto 18-19: The story comes to a climax, with the resolution of the various plot threads and the union of Kādambarī and Candrāpīḍa. The work ends with a final reflection on the power of love and the transience of life.
 </div>
 </div>
 </div>
@@ -282,10 +264,8 @@ Quotable Quotations
 </h2>
 <div id="work-acc-quotations" class="accordion-collapse collapse">
 <div class="accordion-body">
-<ol type="1">
-<li>गच्छन्तमेनं विनयस्य पाशैः तीव्राणि दुःखान्यनुभावयन्ती (कदम्बरीकथासारः - सर्गः – ८ – श्लोकः - ६७) He feels intense pain, who walks on the path of humility.</li>
-<li>विचित्रा वेधसः सृष्टिः विचित्रा कर्मवासना। विचित्रस्तद्विपाकश्च विचित्रः कालपर्ययः॥ (कदम्बरीकथासारः - सर्गः – १ – श्लोकः - ४३) The creation of the Creator is strange, the impression of anything remaining unconsciously in the mind is strange, and the consequences thereof are strange, and the passage of time is strange.
-</li></ol></div>
+1. गच्छन्तमेनं विनयस्य पाशैः तीव्राणि दुःखान्यनुभावयन्ती (कदम्बरीकथासारः - सर्गः – ८ – श्लोकः - ६७) He feels intense pain, who walks on the path of humility. <br>2. विचित्रा वेधसः सृष्टिः विचित्रा कर्मवासना। विचित्रस्तद्विपाकश्च विचित्रः कालपर्ययः॥ (कदम्बरीकथासारः - सर्गः – १ – श्लोकः - ४३)<br>The creation of the Creator is strange, the impression of anything remaining unconsciously in the mind is strange, and the consequences thereof are strange, and the passage of time is strange.
+</div>
 </div>
 </div>
 <div class="accordion-item">
@@ -297,20 +277,16 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Biography</span>
+<span class="badge bg-primary work-genre-badge">Biography</span>
 </p>
 </div>
 </div>
 </div>
-
 </div>
 
 
-</main></div>
 
-
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -711,7 +687,20 @@ Genre
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

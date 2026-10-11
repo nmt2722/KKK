@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,7 +222,7 @@ Works (2)
 </p>
 </div>
 <div id="nav-dhanapāla-life" class="tab-pane fade" role="tabpanel">
-Dhanapāla was a renowned Jaina Thinker, intellectual scholar and poet. Following in the steps of his very illustrious predecessors, he made significant contributions the political, economic, social and religious establishments of his time through works in Sanskrit, Prākrit and Apabhramśa. Tilakamanñjarī gives and account of a twice born Brahman, who though a blessed seer among Dānavas (demons), attained an accomplished stature of seerdom among the Gods. He was well versed in scriptures and attained exceptional skills in all arts. He is also said to have attained perfection in creative faculties and interpretations or philosophical dissertations. His self born son, Sarvadeva was considered to be a great soul and a peer to Svayambhu or Bramha. It is said that his son, the illustrious Brahman Dhanapāla is the composer of the unblemished Tilakamanñjarī. Therefore, according to Dhanapāla himself, he was the son of Sarvadeva – a great poet and philosopher. Dhanapāla had a younger brother Sobhana and a younger sister Sundari. He was married to Dhanasrī and had a daughter Bālapaṇḍita. According to his own sayings, Dhanapāla was an inspired poet brought into being through the environment or the circumstances of life. He inherited the vast store of knowledge by waiting at the lotus feet of his progenitor or sire Sarvadeva, who, as mentioned before, was considered to be a peer of Bramha. His style of writing was complete with a variety of syllabic denominations and contains lengthy sentences of complex vocabulary which can be considered to be a natural manner of writing in those times. If anything, his lack of verbosity possibly ranks him as one of the greatest scholars, poets and prose writers of the time, alongside stalwarts like Bāṇa. His constant homage to Amaraguru and Bhārgava, indicates his intellect and wisdom invoking thoughts in his writing. From what we know, Dhanapāla has an inclination to write in manner that is generally complex for readers to understand. His deliberate efforts to evolve something original, unusual and marvel-provoking are very evident throughout what is known of his works. According to Tilakamanñjarī, he was a prominent figure in the court of King Munja who decorated him with the title of Sarasvatī . Later on Dhanapāla spent several years in the court of King Bhoja, where he was held in high esteem. He was instrumental in making king Bhoja realise the futility of Brahmanical sacrifices and finally managed to convert him into Jainism.
+Dhanapāla was a renowned Jaina Thinker, intellectual scholar and poet. Following in the steps of his very illustrious predecessors, he made significant contributions the political, economic, social and religious establishments of his time through works in Sanskrit, Prākrit and Apabhramśa. Tilakamanñjarī gives and account of a twice born Brahman, who though a blessed seer among Dānavas (demons), attained an accomplished stature of seerdom among the Gods. He was well versed in scriptures and attained exceptional skills in all arts. He is also said to have attained perfection in creative faculties and interpretations or philosophical dissertations. His self born son, Sarvadeva was considered to be a great soul and a peer to Svayambhu or Bramha. It is said that his son, the illustrious Brahman Dhanapāla is the composer of the unblemished Tilakamanñjarī. Therefore, according to Dhanapāla himself, he was the son of Sarvadeva – a great poet and philosopher. Dhanapāla had a younger brother Sobhana and a younger sister Sundari. He was married to Dhanasrī and had a daughter Bālapaṇḍita.<br>According to his own sayings, Dhanapāla was an inspired poet brought into being through the environment or the circumstances of life. He inherited the vast store of knowledge by waiting at the lotus feet of his progenitor or sire Sarvadeva, who, as mentioned before, was considered to be a peer of Bramha. His style of writing was complete with a variety of syllabic denominations and contains lengthy sentences of complex vocabulary which can be considered to be a natural manner of writing in those times. If anything, his lack of verbosity possibly ranks him as one of the greatest scholars, poets and prose writers of the time, alongside stalwarts like Bāṇa. His constant homage to Amaraguru and Bhārgava, indicates his intellect and wisdom invoking thoughts in his writing.<br>From what we know, Dhanapāla has an inclination to write in manner that is generally complex for readers to understand. His deliberate efforts to evolve something original, unusual and marvel-provoking are very evident throughout what is known of his works. According to Tilakamanñjarī, he was a prominent figure in the court of King Munja who decorated him with the title of Sarasvatī . Later on Dhanapāla spent several years in the court of King Bhoja, where he was held in high esteem. He was instrumental in making king Bhoja realise the futility of Brahmanical sacrifices and finally managed to convert him into Jainism.
 </div>
 <div id="nav-dhanapāla-contribution" class="tab-pane fade" role="tabpanel">
 Dhanapāla’s contributions to Sanskrit literature are recognized for their literary merit, philosophical insight, and historical importance, and his works have been studied and appreciated by scholars and readers of Sanskrit literature for centuries.
@@ -655,6 +643,19 @@ Dhanapāla’s contributions to Sanskrit literature are recognized for their lit
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

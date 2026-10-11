@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -237,7 +225,7 @@ Works (1)
 Trivikrama Bhaṭṭa was a well-known scholar in the Rāṣṭrakūṭa King Indra III’s court. He was born in south India. His father was Dēvādityabhaṭṭa and belongs to Shandilya gotra. His Naḷacampū (915), the first in Sanskrit Campū style, also known by the name Damayantī Kathā is a masterwork. Trivikrama Bhaṭṭa was patronaged under the reign of Rāṣṭrakūṭas. He is credited with writing the first epic in Campū style. Campū is an epic poem that combines prose and verse. In Karnataka, this style became popular in both Sanskrit and Kannada. Damayantī Kathā, also known as Naḷacampū penned by Trivikrama, sheds light on the social scene of those times.
 </div>
 <div id="nav-trivikrama-bhaṭṭa-contribution" class="tab-pane fade" role="tabpanel">
-Trivikrama Bhaṭṭa’s contribution to Classical Sanskrit literature extends beyond his famous work Naḷacampū. He was a prolific poet and scholar who wrote several other works that are considered important in the Sanskrit literary canon. He is also known for his mastery of different poetic styles and his ability to innovate within these forms. Trivikrama Bhaṭṭa’s contributions to Sanskrit literature include his expertise in Alaṅkāra Śāstra (the study of rhetorical figures and devices) and his use of these devices in his poetry. In addition, he is credited with introducing new themes and characters into Sanskrit literature, such as the character of Kali in Naḷacampū. Trivikrama Bhaṭṭa’s contributions to Classical Sanskrit literature are significant, both in terms of his literary output and his innovations within poetic forms and themes. His works continue to be studied and appreciated by scholars and readers alike for their beauty, depth, and creativity.
+Trivikrama Bhaṭṭa’s contribution to Classical Sanskrit literature extends beyond his famous work Naḷacampū. He was a prolific poet and scholar who wrote several other works that are considered important in the Sanskrit literary canon. He is also known for his mastery of different poetic styles and his ability to innovate within these forms. Trivikrama Bhaṭṭa’s contributions to Sanskrit literature include his expertise in Alaṅkāra Śāstra (the study of rhetorical figures and devices) and his use of these devices in his poetry. In addition, he is credited with introducing new themes and characters into Sanskrit literature, such as the character of Kali in Naḷacampū.<br>Trivikrama Bhaṭṭa’s contributions to Classical Sanskrit literature are significant, both in terms of his literary output and his innovations within poetic forms and themes. His works continue to be studied and appreciated by scholars and readers alike for their beauty, depth, and creativity.
 </div>
 <div id="nav-trivikrama-bhaṭṭa-works" class="tab-pane fade" role="tabpanel">
 <ul class="list-group list-group-flush">
@@ -652,6 +640,19 @@ Trivikrama Bhaṭṭa’s contribution to Classical Sanskrit literature extends 
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

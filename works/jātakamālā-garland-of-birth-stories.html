@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/āryaśūra.html">Āryaśūra</a>
 </p>
 </div>
@@ -228,8 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>The Jātakamālā, also known as the “Garland of Birth Stories,” is a collection of tales about the previous lives of Buddha, or Jātakas. The Jātakas are a popular genre of Buddhist literature that tell stories of the past lives of Buddha, as various beings, such as animals, gods, and humans, and how he developed the qualities necessary to become a Buddha. In the Jātakamālā, Āryaśūra retells 34 Jātakas, each with its own moral lesson. The stories are presented as a garland of flowers, with each Jātaka serving as a flower in the garland. The Jātakas include stories of compassion, wisdom, and moral virtue, and they are intended to inspire and instruct Buddhist practitioners in their spiritual development.</p>
-Āryaśūra’s writing style in the Jātakamālā is characterized by its poetic language and vivid imagery, as well as its use of similes and metaphors to convey deeper meanings. The Jātakamālā is considered one of the most important work in the Jātaka genre and has had a significant influence on Buddhist literature and philosophy.
+The Jātakamālā, also known as the "Garland of Birth Stories," is a collection of tales about the previous lives of Buddha, or Jātakas. The Jātakas are a popular genre of Buddhist literature that tell stories of the past lives of Buddha, as various beings, such as animals, gods, and humans, and how he developed the qualities necessary to become a Buddha. In the Jātakamālā, Āryaśūra retells 34 Jātakas, each with its own moral lesson. The stories are presented as a garland of flowers, with each Jātaka serving as a flower in the garland. The Jātakas include stories of compassion, wisdom, and moral virtue, and they are intended to inspire and instruct Buddhist practitioners in their spiritual development.<br><br>Āryaśūra’s writing style in the Jātakamālā is characterized by its poetic language and vivid imagery, as well as its use of similes and metaphors to convey deeper meanings. The Jātakamālā is considered one of the most important work in the Jātaka genre and has had a significant influence on Buddhist literature and philosophy.
 </div>
 </div>
 </div>
@@ -241,9 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Āryaśūra is known for his work Jātakamālā (“Garland of Birth Stories”). The Jātakamālā is a collection of 34 tales about the previous lives of Buddha, or Jātakas. Each story presents a moral lesson, and together they form a “garland” of stories that reflect the values of Buddhist philosophy.</p>
-<p>The 34 tales of Jātakamālā, written by Āryaśūra, are as follows: Vyāghrījātakam, Śivijātakam Kulmāṣapiṇḍījātakam, Śreṣṭhijātakam, Avipāśreṣṭhijātakam, Śaśajātakam, Agastyajātakam, Maitrīyalajātakam, Viśvaṃtarajātakam, Yajñajātakam, Śakajātakam, Brāhmaṇajātakam, Unmādayantījātakam, Supāragajātakam, Matsyajātakam, Vartakāpotakajātakam, Kumbhajātakam, Aputrajātakam, Bisajātakam, Śreṣṭhijātakam, Bodhijātakam, Haṃsajātakam, Mahābodhijātakam, Mahākapijātakam, Śarabhajātakam, Rurujātakam , Mahākapijātakam , Kṣāntijātakam, Brahmajātakam, Hastijātakam, Sutasomajātakam, Ayogṛhajātakam, Mahiṣajātakam, Śatapatrajātakam</p>
-Each of these stories offers a moral lesson that is intended to inspire and instruct Buddhist practitioners in their spiritual development.
+Āryaśūra is known for his work Jātakamālā ("Garland of Birth Stories"). The Jātakamālā is a collection of 34 tales about the previous lives of Buddha, or Jātakas. Each story presents a moral lesson, and together they form a "garland" of stories that reflect the values of Buddhist philosophy. <br><br>The 34 tales of Jātakamālā, written by Āryaśūra, are as follows: Vyāghrījātakam, Śivijātakam Kulmāṣapiṇḍījātakam, Śreṣṭhijātakam, Avipāśreṣṭhijātakam, Śaśajātakam, Agastyajātakam, Maitrīyalajātakam, Viśvaṃtarajātakam, Yajñajātakam, Śakajātakam, Brāhmaṇajātakam, Unmādayantījātakam, Supāragajātakam, Matsyajātakam, Vartakāpotakajātakam, Kumbhajātakam, Aputrajātakam, Bisajātakam, Śreṣṭhijātakam, Bodhijātakam, Haṃsajātakam, Mahābodhijātakam, Mahākapijātakam, Śarabhajātakam, Rurujātakam , Mahākapijātakam , Kṣāntijātakam, Brahmajātakam, Hastijātakam, Sutasomajātakam, Ayogṛhajātakam, Mahiṣajātakam, Śatapatrajātakam<br><br>Each of these stories offers a moral lesson that is intended to inspire and instruct Buddhist practitioners in their spiritual development.
 </div>
 </div>
 </div>
@@ -255,9 +240,7 @@ Uniqueness
 </h2>
 <div id="work-acc-uniqueness" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Āryaśūra’s Jātakamālā is a unique work in Buddhist literature for several reasons. It is a collection of 34 stories that recount the previous lives of the Buddha in a style that is both entertaining and didactic. These stories, known as Jātakas, were a popular genre of literature in ancient India, but Āryaśūra’s collection stands out for its literary quality and skillful use of language.</p>
-<p>Jātakamālā is unique in its approach to storytelling. Unlike many other Jātaka collections, which tend to focus on the moral lessons to be learned from each story, Āryaśūra’s tales are more focused on the drama and human emotions involved in each story. This makes them more engaging and relatable to readers, while still conveying important ethical messages. Jātakamālā is unique in its philosophical outlook. While it is firmly rooted in Buddhist teachings, it also reflects a more pluralistic worldview that recognizes the validity of other religious and philosophical traditions. This is particularly evident in the story of the “Golden Goose,” which emphasizes the importance of tolerance and respect for diversity.</p>
-Āryaśūra’s Jātakamālā stands out as a literary masterpiece that combines entertainment, ethics, and philosophy in a way that is both engaging and enlightening.
+Āryaśūra’s Jātakamālā is a unique work in Buddhist literature for several reasons. It is a collection of 34 stories that recount the previous lives of the Buddha in a style that is both entertaining and didactic. These stories, known as Jātakas, were a popular genre of literature in ancient India, but Āryaśūra’s collection stands out for its literary quality and skillful use of language.<br><br>Jātakamālā is unique in its approach to storytelling. Unlike many other Jātaka collections, which tend to focus on the moral lessons to be learned from each story, Āryaśūra’s tales are more focused on the drama and human emotions involved in each story. This makes them more engaging and relatable to readers, while still conveying important ethical messages. Jātakamālā is unique in its philosophical outlook. While it is firmly rooted in Buddhist teachings, it also reflects a more pluralistic worldview that recognizes the validity of other religious and philosophical traditions. This is particularly evident in the story of the "Golden Goose," which emphasizes the importance of tolerance and respect for diversity.<br><br>Āryaśūra’s Jātakamālā stands out as a literary masterpiece that combines entertainment, ethics, and philosophy in a way that is both engaging and enlightening.
 </div>
 </div>
 </div>
@@ -269,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Āryaśūra’s Jātakamālā is a significant contribution to Sanskrit literature in several ways. Firstly, the Jātakamālā is a masterpiece of Sanskrit prose. The stories are written in a style that is both elegant and accessible, with a clear and engaging narrative that makes them enjoyable to read. Āryaśūra’s use of language is also notable for its clarity and precision, making the work more approachable to readers who may not be familiar with Sanskrit.</p>
-<p>Jātakamālā is an important work of Buddhist literature. It presents the previous lives of the Buddha, known as Jātakas, in a way that is both entertaining and didactic, conveying important ethical messages in a way that is accessible to a wide audience. Āryaśūra’s stories emphasize the importance of virtues such as compassion, generosity, and wisdom, and offer a model for ethical behaviour that is relevant even today. Jātakamālā is a significant work of Indian literature more broadly. It reflects the literary and philosophical traditions of ancient India, drawing on a rich heritage of storytelling and moral instruction. At the same time, it also reflects a more cosmopolitan outlook, incorporating elements of Greek, Persian, and other non-Indian cultures into its stories.</p>
-Āryaśūra’s Jātakamālā is a valuable contribution to Sanskrit literature, both for its literary qualities and its ethical and philosophical insights. Its enduring popularity testifies its relevance and importance even today.
+Āryaśūra’s Jātakamālā is a significant contribution to Sanskrit literature in several ways. Firstly, the Jātakamālā is a masterpiece of Sanskrit prose. The stories are written in a style that is both elegant and accessible, with a clear and engaging narrative that makes them enjoyable to read. Āryaśūra’s use of language is also notable for its clarity and precision, making the work more approachable to readers who may not be familiar with Sanskrit.<br><br>Jātakamālā is an important work of Buddhist literature. It presents the previous lives of the Buddha, known as Jātakas, in a way that is both entertaining and didactic, conveying important ethical messages in a way that is accessible to a wide audience. Āryaśūra’s stories emphasize the importance of virtues such as compassion, generosity, and wisdom, and offer a model for ethical behaviour that is relevant even today.<br>Jātakamālā is a significant work of Indian literature more broadly. It reflects the literary and philosophical traditions of ancient India, drawing on a rich heritage of storytelling and moral instruction. At the same time, it also reflects a more cosmopolitan outlook, incorporating elements of Greek, Persian, and other non-Indian cultures into its stories.<br><br>Āryaśūra’s Jātakamālā is a valuable contribution to Sanskrit literature, both for its literary qualities and its ethical and philosophical insights. Its enduring popularity testifies its relevance and importance even today.
 </div>
 </div>
 </div>
@@ -283,9 +264,8 @@ Quotable Quotations
 </h2>
 <div id="work-acc-quotations" class="accordion-collapse collapse">
 <div class="accordion-body">
-<ol type="1">
-<li>निरात्मके भेदिनि सारहीने दुःखे कृतघ्ने सतताशुचौ च । देहे परस्मायुपयुज्यमाने न प्रीतिमान्यो न विचक्षणः सः ॥ [जातकमाला – २२] nirātmake bhedini sārahīne duḥkhe kṛtaghne satatāśucau ca । dehe parasmāyupayujyamāne na prītimānyo na vicakṣaṇaḥ saḥ ॥ [jātakamālā – 22] Though the body has no separate soul, [though] it is divisive, [though it is] devoid of essence, [though it is] suffering, [though it is] ungrateful, and [though it is] constantly impure, but one who loves it just because it is used for others is wise.
-</li></ol></div>
+1. निरात्मके भेदिनि सारहीने दुःखे कृतघ्ने सतताशुचौ च । देहे परस्मायुपयुज्यमाने न प्रीतिमान्यो न विचक्षणः सः ॥ [जातकमाला – २२] nirātmake bhedini sārahīne duḥkhe kṛtaghne satatāśucau ca । dehe parasmāyupayujyamāne na prītimānyo na vicakṣaṇaḥ saḥ ॥ [jātakamālā – 22]<br>Though the body has no separate soul, [though] it is divisive, [though it is] devoid of essence, [though it is] suffering, [though it is] ungrateful, and [though it is] constantly impure, but one who loves it just because it is used for others is wise.
+</div>
 </div>
 </div>
 <div class="accordion-item">
@@ -297,20 +277,16 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Epic Drama</span>
+<span class="badge bg-primary work-genre-badge">Epic Drama</span>
 </p>
 </div>
 </div>
 </div>
-
 </div>
 
 
-</main></div>
 
-
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -711,7 +687,20 @@ Genre
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

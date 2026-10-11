@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/lolambarāja.html">Lolambarāja</a>
 </p>
 </div>
@@ -228,9 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Sākṣi-gopāla-viraha-kāvya is a Sanskrit epic poem that tells the story of the separation and reunion of the Hindu god Kṛṣṇa and his lover Rādhā. Sākṣi-gopāla-viraha-kāvya is considered one of the greatest works of classical Sanskrit literature, and is noted for its emotional depth, vivid descriptions, and philosophical insights. It consists of over 1,000 verses, and is written in the kāvya style, which emphasizes ornate language, complex metaphors, and intricate wordplay.</p>
-<p>The poem tells the story of Kṛṣṇa’s departure from his beloved Rādhā, and her subsequent longing and suffering in his absence. The central theme of the poem is the pain of separation and the joy of reunion, and it explores the nature of love, devotion, and the human quest for spiritual fulfilment.</p>
-The Sākṣi-gopāla-viraha-kāvya has been admired for its poetic beauty and its ability to convey complex philosophical ideas through its narrative. It continues to be studied and appreciated by scholars of Sanskrit literature and enthusiasts of Hindu culture.
+Sākṣi-gopāla-viraha-kāvya is a Sanskrit epic poem that tells the story of the separation and reunion of the Hindu god Kṛṣṇa and his lover Rādhā. Sākṣi-gopāla-viraha-kāvya is considered one of the greatest works of classical Sanskrit literature, and is noted for its emotional depth, vivid descriptions, and philosophical insights. It consists of over 1,000 verses, and is written in the kāvya style, which emphasizes ornate language, complex metaphors, and intricate wordplay.<br><br>The poem tells the story of Kṛṣṇa’s departure from his beloved Rādhā, and her subsequent longing and suffering in his absence. The central theme of the poem is the pain of separation and the joy of reunion, and it explores the nature of love, devotion, and the human quest for spiritual fulfilment.<br><br>The Sākṣi-gopāla-viraha-kāvya has been admired for its poetic beauty and its ability to convey complex philosophical ideas through its narrative. It continues to be studied and appreciated by scholars of Sanskrit literature and enthusiasts of Hindu culture.
 </div>
 </div>
 </div>
@@ -242,14 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Here are the main contents of the poem:</p>
-<p>• The introduction: The poem begins with an invocation to the god Gaṇeśa, followed by a description of the setting and the characters.</p>
-<p>• The love of Kṛṣṇa and Rādhā: The central theme of the poem is the love between Kṛṣṇa and Rādhā, and their separation due to various circumstances. Describe briefly the circumstances here if possible</p>
-<p>• The pain of separation: The poem describes the intense suffering that Rādhā experiences as a result of Kṛṣṇa’s absence, and her longing to be reunited with him.</p>
-<p>• The role of the Sakhi: The Sakhi, or Rādhā’s friend, plays an important role in the poem, providing comfort and support to Rādhā during her period of separation from Kṛṣṇa.</p>
-<p>• Kṛṣṇa’s exploits: While the focus of the poem is on Rādhā’s suffering, it also describes some of Kṛṣṇa’s adventures and exploits, including his battles with demons and his dalliances with other women.</p>
-<p>• The reunion: Finally, the poem describes the joyous reunion of Kṛṣṇa and Rādhā, and the resolution of their separation.</p>
-Throughout the poem, Lolambarāja explores the themes of love, devotion, and the quest for spiritual fulfilment, and uses rich imagery and intricate wordplay to convey his message. The Sākṣi-gopāla-viraha-kāvya is considered one of the great works of classical Sanskrit literature, and is still studied and appreciated today by scholars and enthusiasts oh Hindu culture.
+Here are the main contents of the poem:<br><br>• The introduction: The poem begins with an invocation to the god Gaṇeśa, followed by a description of the setting and the characters.<br><br>• The love of Kṛṣṇa and Rādhā: The central theme of the poem is the love between Kṛṣṇa and Rādhā, and their separation due to various circumstances. Describe briefly the circumstances here if possible <br><br>• The pain of separation: The poem describes the intense suffering that Rādhā experiences as a result of Kṛṣṇa’s absence, and her longing to be reunited with him.<br><br>• The role of the Sakhi: The Sakhi, or Rādhā’s friend, plays an important role in the poem, providing comfort and support to Rādhā during her period of separation from Kṛṣṇa.<br><br>• Kṛṣṇa’s exploits: While the focus of the poem is on Rādhā’s suffering, it also describes some of Kṛṣṇa’s adventures and exploits, including his battles with demons and his dalliances with other women.<br><br>• The reunion: Finally, the poem describes the joyous reunion of Kṛṣṇa and Rādhā, and the resolution of their separation.<br><br>Throughout the poem, Lolambarāja explores the themes of love, devotion, and the quest for spiritual fulfilment, and uses rich imagery and intricate wordplay to convey his message. The Sākṣi-gopāla-viraha-kāvya is considered one of the great works of classical Sanskrit literature, and is still studied and appreciated today by scholars and enthusiasts oh Hindu culture.
 </div>
 </div>
 </div>
@@ -261,12 +240,7 @@ Uniqueness
 </h2>
 <div id="work-acc-uniqueness" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Sākṣi-gopāla-viraha-kāvya is a unique work of Sanskrit literature for several reasons:</p>
-<p>Focus on the pain of separation: While many Sanskrit works explore the themes of love and devotion, the Sākṣi-gopāla-viraha-kāvya is unique in its focus on the pain of separation between lovers. The poem vividly describes the suffering that Rādhā experiences in Kṛṣṇa’s absence, and her intense longing for his return.</p>
-<p>• Use of vivid imagery: The poem is noted for its rich and vivid descriptions of the natural world, as well as its use of complex metaphors and intricate wordplay. This creates a powerful and emotionally charged atmosphere throughout the work.</p>
-<p>• Exploration of philosophical themes: Despite its focus on the love story between Kṛṣṇa and Rādhā, the Sākṣi-gopāla-viraha-kāvya also explores complex philosophical themes, such as the nature of reality and the human quest for spiritual fulfilment. This gives the work a depth and complexity that sets it apart from other works of Sanskrit literature.</p>
-<p>• Importance within Hindu culture: The Sākṣi-gopāla-viraha-kāvya is considered one of the great works of devotional poetry within the Hindu tradition. It has inspired numerous adaptations and interpretations, and continues to be studied and appreciated today by scholars and enthusiasts of Sanskrit literature and Hindu culture.</p>
-Overall, the Sākṣi-gopāla-viraha-kāvya stands out as a unique and influential work within the rich tradition of classical Sanskrit literature. Its powerful emotional impact, intricate wordplay, and exploration of philosophical themes continue to inspire and captivate readers today.
+Sākṣi-gopāla-viraha-kāvya is a unique work of Sanskrit literature for several reasons:<br><br>Focus on the pain of separation: While many Sanskrit works explore the themes of love and devotion, the Sākṣi-gopāla-viraha-kāvya is unique in its focus on the pain of separation between lovers. The poem vividly describes the suffering that Rādhā experiences in Kṛṣṇa’s absence, and her intense longing for his return. <br><br>• Use of vivid imagery: The poem is noted for its rich and vivid descriptions of the natural world, as well as its use of complex metaphors and intricate wordplay. This creates a powerful and emotionally charged atmosphere throughout the work.<br><br>• Exploration of philosophical themes: Despite its focus on the love story between Kṛṣṇa and Rādhā, the Sākṣi-gopāla-viraha-kāvya also explores complex philosophical themes, such as the nature of reality and the human quest for spiritual fulfilment. This gives the work a depth and complexity that sets it apart from other works of Sanskrit literature.<br><br>• Importance within Hindu culture: The Sākṣi-gopāla-viraha-kāvya is considered one of the great works of devotional poetry within the Hindu tradition. It has inspired numerous adaptations and interpretations, and continues to be studied and appreciated today by scholars and enthusiasts of Sanskrit literature and Hindu culture.<br><br>Overall, the Sākṣi-gopāla-viraha-kāvya stands out as a unique and influential work within the rich tradition of classical Sanskrit literature. Its powerful emotional impact, intricate wordplay, and exploration of philosophical themes continue to inspire and captivate readers today.
 </div>
 </div>
 </div>
@@ -278,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>The Sākṣi-gopāla-viraha-kāvya exemplifies the kāvya style of Sanskrit poetry with its ornate language, intricate wordplay, and complex metaphors. It delves into profound emotional depths, vividly expressing the agony of separation between lovers, setting a precedent for subsequent works of Sanskrit literature that showcased sophisticated psychological insight. Moreover, the poem contributes to Hindu mythology by narrating the tale of Kṛṣṇa and Rādhā, leaving a lasting impact on their portrayal within Hindu culture. Its far-reaching influence can be seen in numerous adaptations and references in later Sanskrit literature, spanning from epic poems to lyric poetry, and cementing its significant contribution to the tradition.</p>
-<hr>
-Sākṣi-gopāla-viraha-kāvya has been set to music in the Indian classical music tradition, particularly within the Hindustani and Carnatic styles. These musical adaptations often emphasize the poem’s emotional depth and use of vivid imagery, and are considered an important part of the poem’s legacy. Sākṣi-gopāla-viraha-kāvya has been translated into many different languages, including English, Hindi, and Bengali. These translations have helped to make the poem accessible to a wider audience, and have contributed to its enduring popularity.
+The Sākṣi-gopāla-viraha-kāvya exemplifies the kāvya style of Sanskrit poetry with its ornate language, intricate wordplay, and complex metaphors. It delves into profound emotional depths, vividly expressing the agony of separation between lovers, setting a precedent for subsequent works of Sanskrit literature that showcased sophisticated psychological insight. Moreover, the poem contributes to Hindu mythology by narrating the tale of Kṛṣṇa and Rādhā, leaving a lasting impact on their portrayal within Hindu culture. Its far-reaching influence can be seen in numerous adaptations and references in later Sanskrit literature, spanning from epic poems to lyric poetry, and cementing its significant contribution to the tradition.<br><br>Sākṣi-gopāla-viraha-kāvya has been set to music in the Indian classical music tradition, particularly within the Hindustani and Carnatic styles. These musical adaptations often emphasize the poem’s emotional depth and use of vivid imagery, and are considered an important part of the poem’s legacy. Sākṣi-gopāla-viraha-kāvya has been translated into many different languages, including English, Hindi, and Bengali. These translations have helped to make the poem accessible to a wider audience, and have contributed to its enduring popularity.
 </div>
 </div>
 </div>
@@ -307,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Humor</span>
+<span class="badge bg-primary work-genre-badge">Humor</span>
 </p>
 </div>
 </div>
@@ -718,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

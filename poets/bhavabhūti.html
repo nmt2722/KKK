@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,9 +222,7 @@ Works (3)
 </p>
 </div>
 <div id="nav-bhavabhūti-life" class="tab-pane fade" role="tabpanel">
-<p>Bhavabhūti was a renowned Sanskrit poet and playwright who lived around 700 CE. He was born in Padmapuram, a city located in the southern trade route of India, in a family of Brāhmaṇa belonging to the Taittirīya-śākha of the Yajurvēda. They were known for their strict observance of Vedic rituals and were considered pure and sacred. Bhavabhūti’s grandfather, Bhattagōpāla, was a famous scholar who earned great fame. Bhavabhūti’s father was Nīlakaṇṭha, who had a pure and sacred reputation. Bhavabhūti himself was known by two names: Śrīkaṇṭha, due to his clear voice, and Bhavabhūti, which he may have acquired because of his description of Gauri and Śiva. He was also known as a scholar of grammar and Mīmāmsā, the system of knowledge that explains the meaning of the Vedic sentences.</p>
-<p>Bhavabhūti wrote three famous plays, Mahāvīrācārita, Mālatīmādhava, and Uttararāmacarita. His works were highly respected by both critics and patrons. He was considered one of the greatest dramatists of his time, and his plays were widely performed throughout India. He was particularly famous for his use of language and the depth of his characters.</p>
-Bhavabhūti’s life is not well documented, and many details about him remain unknown. However, his works have survived the test of time and continue to be studied and performed today. He is remembered as a great poet, playwright, and scholar of ancient India.
+Bhavabhūti was a renowned Sanskrit poet and playwright who lived around 700 CE. He was born in Padmapuram, a city located in the southern trade route of India, in a family of Brāhmaṇa belonging to the Taittirīya-śākha of the Yajurvēda. They were known for their strict observance of Vedic rituals and were considered pure and sacred. Bhavabhūti’s grandfather, Bhattagōpāla, was a famous scholar who earned great fame. Bhavabhūti’s father was Nīlakaṇṭha, who had a pure and sacred reputation. Bhavabhūti himself was known by two names: Śrīkaṇṭha, due to his clear voice, and Bhavabhūti, which he may have acquired because of his description of Gauri and Śiva. He was also known as a scholar of grammar and Mīmāmsā, the system of knowledge that explains the meaning of the Vedic sentences.<br><br>Bhavabhūti wrote three famous plays, Mahāvīrācārita, Mālatīmādhava, and Uttararāmacarita. His works were highly respected by both critics and patrons. He was considered one of the greatest dramatists of his time, and his plays were widely performed throughout India. He was particularly famous for his use of language and the depth of his characters.<br><br>Bhavabhūti’s life is not well documented, and many details about him remain unknown. However, his works have survived the test of time and continue to be studied and performed today. He is remembered as a great poet, playwright, and scholar of ancient India.
 </div>
 <div id="nav-bhavabhūti-contribution" class="tab-pane fade" role="tabpanel">
 Bhavabhūti is considered one of the greatest playwrights in Classical Sanskrit literature. He wrote three major plays - Mahāvīrācārita, Mahāvīrācārita, and Uttararāmacharita, which are still highly regarded for their literary excellence, intricate plot construction, and vivid characterization. Bhavabhūti’s plays are known for their exploration of the human psyche, moral dilemmas, and ethical complexities, making them timeless works of art that continue to be relevant even today. His contribution to Sanskrit literature lies not only in his plays but also in his poetic works, including the Uttararāmacharita, which is a significant contribution to Sanskrit epic poetry. Additionally, Bhavabhūti’s use of sophisticated language and poetic devices has had a lasting impact on the development of Sanskrit literature and has inspired generations of writers and poets.
@@ -660,6 +646,19 @@ Bhavabhūti is considered one of the greatest playwrights in Classical Sanskrit 
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

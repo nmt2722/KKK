@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/maṅkhvaka.html">Maṅkhvaka</a>
 </p>
 </div>
@@ -228,7 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-Śrīkaṇṭhacarita is an epic poem written by the Sanskrit poet Maṅkhvaka. The poem tells the story of Lord Śiva’s battle with the demon Tripurāsura and his subsequent acquisition of the sacred Tripurabhasma. According to the legend, Tripurāsura was a powerful demon who had through his devotion to Lord Brahma, obtained a boon and got ownership of three cities. According to the boon, these cities could only be destroyed by a single arrow that could simultaneously hit all three of them. Lord Śiva, with the help of other gods, constructed a powerful chariot and a bow to fire the arrow. He then engaged in a fierce battle with Tripurāsura and his army of demons. After a long and difficult fight, Lord Śiva was finally able to hit the three cities with the arrow, destroying them and killing Tripurāsura. As a result of his victory, Śiva was granted Tripurabhasma, a sacred ash that was believed to grant immense power and protection. The poem describes in detail the battle between Śiva and Tripurāsura, as well as the construction of Śiva’s chariot and bow. It also delves into the significance of Tripurabhasma in Hindu mythology and the process by which Śiva obtained it. Throughout the poem, Maṅkhvaka employs vivid imagery, complex metaphors, and intricate descriptions of the gods and their surroundings. Śrīkaṇṭhacarita is regarded as an important work of Sanskrit literature and a significant contribution to Hindu mythology.
+Śrīkaṇṭhacarita is an epic poem written by the Sanskrit poet Maṅkhvaka. The poem tells the story of Lord Śiva’s battle with the demon Tripurāsura and his subsequent acquisition of the sacred Tripurabhasma. According to the legend, Tripurāsura was a powerful demon who had through his devotion to Lord Brahma, obtained a boon and got ownership of three cities. According to the boon, these cities could only be destroyed by a single arrow that could simultaneously hit all three of them. Lord Śiva, with the help of other gods, constructed a powerful chariot and a bow to fire the arrow. He then engaged in a fierce battle with Tripurāsura and his army of demons.<br>After a long and difficult fight, Lord Śiva was finally able to hit the three cities with the arrow, destroying them and killing Tripurāsura. As a result of his victory, Śiva was granted Tripurabhasma, a sacred ash that was believed to grant immense power and protection. The poem describes in detail the battle between Śiva and Tripurāsura, as well as the construction of Śiva’s chariot and bow. It also delves into the significance of Tripurabhasma in Hindu mythology and the process by which Śiva obtained it.<br>Throughout the poem, Maṅkhvaka employs vivid imagery, complex metaphors, and intricate descriptions of the gods and their surroundings. Śrīkaṇṭhacarita is regarded as an important work of Sanskrit literature and a significant contribution to Hindu mythology.
 </div>
 </div>
 </div>
@@ -240,34 +228,8 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>The Śrīkaṇṭhacarita is an epic poem consisting of 25 Sargās or chapters. Here is a brief overview of the contents of each sarga:</p>
-<ol type="1">
-<li><p>Invocation: The poem begins with an invocation to Lord Śiva and a request for his blessings.</p></li>
-<li><p>Introduction: Maṅkhvaka introduces the story of Lord Śiva’s battle with Tripurāsura.</p></li>
-<li><p>Śiva’s meditation: Lord Śiva meditates to seek the blessings of the goddess Tripura Sundari.</p></li>
-<li><p>Construction of the chariot: The gods gather to construct a powerful chariot for Lord Śiva.</p></li>
-<li><p>The bow: The gods also create a powerful bow for Śiva to use in the battle.</p></li>
-<li><p>Decoration of the chariot: The chariot is decorated with various symbols and images.</p></li>
-<li><p>The army of gods: The gods assemble an army to accompany Śiva into the battle.</p></li>
-<li><p>The arrival of Tripurāsura: Tripurāsura arrives with his army of demons.</p></li>
-<li><p>The battle begins: Śiva and his army engage in a battle with Tripurāsura forces.</p></li>
-<li><p>Tripurāsura’s chariot: Tripurāsura’s chariot is described in detail.</p></li>
-<li><p>The chariot battle: Śiva and Tripurāsura engage in a fierce battle of chariots.</p></li>
-<li><p>The battle continues: The battle between Śiva and Tripurāsura continues.</p></li>
-<li><p>Śiva’s rage: Lord Śiva becomes enraged and destroys some of Tripurāsura’s forces.</p></li>
-<li><p>Tripurāsura’s army regroups: Tripurāsura’s forces regroup and prepare to continue the battle.</p></li>
-<li><p>The destruction of Tripurāsura’s army: Śiva continues to destroy Tripurāsura’s forces.</p></li>
-<li><p>The gods’ weapons: The gods use their weapons to help Śiva in the battle.</p></li>
-<li><p>Śiva’s victory: Lord Śiva finally defeats Tripurāsura and destroys his three cities.</p></li>
-<li><p>Śiva’s exhaustion: Śiva becomes exhausted after the battle and needs to rest.</p></li>
-<li><p>Śiva’s vision: Śiva has a vision of the goddess Tripura Sundari.</p></li>
-<li><p>The goddess’s blessing: Tripura Sundari appears to Śiva and blesses him.</p></li>
-<li><p>The creation of Tripurabhasma: Śiva creates the sacred ash Tripurabhasma.</p></li>
-<li><p>The significance of Tripurabhasma: The significance of Tripurabhasma is explained.</p></li>
-<li><p>The distribution of Tripurabhasma: Śiva distributes Tripurabhasma to his followers.</p></li>
-<li><p>The conclusion: Maṅkhvaka concludes the poem by offering praise to Lord Śiva.</p></li>
-<li><p>Benediction: The poem ends with a benediction seeking the blessings of Lord Śiva.</p>
-</li></ol></div>
+The Śrīkaṇṭhacarita is an epic poem consisting of 25 Sargās or chapters. Here is a brief overview of the contents of each sarga:<br><br>1) Invocation: The poem begins with an invocation to Lord Śiva and a request for his blessings.<br><br>2) Introduction: Maṅkhvaka introduces the story of Lord Śiva’s battle with Tripurāsura.<br><br>3) Śiva’s meditation: Lord Śiva meditates to seek the blessings of the goddess Tripura Sundari.<br><br>4) Construction of the chariot: The gods gather to construct a powerful chariot for Lord Śiva.<br><br>5) The bow: The gods also create a powerful bow for Śiva to use in the battle.<br><br>6) Decoration of the chariot: The chariot is decorated with various symbols and images.<br><br>7) The army of gods: The gods assemble an army to accompany Śiva into the battle.<br><br>8) The arrival of Tripurāsura: Tripurāsura arrives with his army of demons.<br><br>9) The battle begins: Śiva and his army engage in a battle with Tripurāsura forces.<br><br>10) Tripurāsura’s chariot: Tripurāsura’s chariot is described in detail.<br><br>11) The chariot battle: Śiva and Tripurāsura engage in a fierce battle of chariots.<br><br>12) The battle continues: The battle between Śiva and Tripurāsura continues.<br><br>13) Śiva’s rage: Lord Śiva becomes enraged and destroys some of Tripurāsura’s forces.<br><br>14) Tripurāsura’s army regroups: Tripurāsura’s forces regroup and prepare to continue the battle.<br><br>15) The destruction of Tripurāsura’s army: Śiva continues to destroy Tripurāsura’s forces.<br><br>16) The gods’ weapons: The gods use their weapons to help Śiva in the battle.<br><br>17) Śiva’s victory: Lord Śiva finally defeats Tripurāsura and destroys his three cities.<br><br>18) Śiva’s exhaustion: Śiva becomes exhausted after the battle and needs to rest.<br><br>19) Śiva’s vision: Śiva has a vision of the goddess Tripura Sundari.<br><br>20) The goddess’s blessing: Tripura Sundari appears to Śiva and blesses him.<br><br>21) The creation of Tripurabhasma: Śiva creates the sacred ash Tripurabhasma.<br><br>22) The significance of Tripurabhasma: The significance of Tripurabhasma is explained.<br><br>23) The distribution of Tripurabhasma: Śiva distributes Tripurabhasma to his followers.<br><br>24) The conclusion: Maṅkhvaka concludes the poem by offering praise to Lord Śiva.<br><br>25) Benediction: The poem ends with a benediction seeking the blessings of Lord Śiva.
+</div>
 </div>
 </div>
 <div class="accordion-item">
@@ -290,18 +252,12 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Śrīkaṇṭhacarita makes several important contributions to Sanskrit literature. Firstly, it adds to the corpus of epic poetry in the language, which already includes works such as the Mahabharata and the Ramayana. Secondly, it provides a unique perspective on the Hindu god Śiva and his role in mythology, including his battle with Tripurāsura. Thirdly, the poem showcases the literary skill and creativity of its author, Maṅkhvaka, who uses vivid imagery, metaphor, and allegory to bring the story to life. Finally, the work also contributes to the spiritual and cultural heritage of India, as it is a valuable source of knowledge and inspiration for those who follow the Hindu faith.</p>
+Śrīkaṇṭhacarita makes several important contributions to Sanskrit literature. Firstly, it adds to the corpus of epic poetry in the language, which already includes works such as the Mahabharata and the Ramayana. Secondly, it provides a unique perspective on the Hindu god Śiva and his role in mythology, including his battle with Tripurāsura. Thirdly, the poem showcases the literary skill and creativity of its author, Maṅkhvaka, who uses vivid imagery, metaphor, and allegory to bring the story to life. Finally, the work also contributes to the spiritual and cultural heritage of India, as it is a valuable source of knowledge and inspiration for those who follow the Hindu faith.<br><br>Śrīkaṇṭhacarita is a significant work not only in Sanskrit literature but also in Hindu mythology and culture. The poem is notable for its intense descriptions of battle scenes and use of allegory and metaphor. It also contains valuable insights into the Hindu concept of dharma, or righteous conduct, and the importance of devotion to Lord Śiva. The work has been the subject of numerous commentaries and translations, and it continues to be studied and appreciated by scholars and devotees alike.
 </div>
 </div>
 </div>
-
-<hr>
-Śrīkaṇṭhacarita is a significant work not only in Sanskrit literature but also in Hindu mythology and culture. The poem is notable for its intense descriptions of battle scenes and use of allegory and metaphor. It also contains valuable insights into the Hindu concept of dharma, or righteous conduct, and the importance of devotion to Lord Śiva. The work has been the subject of numerous commentaries and translations, and it continues to be studied and appreciated by scholars and devotees alike.
-</div>
-</main></div>
-
 <div class="accordion-item">
-<h2 class="accordion-header">
+<h2 class="accordion-header anchored">
 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work-acc-quotations">
 Quotable Quotations
 </button>
@@ -315,7 +271,7 @@ No quotations available.
 </div>
 </div>
 <div class="accordion-item">
-<h2 class="accordion-header">
+<h2 class="accordion-header anchored">
 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work-acc-genre">
 Genre
 </button>
@@ -323,16 +279,16 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Poems</span>
+<span class="badge bg-primary work-genre-badge">Poems</span>
 </p>
 </div>
 </div>
 </div>
+</div>
 
 
 
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -733,7 +689,20 @@ Genre
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

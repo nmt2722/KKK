@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,9 +222,7 @@ Works (2)
 </p>
 </div>
 <div id="nav-umāpatidhara-life" class="tab-pane fade" role="tabpanel">
-<p>Umāpatidhara lived in the 12th century CE under the patronage of King Lakṣmaṇasena of Bengal. There are no surviving biographical accounts or records that provide information about his family, upbringing, or personal life.</p>
-<p>What we do know about Umāpatidhara comes mainly from his own works, particularly the Candracūḍa and the Pārijātāharaṇa. These poems reveal his exceptional talent as a writer and his deep knowledge of Sanskrit literature, mythology, and culture.</p>
-Despite the lack of information about his life, Umāpatidhara’s poetry continues to be admired and studied for its beauty, complexity, and insight into the human condition.
+Umāpatidhara lived in the 12th century CE under the patronage of King Lakṣmaṇasena of Bengal. There are no surviving biographical accounts or records that provide information about his family, upbringing, or personal life.<br><br>What we do know about Umāpatidhara comes mainly from his own works, particularly the Candracūḍa and the Pārijātāharaṇa. These poems reveal his exceptional talent as a writer and his deep knowledge of Sanskrit literature, mythology, and culture.<br><br>Despite the lack of information about his life, Umāpatidhara’s poetry continues to be admired and studied for its beauty, complexity, and insight into the human condition.
 </div>
 <div id="nav-umāpatidhara-contribution" class="tab-pane fade" role="tabpanel">
 Umāpatidhara is a significant figure in classical Sanskrit literature due to his contributions to the fields of poetry and drama. His works, including Pārijātāharaṇa and Candracūḍa, are renowned for their innovative storytelling, complex characters, and use of poetic language. Umāpatidhara’s plays are notable for their exploration of timeless themes such as love, loyalty, and justice, while also reflecting the social and cultural milieu of 12th-century India. His mastery of Sanskrit language and literature, as well as his unique perspective and style, have had a lasting impact on the development of Indian literary tradition. Overall, Umāpatidhara’s contributions to classical Sanskrit literature have helped shape and define the genre of Sanskrit drama, inspiring generations of readers and writers and continuing to influence Indian literature to this day.
@@ -657,6 +643,19 @@ Umāpatidhara is a significant figure in classical Sanskrit literature due to hi
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

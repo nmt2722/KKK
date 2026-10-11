@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -230,14 +218,14 @@ Works (1)
 <div class="tab-content py-3">
 <div id="nav-kuntaka-overview" class="tab-pane fade show active" role="tabpanel">
 <p class="lead">
-Kuntaka was a Sanskrit poet and literary theorist who is believed to have lived in the 9th century AD in the region of Kashmir, India. He is best known for his work, the “Vakroktijīvita,” a treatise on poetics and aesthetics that discusses the concept of vakrokti, or oblique expression, in poetry. Kuntaka is considered one of the most important figures in the development of Indian poetics and his work has had a significant influence on later literary theory and practice.
+Kuntaka was a Sanskrit poet and literary theorist who is believed to have lived in the 9th century AD in the region of Kashmir, India. He is best known for his work, the "Vakroktijīvita," a treatise on poetics and aesthetics that discusses the concept of vakrokti, or oblique expression, in poetry. Kuntaka is considered one of the most important figures in the development of Indian poetics and his work has had a significant influence on later literary theory and practice.
 </p>
 </div>
 <div id="nav-kuntaka-life" class="tab-pane fade" role="tabpanel">
-Kuntaka was born in Kashmir, which was then a centre of Sanskrit learning and culture. He is believed to have lived during the reign of the Karkota dynasty, which ruled Kashmir from the 8th to the 10th century AD. It is also said that he may have been a court poet or a teacher of poetics in Kashmir. Kuntaka is known primarily for his work, the “Vakroktijīvita,” which is a treatise on poetics and aesthetics. In this work, he discusses the concept of vakrokti, which refers to oblique or indirect expression in poetry. According to Kuntaka, vakrokti is a way of expressing deeper meanings and emotions through subtle and indirect language. He also discusses other aspects of poetry, such as figures of speech, emotions, and the role of the poet in society. Kuntaka’s work has had a significant influence on Indian poetics and aesthetics. His ideas about vakrokti have been widely discussed and debated by later scholars and poets, and his work continues to be studied and appreciated by students of Indian literature and culture. Kuntaka’s audience was primarily other scholars and poets who were interested in Indian poetics and aesthetics. His work, the “Vakroktijīvita,” is a treatise on poetics and aesthetics that discusses the concept of vakrokti, or oblique expression, in poetry. Kuntaka wrote in Sanskrit, which was the language of scholars and intellectuals in medieval India. His ideas about poetry and aesthetics were influential in his own time and have continued to be studied and debated by later scholars and poets. The “Vakroktijīvita” is a complex and sophisticated work that requires a good understanding of Sanskrit and Indian poetics to fully appreciate it. It is likely that Kuntaka’s intended audience consisted of other scholars and poets who were already familiar with these subjects.
+Kuntaka was born in Kashmir, which was then a centre of Sanskrit learning and culture. He is believed to have lived during the reign of the Karkota dynasty, which ruled Kashmir from the 8th to the 10th century AD. It is also said that he may have been a court poet or a teacher of poetics in Kashmir.<br>Kuntaka is known primarily for his work, the "Vakroktijīvita," which is a treatise on poetics and aesthetics. In this work, he discusses the concept of vakrokti, which refers to oblique or indirect expression in poetry. According to Kuntaka, vakrokti is a way of expressing deeper meanings and emotions through subtle and indirect language. He also discusses other aspects of poetry, such as figures of speech, emotions, and the role of the poet in society.<br>Kuntaka’s work has had a significant influence on Indian poetics and aesthetics. His ideas about vakrokti have been widely discussed and debated by later scholars and poets, and his work continues to be studied and appreciated by students of Indian literature and culture.<br>Kuntaka’s audience was primarily other scholars and poets who were interested in Indian poetics and aesthetics. His work, the "Vakroktijīvita," is a treatise on poetics and aesthetics that discusses the concept of vakrokti, or oblique expression, in poetry.<br>Kuntaka wrote in Sanskrit, which was the language of scholars and intellectuals in medieval India. His ideas about poetry and aesthetics were influential in his own time and have continued to be studied and debated by later scholars and poets.<br>The "Vakroktijīvita" is a complex and sophisticated work that requires a good understanding of Sanskrit and Indian poetics to fully appreciate it. It is likely that Kuntaka’s intended audience consisted of other scholars and poets who were already familiar with these subjects.
 </div>
 <div id="nav-kuntaka-contribution" class="tab-pane fade" role="tabpanel">
-Kuntaka’s “Vakroktijīvita” is considered a seminal work in Classical Sanskrit literature. Here are some of its contributions: 1. Systematization of Vakrokti: Kuntaka systematized the concept of vakrokti, which was already in use in Sanskrit literature, by providing a comprehensive analysis of its various aspects. This work helped to establish vakrokti as a major literary device in Sanskrit poetry. 2. Definition of poetic beauty: Kuntaka’s “Vakroktijīvita” provided a new definition of poetic beauty, emphasizing the importance of figurative language and the power of suggestion. Kuntaka’s emphasis on the beauty of suggestion, rather than the literal meaning of words, helped to create a new genre of Sanskrit literature that focused on indirect expression and oblique reference. 3. Influence on poets: Kuntaka’s “Vakroktijīvita” had a significant influence on poets of his time and subsequent generations. Many poets who followed Kuntaka’s ideas adopted his emphasis on figurative language and indirect expression in their own works. 4. Impact on aesthetics: Kuntaka’s “Vakroktijīvita” had a significant impact on the development of Sanskrit literary aesthetics. His work helped to establish vakrokti as a major component of Sanskrit poetry and contributed to the emergence of a new aesthetic tradition that emphasized the beauty of suggestion and indirect expression. Overall, Kuntaka’s “Vakroktijīvita” is a significant contribution to Classical Sanskrit literature and had a lasting impact on the development of Sanskrit literary aesthetics.
+Kuntaka’s "Vakroktijīvita" is considered a seminal work in Classical Sanskrit literature. Here are some of its contributions:<br>1. Systematization of Vakrokti: Kuntaka systematized the concept of vakrokti, which was already in use in Sanskrit literature, by providing a comprehensive analysis of its various aspects. This work helped to establish vakrokti as a major literary device in Sanskrit poetry.<br>2. Definition of poetic beauty: Kuntaka’s "Vakroktijīvita" provided a new definition of poetic beauty, emphasizing the importance of figurative language and the power of suggestion. Kuntaka’s emphasis on the beauty of suggestion, rather than the literal meaning of words, helped to create a new genre of Sanskrit literature that focused on indirect expression and oblique reference.<br>3. Influence on poets: Kuntaka’s "Vakroktijīvita" had a significant influence on poets of his time and subsequent generations. Many poets who followed Kuntaka’s ideas adopted his emphasis on figurative language and indirect expression in their own works.<br>4. Impact on aesthetics: Kuntaka’s "Vakroktijīvita" had a significant impact on the development of Sanskrit literary aesthetics. His work helped to establish vakrokti as a major component of Sanskrit poetry and contributed to the emergence of a new aesthetic tradition that emphasized the beauty of suggestion and indirect expression.<br>Overall, Kuntaka’s "Vakroktijīvita" is a significant contribution to Classical Sanskrit literature and had a lasting impact on the development of Sanskrit literary aesthetics.
 </div>
 <div id="nav-kuntaka-works" class="tab-pane fade" role="tabpanel">
 <ul class="list-group list-group-flush">
@@ -652,6 +640,19 @@ Kuntaka’s “Vakroktijīvita” is considered a seminal work in Classical Sans
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,13 +222,10 @@ Works (1)
 </p>
 </div>
 <div id="nav-soḍhala-life" class="tab-pane fade" role="tabpanel">
-Soḍhala belongs to the vālabhi sub-group of Kṣatriya clan and hails from the southern part (lāṭadeśa) of Gujarat and lived during the 11th century CE. Soḍhala was a follower of the Śaiva tradition and that he composed several works in Sanskrit, including poetry and drama. He was also known for his skills in music and dance. Udayasundarīkathā is considered to be Soḍhala’s most famous work, and it is known for its intricate plot, vivid descriptions, and skillful use of language. The introduction also mentions that the work has been translated into several languages and has been the subject of scholarly research and analysis. The work is based on the earlier text Vāsavadattā, written by Subandhu, and that Soḍhala adapted the story to suit the tastes of his time. The work is considered to be a classic in the genre of romantic fiction and is admired for its imaginative storytelling and its portrayal of the supernatural.
+Soḍhala belongs to the vālabhi sub-group of Kṣatriya clan and hails from the southern part (lāṭadeśa) of Gujarat and lived during the 11th century CE. Soḍhala was a follower of the Śaiva tradition and that he composed several works in Sanskrit, including poetry and drama. He was also known for his skills in music and dance.<br>Udayasundarīkathā is considered to be Soḍhala’s most famous work, and it is known for its intricate plot, vivid descriptions, and skillful use of language. The introduction also mentions that the work has been translated into several languages and has been the subject of scholarly research and analysis.<br>The work is based on the earlier text Vāsavadattā, written by Subandhu, and that Soḍhala adapted the story to suit the tastes of his time. The work is considered to be a classic in the genre of romantic fiction and is admired for its imaginative storytelling and its portrayal of the supernatural.
 </div>
 <div id="nav-soḍhala-contribution" class="tab-pane fade" role="tabpanel">
-<p>Soḍhala’s Udayasundarīkathā is a significant contribution to Classical Sanskrit literature. The work showcases Soḍhala’s mastery of the language and his ability to use it for creative storytelling. Soḍhala’s unique writing style, which includes the use of vivid imagery, poetic language, and intricate plotlines, is a hallmark of Classical Sanskrit literature, and Udayasundarīkathā is no exception.</p>
-<p>Moreover, Soḍhala’s work adds to the canon of romantic narratives in Sanskrit literature. While love stories were a common theme in Indian literature, Udayasundarīkathā is distinctive due to its intricate plot and imaginative storytelling techniques, which were new to the genre. Soḍhala’s use of supernatural elements in the story, such as flying cars and hidden cities, adds to the work’s uniqueness and contributes to the fantastical quality of Classical Sanskrit literature.</p>
-<p>In addition, Soḍhala’s portrayal of women characters in Udayasundarīkathā is notable for its agency and independence. The female characters are not mere objects of desire, but active participants in the story, with their own motivations and desires. This portrayal is relatively rare in Classical Sanskrit literature and adds to Soḍhala’s contribution to the genre.</p>
-Overall, Soḍhala’s Udayasundarīkathā is a significant contribution to Classical Sanskrit literature. It showcases Soḍhala’s mastery of the language and his ability to use it for creative storytelling, while also adding to the canon of romantic narratives and contributing to the portrayal of women in the genre.
+Soḍhala’s Udayasundarīkathā is a significant contribution to Classical Sanskrit literature. The work showcases Soḍhala’s mastery of the language and his ability to use it for creative storytelling. Soḍhala’s unique writing style, which includes the use of vivid imagery, poetic language, and intricate plotlines, is a hallmark of Classical Sanskrit literature, and Udayasundarīkathā is no exception.<br><br>Moreover, Soḍhala’s work adds to the canon of romantic narratives in Sanskrit literature. While love stories were a common theme in Indian literature, Udayasundarīkathā is distinctive due to its intricate plot and imaginative storytelling techniques, which were new to the genre. Soḍhala’s use of supernatural elements in the story, such as flying cars and hidden cities, adds to the work’s uniqueness and contributes to the fantastical quality of Classical Sanskrit literature.<br><br>In addition, Soḍhala’s portrayal of women characters in Udayasundarīkathā is notable for its agency and independence. The female characters are not mere objects of desire, but active participants in the story, with their own motivations and desires. This portrayal is relatively rare in Classical Sanskrit literature and adds to Soḍhala’s contribution to the genre.<br><br>Overall, Soḍhala’s Udayasundarīkathā is a significant contribution to Classical Sanskrit literature. It showcases Soḍhala’s mastery of the language and his ability to use it for creative storytelling, while also adding to the canon of romantic narratives and contributing to the portrayal of women in the genre.
 </div>
 <div id="nav-soḍhala-works" class="tab-pane fade" role="tabpanel">
 <ul class="list-group list-group-flush">
@@ -655,6 +640,19 @@ Overall, Soḍhala’s Udayasundarīkathā is a significant contribution to Clas
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

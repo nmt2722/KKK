@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,10 +222,10 @@ Works (1)
 </p>
 </div>
 <div id="nav-abhinanda-2-life" class="tab-pane fade" role="tabpanel">
-Abhinanda was a Sanskrit poet who lived in India during the 10th century AD. He was believed to be patronized by Hāravarṣa, the son of Dvijavara Śatānanda. Abhinanda is best known for his work “Rāmacarita,” which is a poetic retelling of the story of Rāmāyaṇa. The work is written in an ornate and elegant poetic style, and is considered an important contribution to Sanskrit literature. While not much is known about Abhinanda’s life, his contribution to literature through “Rāmacarita” continues to be celebrated in Indian cultural heritage.
+Abhinanda was a Sanskrit poet who lived in India during the 10th century AD. He was believed to be patronized by Hāravarṣa, the son of Dvijavara Śatānanda. Abhinanda is best known for his work "Rāmacarita," which is a poetic retelling of the story of Rāmāyaṇa. The work is written in an ornate and elegant poetic style, and is considered an important contribution to Sanskrit literature. While not much is known about Abhinanda’s life, his contribution to literature through "Rāmacarita" continues to be celebrated in Indian cultural heritage.
 </div>
 <div id="nav-abhinanda-2-contribution" class="tab-pane fade" role="tabpanel">
-Abhinanda (2) is considered one of the major poets of Classical Sanskrit literature and his contribution to the genre is significant. He was a master of poetic expression and his works reflect a deep understanding of the language, culture, and philosophy of ancient India. Abhinanda’s “Rāma carita” is an important contribution to the genre of Kāvya, which refers to the highly ornate and stylized poetry that emerged in ancient India. His use of intricate metaphors, similes, and allusions, along with his skilful handling of Sanskrit grammar and syntax, make his poetry a master class in the art of Kāvya. In addition to his contribution to Kāvya, Abhinanda is also known for his scholarship in the fields of philosophy and religion. His works reflect a deep understanding of the Vedas, the Upaniṣad, and other religious texts of ancient India, and he was a major proponent of the Advaita Vedānta School of philosophy.
+Abhinanda (2) is considered one of the major poets of Classical Sanskrit literature and his contribution to the genre is significant. He was a master of poetic expression and his works reflect a deep understanding of the language, culture, and philosophy of ancient India.<br>Abhinanda’s "Rāma carita" is an important contribution to the genre of Kāvya, which refers to the highly ornate and stylized poetry that emerged in ancient India. His use of intricate metaphors, similes, and allusions, along with his skilful handling of Sanskrit grammar and syntax, make his poetry a master class in the art of Kāvya.<br>In addition to his contribution to Kāvya, Abhinanda is also known for his scholarship in the fields of philosophy and religion. His works reflect a deep understanding of the Vedas, the Upaniṣad, and other religious texts of ancient India, and he was a major proponent of the Advaita Vedānta School of philosophy.
 </div>
 <div id="nav-abhinanda-2-works" class="tab-pane fade" role="tabpanel">
 <ul class="list-group list-group-flush">
@@ -652,6 +640,19 @@ Abhinanda (2) is considered one of the major poets of Classical Sanskrit literat
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

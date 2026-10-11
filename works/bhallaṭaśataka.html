@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/bhallaṭa.html">Bhallaṭa</a>
 </p>
 </div>
@@ -278,11 +266,7 @@ Quotable Quotations
 </h2>
 <div id="work-acc-quotations" class="accordion-collapse collapse">
 <div class="accordion-body">
-<ol type="1">
-<li>ग्रावाणो मणयो हरिर्जलचरो लक्ष्मीः पयोमानुषी । मुक्तौघाः सिकताः प्रवाललतिकाः शैवालमम्भः सुधा ॥ तीरे कल्पमहीरुहाः किमपरं नाम्नापि रत्नाकरः । दूरे कर्णरसायनं निकटतस्तृष्णापि नो शाम्यति ॥ [भल्लटशतकम् – ५० ] grāvāṇo maṇayo harirjalacaro lakṣmīḥ payomānuṣī । muktaughāḥ sikatāḥ pravālalatikāḥ śaivālamambhaḥ sudhā ॥ tīre kalpamahīruhāḥ kimaparaṃ nāmnāpi ratnākaraḥ । dūre karṇarasāyanaṃ nikaṭatastṛṣṇāpi no śāmyati ॥ [bhallaṭaśatakam – 50]</li>
-</ol>
-<p>Hey, sea! The stones in you are the precious gems, the great Vishnu himself the waterman, the auspicious Lakshmi herself is your daughter, the sands are the pearls figure, the algae are the coral vines, the water is the nectar figure, and the kalpa trees everywhere on the shore! Even though your name is Ratnākara, your thoughts are a pleasure to listen to, but you do not even have the ability to hide the thirst of one who comes to you thirsty. 2. आबद्धकृत्रिमसटाजटिलांसभित्तिः आरोपितो मृगपतेः पदवीं यदि श्वा । मत्तेभकुम्भतटपाटनलम्पटस्य नादं करिष्यति कथं हरिणाधिपस्य ॥ [भल्लटशतकम् – ६६] ābaddhakṛtrimasaṭājaṭilāṃsabhittiḥ āropito mṛgapateḥ padavīṃ yadi śvā । mattebhakumbhataṭapāṭanalampaṭasya nādaṃ kariṣyati kathaṃ hariṇādhipasya ॥ [bhallaṭaśatakam – 66]</p>
-Just because a stamen is tied around a dog’s neck, it cannot rise to the rank of a lion and can not roar like Mṛgarāja to tear apart a tamed elephant.
+1. ग्रावाणो मणयो हरिर्जलचरो लक्ष्मीः पयोमानुषी । मुक्तौघाः सिकताः प्रवाललतिकाः शैवालमम्भः सुधा ॥<br>तीरे कल्पमहीरुहाः किमपरं नाम्नापि रत्नाकरः ।<br>दूरे कर्णरसायनं निकटतस्तृष्णापि नो शाम्यति ॥ [भल्लटशतकम् – ५० ]<br>grāvāṇo maṇayo harirjalacaro lakṣmīḥ payomānuṣī ।<br>muktaughāḥ sikatāḥ pravālalatikāḥ śaivālamambhaḥ sudhā ॥<br>tīre kalpamahīruhāḥ kimaparaṃ nāmnāpi ratnākaraḥ ।<br>dūre karṇarasāyanaṃ nikaṭatastṛṣṇāpi no śāmyati ॥ [bhallaṭaśatakam – 50]<br><br>Hey, sea! The stones in you are the precious gems, the great Vishnu himself the waterman, the auspicious Lakshmi herself is your daughter, the sands are the pearls figure, the algae are the coral vines, the water is the nectar figure, and the kalpa trees everywhere on the shore! Even though your name is Ratnākara, your thoughts are a pleasure to listen to, but you do not even have the ability to hide the thirst of one who comes to you thirsty. <br>2. आबद्धकृत्रिमसटाजटिलांसभित्तिः आरोपितो मृगपतेः पदवीं यदि श्वा ।<br>मत्तेभकुम्भतटपाटनलम्पटस्य नादं करिष्यति कथं हरिणाधिपस्य ॥ [भल्लटशतकम् – ६६]<br>ābaddhakṛtrimasaṭājaṭilāṃsabhittiḥ āropito mṛgapateḥ padavīṃ yadi śvā ।<br>mattebhakumbhataṭapāṭanalampaṭasya nādaṃ kariṣyati kathaṃ hariṇādhipasya ॥ [bhallaṭaśatakam – 66]<br><br>Just because a stamen is tied around a dog’s neck, it cannot rise to the rank of a lion and can not roar like Mṛgarāja to tear apart a tamed elephant.
 </div>
 </div>
 </div>
@@ -295,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Court poetry (kavya)</span>
+<span class="badge bg-primary work-genre-badge">Court poetry (kavya)</span>
 </p>
 </div>
 </div>
@@ -706,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

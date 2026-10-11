@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/hemacandra.html">Hemacandra</a>
 </p>
 </div>
@@ -228,7 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-Kumārapālita is a Sanskrit play that tells the story of Kumārapālita, a prince who is exiled from his kingdom by his own father, the king, due to a misunderstanding. Kumārapālita must navigate the treacherous world of politics and power, facing betrayal and danger as he fights to regain his rightful place as heir to the throne. The play is notable for its intricate plot, engaging characters, and poetic language. Hemacandra weaves together themes of love, betrayal, and redemption, drawing on the conventions of classical Sanskrit drama to create a work that is both entertaining and thought-provoking. The play also incorporates Jain philosophy and ethics, reflecting Hemacandra’s own religious beliefs. In addition to its literary merits, the Kumārapālita is significant for its historical context. Hemacandra wrote the play during a period of political turmoil in India, as regional rulers vied for power and influence. The play reflects this context, portraying the challenges and dangers of political intrigue and the importance of moral courage and integrity. Kumārapālita has been widely studied and appreciated for its literary and historical significance, and it continues to be performed and read today.
+Kumārapālita is a Sanskrit play that tells the story of Kumārapālita, a prince who is exiled from his kingdom by his own father, the king, due to a misunderstanding. Kumārapālita must navigate the treacherous world of politics and power, facing betrayal and danger as he fights to regain his rightful place as heir to the throne. The play is notable for its intricate plot, engaging characters, and poetic language. Hemacandra weaves together themes of love, betrayal, and redemption, drawing on the conventions of classical Sanskrit drama to create a work that is both entertaining and thought-provoking. <br>The play also incorporates Jain philosophy and ethics, reflecting Hemacandra’s own religious beliefs. In addition to its literary merits, the Kumārapālita is significant for its historical context. Hemacandra wrote the play during a period of political turmoil in India, as regional rulers vied for power and influence. The play reflects this context, portraying the challenges and dangers of political intrigue and the importance of moral courage and integrity. Kumārapālita has been widely studied and appreciated for its literary and historical significance, and it continues to be performed and read today.
 </div>
 </div>
 </div>
@@ -240,7 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-Kumārapālita is a Sanskrit play written by Hemacandra, a 12th-century Jain scholar and poet. The play is divided into five acts and follows the story of Kumārapālita, a prince who is exiled from his kingdom by his own father, the king, due to a misunderstanding. Act I introduce the main characters and sets the stage for the conflict to come. Kumārapālita is shown as a compassionate and virtuous prince, beloved by the people, while his father, the king, is depicted as harsh and inflexible. The act ends with Kumārapālita’s exile. Act II focuses on Kumārapālita’s struggles in the wilderness, where he is forced to confront the harsh realities of life outside the palace. He is aided by a band of loyal followers, including a brave warrior and a wise hermit. Act III sees Kumārapālita returning to the city in disguise, hoping to regain his place in the kingdom. He faces numerous challenges and dangers, including betrayal by his own family members. Act IV is the climax of the play, with Kumārapālita finally revealing his true identity and confronting his father and his enemies. The act is full of dramatic twists and turns, as Kumārapālita fights to regain his rightful place as heir to the throne. Act V concludes the play with a resolution of the conflicts and a reaffirmation of the play’s moral themes. Kumārapālita is restored to his position as prince, and the play ends with a message of hope and redemption. Throughout the play, Hemacandra weaves together themes of love, betrayal, and redemption, drawing on the conventions of classical Sanskrit drama to create a work that is both entertaining and thought-provoking. The play also incorporates Jain philosophy and ethics, reflecting Hemacandra’s own religious beliefs.
+Kumārapālita is a Sanskrit play written by Hemacandra, a 12th-century Jain scholar and poet. The play is divided into five acts and follows the story of Kumārapālita, a prince who is exiled from his kingdom by his own father, the king, due to a misunderstanding.<br>Act I introduce the main characters and sets the stage for the conflict to come. Kumārapālita is shown as a compassionate and virtuous prince, beloved by the people, while his father, the king, is depicted as harsh and inflexible. The act ends with Kumārapālita’s exile.<br>Act II focuses on Kumārapālita’s struggles in the wilderness, where he is forced to confront the harsh realities of life outside the palace. He is aided by a band of loyal followers, including a brave warrior and a wise hermit.<br>Act III sees Kumārapālita returning to the city in disguise, hoping to regain his place in the kingdom. He faces numerous challenges and dangers, including betrayal by his own family members.<br>Act IV is the climax of the play, with Kumārapālita finally revealing his true identity and confronting his father and his enemies. The act is full of dramatic twists and turns, as Kumārapālita fights to regain his rightful place as heir to the throne.<br>Act V concludes the play with a resolution of the conflicts and a reaffirmation of the play’s moral themes. Kumārapālita is restored to his position as prince, and the play ends with a message of hope and redemption.<br>Throughout the play, Hemacandra weaves together themes of love, betrayal, and redemption, drawing on the conventions of classical Sanskrit drama to create a work that is both entertaining and thought-provoking. The play also incorporates Jain philosophy and ethics, reflecting Hemacandra’s own religious beliefs.
 </div>
 </div>
 </div>
@@ -264,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Kumārapālita is a significant work of Sanskrit literature that has contributed to the development and evolution of the Sanskrit literary tradition in several ways. Firstly, it is one of the few surviving plays written by a Jain author, making it an important contribution to Jain literature. The play reflects Jain philosophy and ethics, particularly in its emphasis on nonviolence and moral integrity, and it continues to be studied by scholars of Jainism. Kumārapālita is a notable example of Sanskrit drama. The play is divided into five acts, and it incorporates the conventions of classical Sanskrit drama, including the use of Sanskrit verse and the portrayal of complex characters and dramatic situations. The play’s intricate plot and engaging characters have made it a popular work of Sanskrit literature, and it has influenced later works of Sanskrit drama. Kumārapālita reflects the historical context of its time. Hemacandra wrote the play during a period of political turmoil in India, and the play reflects the challenges and dangers of political intrigue and the importance of moral courage and integrity. The play has thus contributed to our understanding of the social and political context of medieval India, as well as to our understanding of the evolution of Sanskrit literature in that context. Kumārapālita is a significant work of Sanskrit literature that has contributed to the development and evolution of the Sanskrit literary tradition in several ways. It is a testament to Hemacandra’s literary and philosophical talents, and it continues to be appreciated and studied by scholars of Sanskrit literature, Jainism, and Indian history and culture.</p>
-<hr>
-“Kumārapālita” is considered one of the most significant works of Hemacandra. It is an epic poem that not only showcases his literary skills but also his knowledge of Jain philosophy and principles. The poem is widely studied in Jainism, and its influence can be seen in subsequent works of Jain literature. One notable aspect of the work is its portrayal of women. Hemacandra breaks from the traditional portrayal of women as mere objects of desire and instead presents them as powerful and intelligent beings capable of making their own decisions. This feminist perspective was quite progressive for its time and is still relevant in today’s society. Furthermore, “Kumārapālita” also offers a glimpse into the socio-political climate of the time. It highlights the struggles faced by rulers and their subjects and provides insight into the complex power dynamics that existed. The poem also emphasizes the importance of virtuous leadership and the impact that it can have on a society.
+Kumārapālita is a significant work of Sanskrit literature that has contributed to the development and evolution of the Sanskrit literary tradition in several ways. Firstly, it is one of the few surviving plays written by a Jain author, making it an important contribution to Jain literature. The play reflects Jain philosophy and ethics, particularly in its emphasis on nonviolence and moral integrity, and it continues to be studied by scholars of Jainism. Kumārapālita is a notable example of Sanskrit drama. The play is divided into five acts, and it incorporates the conventions of classical Sanskrit drama, including the use of Sanskrit verse and the portrayal of complex characters and dramatic situations. The play’s intricate plot and engaging characters have made it a popular work of Sanskrit literature, and it has influenced later works of Sanskrit drama.<br>Kumārapālita reflects the historical context of its time. Hemacandra wrote the play during a period of political turmoil in India, and the play reflects the challenges and dangers of political intrigue and the importance of moral courage and integrity. The play has thus contributed to our understanding of the social and political context of medieval India, as well as to our understanding of the evolution of Sanskrit literature in that context. Kumārapālita is a significant work of Sanskrit literature that has contributed to the development and evolution of the Sanskrit literary tradition in several ways. It is a testament to Hemacandra’s literary and philosophical talents, and it continues to be appreciated and studied by scholars of Sanskrit literature, Jainism, and Indian history and culture.<br><br>"Kumārapālita" is considered one of the most significant works of Hemacandra. It is an epic poem that not only showcases his literary skills but also his knowledge of Jain philosophy and principles. The poem is widely studied in Jainism, and its influence can be seen in subsequent works of Jain literature.<br>One notable aspect of the work is its portrayal of women. Hemacandra breaks from the traditional portrayal of women as mere objects of desire and instead presents them as powerful and intelligent beings capable of making their own decisions. This feminist perspective was quite progressive for its time and is still relevant in today’s society. Furthermore, "Kumārapālita" also offers a glimpse into the socio-political climate of the time. It highlights the struggles faced by rulers and their subjects and provides insight into the complex power dynamics that existed. The poem also emphasizes the importance of virtuous leadership and the impact that it can have on a society.
 </div>
 </div>
 </div>
@@ -293,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Humor</span>
+<span class="badge bg-primary work-genre-badge">Humor</span>
 </p>
 </div>
 </div>
@@ -704,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

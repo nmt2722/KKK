@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/māyurāja.html">Māyurāja</a>
 </p>
 </div>
@@ -228,7 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-Tāpasavatsarāja is a devotional work by Māyurāja consisting of a series of hymns and prayers in praise of Lord Viṣṇu. The work tells the story of Vāsavadattā and Vatsarāja, a king and queen who are deeply devoted to Lord Viṣṇu. The story follows Vāsavadattā and Vatsarāja’s journey as they undertake various spiritual practices and devotional rituals in order to attain enlightenment and liberation. Along the way, they encounter various challenges and obstacles, including temptations and distractions that threaten to pull them away from their path. Through their unwavering devotion to Lord Viṣṇu, however, Vāsavadattā and Vatsarāja are ultimately able to overcome these obstacles and achieve spiritual fulfilment. The work is known for its lyrical language and its portrayal of the struggle to reconcile spiritual aspirations with the demands of the material world. It is considered an important work in the canon of Sanskrit literature and a significant contribution to the tradition of Bhakti poetry.
+Tāpasavatsarāja is a devotional work by Māyurāja consisting of a series of hymns and prayers in praise of Lord Viṣṇu. The work tells the story of Vāsavadattā and Vatsarāja, a king and queen who are deeply devoted to Lord Viṣṇu.<br>The story follows Vāsavadattā and Vatsarāja’s journey as they undertake various spiritual practices and devotional rituals in order to attain enlightenment and liberation. Along the way, they encounter various challenges and obstacles, including temptations and distractions that threaten to pull them away from their path.<br>Through their unwavering devotion to Lord Viṣṇu, however, Vāsavadattā and Vatsarāja are ultimately able to overcome these obstacles and achieve spiritual fulfilment. The work is known for its lyrical language and its portrayal of the struggle to reconcile spiritual aspirations with the demands of the material world. It is considered an important work in the canon of Sanskrit literature and a significant contribution to the tradition of Bhakti poetry.
 </div>
 </div>
 </div>
@@ -240,7 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-As Tāpasavatsarāja is a devotional work consisting of hymns and prayers, its content is primarily focused on the praise and worship of Lord Viṣṇu. The work contains a series of verses and stanzas that describe the qualities and attributes of Lord Viṣṇu, his various incarnations, and the power and significance of his worship. The hymns and prayers in Tāpasavatsarāja express a deep sense of devotion and surrender to Lord Viṣṇu, emphasizing the importance of faith and spiritual practice in achieving liberation and enlightenment. The work also explores themes of detachment, renunciation, and the search for inner peace, as Vāsavadattā and Vatsarāja undertake various spiritual practices and rituals in their quest for enlightenment. The language of Tāpasavatsarāja is known for its lyrical quality and its use of metaphor and imagery, creating a vivid and evocative portrayal of the divine. Overall, the work is a significant contribution to the tradition of Bhakti poetry and a testament to Māyurāja’s devotion to Lord Viṣṇu.
+As Tāpasavatsarāja is a devotional work consisting of hymns and prayers, its content is primarily focused on the praise and worship of Lord Viṣṇu. The work contains a series of verses and stanzas that describe the qualities and attributes of Lord Viṣṇu, his various incarnations, and the power and significance of his worship.<br>The hymns and prayers in Tāpasavatsarāja express a deep sense of devotion and surrender to Lord Viṣṇu, emphasizing the importance of faith and spiritual practice in achieving liberation and enlightenment. The work also explores themes of detachment, renunciation, and the search for inner peace, as Vāsavadattā and Vatsarāja undertake various spiritual practices and rituals in their quest for enlightenment.<br>The language of Tāpasavatsarāja is known for its lyrical quality and its use of metaphor and imagery, creating a vivid and evocative portrayal of the divine. Overall, the work is a significant contribution to the tradition of Bhakti poetry and a testament to Māyurāja’s devotion to Lord Viṣṇu.
 </div>
 </div>
 </div>
@@ -264,10 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Tāpasavatsarāja is a significant contribution to Sanskrit literature for several reasons. Firstly, it is a unique example of devotional poetry that emphasizes the importance of faith and surrender in Lord Viṣṇu as a means of achieving spiritual fulfilment, which adds to the richness and diversity of the Bhakti tradition in Sanskrit literature. Secondly, the work’s use of metaphor and imagery demonstrates a mastery of language and poetic technique that is characteristic of Sanskrit literature. Finally, Tāpasavatsarāja is an important representation of the cultural and intellectual traditions of medieval Kashmir, contributing to our understanding of the literary and religious practices of that time period.</p>
-<hr>
-<p>One interesting fact about Tāpasavatsarāja is that it has been praised by several notable figures in the field of Sanskrit literature. For instance, the renowned Sanskrit scholar, Rāghavan V. Iyer, has praised Tāpasavatsarāja for its “luminous verses, graceful diction, and emotional fervour,” calling it a “rare work of great beauty.” Similarly, the eminent Indologist, A. K. Warder, has noted the work’s unique qualities, stating that “it stands out from the crowd of more routine texts and reveals a genuine poetical talent.”</p>
-Another interesting aspect of Tāpasavatsarāja is its use of the Kashmiri language’s Śāradā script. The Śāradā script is a variant of the Śāradā script used in the Kashmir region and is known for its distinct and ornate characters. The use of this script in Tāpasavatsarāja adds to the work’s historical and cultural significance, as it reflects the literary practices of medieval Kashmir and the diverse regional scripts used in Sanskrit literature.
+Tāpasavatsarāja is a significant contribution to Sanskrit literature for several reasons. Firstly, it is a unique example of devotional poetry that emphasizes the importance of faith and surrender in Lord Viṣṇu as a means of achieving spiritual fulfilment, which adds to the richness and diversity of the Bhakti tradition in Sanskrit literature. Secondly, the work’s use of metaphor and imagery demonstrates a mastery of language and poetic technique that is characteristic of Sanskrit literature. Finally, Tāpasavatsarāja is an important representation of the cultural and intellectual traditions of medieval Kashmir, contributing to our understanding of the literary and religious practices of that time period.<br><br>One interesting fact about Tāpasavatsarāja is that it has been praised by several notable figures in the field of Sanskrit literature. For instance, the renowned Sanskrit scholar, Rāghavan V. Iyer, has praised Tāpasavatsarāja for its "luminous verses, graceful diction, and emotional fervour," calling it a "rare work of great beauty." Similarly, the eminent Indologist, A. K. Warder, has noted the work’s unique qualities, stating that "it stands out from the crowd of more routine texts and reveals a genuine poetical talent."<br><br>Another interesting aspect of Tāpasavatsarāja is its use of the Kashmiri language’s Śāradā script. The Śāradā script is a variant of the Śāradā script used in the Kashmir region and is known for its distinct and ornate characters. The use of this script in Tāpasavatsarāja adds to the work’s historical and cultural significance, as it reflects the literary practices of medieval Kashmir and the diverse regional scripts used in Sanskrit literature.
 </div>
 </div>
 </div>
@@ -294,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Scripture (Hindu, Buddhist and Jain)</span>
+<span class="badge bg-primary work-genre-badge">Scripture (Hindu, Buddhist and Jain)</span>
 </p>
 </div>
 </div>
@@ -705,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/umāpatidhara.html">Umāpatidhara</a>
 </p>
 </div>
@@ -228,9 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Pārijātāharaṇa has been classified as a “Prakaraṇa” or a type of Sanskrit play, which typically focuses on a single episode or theme. As a Prakaraṇa, Pārijātāharaṇa follows a dramatic structure, with a clear beginning, middle, and end. The main characters are given dialogue, and the action is conveyed through a series of scenes and interactions.</p>
-<p>However, Pārijātāharaṇa also contains elements of poetry, particularly in the form of descriptive passages and lyrical expressions. These poetic elements are an integral part of the play’s beauty and richness, and help to elevate it beyond a mere retelling of a story.</p>
-Whether one chooses to classify Pārijātāharaṇa as a poem or a play, it remains an important and influential work of Sanskrit literature, cherished for its artistry, imagination, and spiritual significance.
+Pārijātāharaṇa has been classified as a "Prakaraṇa" or a type of Sanskrit play, which typically focuses on a single episode or theme. As a Prakaraṇa, Pārijātāharaṇa follows a dramatic structure, with a clear beginning, middle, and end. The main characters are given dialogue, and the action is conveyed through a series of scenes and interactions.<br><br>However, Pārijātāharaṇa also contains elements of poetry, particularly in the form of descriptive passages and lyrical expressions. These poetic elements are an integral part of the play’s beauty and richness, and help to elevate it beyond a mere retelling of a story.<br><br>Whether one chooses to classify Pārijātāharaṇa as a poem or a play, it remains an important and influential work of Sanskrit literature, cherished for its artistry, imagination, and spiritual significance.
 </div>
 </div>
 </div>
@@ -242,14 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Pārijātāharaṇa is a Sanskrit play that tells the story of Lord Kṛṣṇa’s quest to obtain the Pārijāta flower from the garden of Indra, the King of the Gods. The play is divided into five acts, each of which contains several scenes.</p>
-<p>Here is an overview of the contents of each act:</p>
-<p>Act 1: The play opens with a prologue in which the poet introduces the story and sets the scene. The first act also introduces the main characters, including Lord Kṛṣṇa, Queen Rukmiṇi, and Indra.</p>
-<p>Act 2: Lord Kṛṣṇa and his friend, Arjuna, travel to Indra’s garden to obtain a Pārijāta flower as a gift for Queen Rukmiṇi. However, Indra and the other gods refuse to allow Lord Kṛṣṇa to take the flower, leading to a confrontation between the two sides.</p>
-<p>Act 3: The battle between Lord Kṛṣṇa and the gods intensifies, with both sides using their divine powers to gain the upper hand. Eventually, Lord Kṛṣṇa is able to defeat the gods and take the Pārijāta flower.</p>
-<p>Act 4: Lord Kṛṣṇa returns to earth with the Pārijāta flower, but his victory is short-lived as his wives and other women become jealous of Queen Rukmiṇi’s special gift. A heated argument ensues, during which Lord Kṛṣṇa must use his wisdom and diplomacy to restore peace.</p>
-<p>Act 5: The play concludes with a message about the importance of love, friendship, and the power of good over evil.</p>
-Throughout the play, Umāpatidhara uses vivid language, lyrical expressions, and dramatic dialogue to bring the story to life. The Pārijātāharaṇa is a timeless work of Sanskrit literature that continues to captivate and inspire audiences to this day.
+Pārijātāharaṇa is a Sanskrit play that tells the story of Lord Kṛṣṇa’s quest to obtain the Pārijāta flower from the garden of Indra, the King of the Gods. The play is divided into five acts, each of which contains several scenes.<br><br>Here is an overview of the contents of each act:<br><br>Act 1: The play opens with a prologue in which the poet introduces the story and sets the scene. The first act also introduces the main characters, including Lord Kṛṣṇa, Queen Rukmiṇi, and Indra.<br><br>Act 2: Lord Kṛṣṇa and his friend, Arjuna, travel to Indra’s garden to obtain a Pārijāta flower as a gift for Queen Rukmiṇi. However, Indra and the other gods refuse to allow Lord Kṛṣṇa to take the flower, leading to a confrontation between the two sides.<br><br>Act 3: The battle between Lord Kṛṣṇa and the gods intensifies, with both sides using their divine powers to gain the upper hand. Eventually, Lord Kṛṣṇa is able to defeat the gods and take the Pārijāta flower.<br><br>Act 4: Lord Kṛṣṇa returns to earth with the Pārijāta flower, but his victory is short-lived as his wives and other women become jealous of Queen Rukmiṇi’s special gift. A heated argument ensues, during which Lord Kṛṣṇa must use his wisdom and diplomacy to restore peace.<br><br>Act 5: The play concludes with a message about the importance of love, friendship, and the power of good over evil.<br><br>Throughout the play, Umāpatidhara uses vivid language, lyrical expressions, and dramatic dialogue to bring the story to life. The Pārijātāharaṇa is a timeless work of Sanskrit literature that continues to captivate and inspire audiences to this day.
 </div>
 </div>
 </div>
@@ -273,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Pārijātāharaṇa is a significant contribution to Sanskrit literature due to its masterful synthesis of poetry and drama, as well as its enduring themes and cultural relevance. The play showcases the versatility of the Sanskrit language and its ability to convey complex ideas and emotions through both poetic and dramatic forms. Its portrayal of the gods and their interactions with humans is a testament to the enduring influence of Hindu mythology on Indian culture, while its exploration of universal themes such as love, jealousy, and conflict speaks to the human experience. Pārijātāharaṇa has had a lasting impact on Indian literature and continues to be studied and admired by scholars and enthusiasts alike.</p>
-<hr>
-Pārijātāharaṇa is a popular and influential play in the canon of Sanskrit literature, known for its intricate plot, masterful poetry, and exploration of enduring themes such as love, jealousy, and conflict. It is also notable for its portrayal of Hindu mythology, particularly the stories of Lord Kṛṣṇa and his relationships with his wives and friends. The play has been adapted and performed in various languages and formats over the centuries, and continues to be studied and admired by scholars and enthusiasts of Indian literature and culture.
+Pārijātāharaṇa is a significant contribution to Sanskrit literature due to its masterful synthesis of poetry and drama, as well as its enduring themes and cultural relevance. The play showcases the versatility of the Sanskrit language and its ability to convey complex ideas and emotions through both poetic and dramatic forms. Its portrayal of the gods and their interactions with humans is a testament to the enduring influence of Hindu mythology on Indian culture, while its exploration of universal themes such as love, jealousy, and conflict speaks to the human experience. Pārijātāharaṇa has had a lasting impact on Indian literature and continues to be studied and admired by scholars and enthusiasts alike.<br><br>Pārijātāharaṇa is a popular and influential play in the canon of Sanskrit literature, known for its intricate plot, masterful poetry, and exploration of enduring themes such as love, jealousy, and conflict. It is also notable for its portrayal of Hindu mythology, particularly the stories of Lord Kṛṣṇa and his relationships with his wives and friends. The play has been adapted and performed in various languages and formats over the centuries, and continues to be studied and admired by scholars and enthusiasts of Indian literature and culture.
 </div>
 </div>
 </div>
@@ -302,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Epic</span>
+<span class="badge bg-primary work-genre-badge">Epic</span>
 </p>
 </div>
 </div>
@@ -713,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

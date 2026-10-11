@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/jalhaṇa.html">Jalhaṇa</a>
 </p>
 </div>
@@ -228,7 +216,7 @@ Summary
 </h2>
 <div id="work-acc-summary" class="accordion-collapse collapse">
 <div class="accordion-body">
-The work consists of 135 verses, each of which is a self-contained poem on a variety of subjects, including love, morality, ethics, and metaphysics. The verses in Sūktimuktāvali are notable for their lyrical beauty and philosophical depth. Many of the poems express a sense of yearning for a higher reality, and explore themes such as the transience of life, the nature of desire, and the search for meaning and purpose. The collection begins with a series of verses that praise the beauty and virtues of a beloved, whom the poet addresses as “Devi” or “Goddess.” These poems are characterized by their rich imagery and passionate tone, and express the poet’s intense longing for union with the beloved. Other poems in Sūktimuktāvali explore more abstract themes, such as the nature of the self and the ultimate reality. These verses use complex metaphors and analogies to convey profound philosophical ideas, and demonstrate Jallhaṇa’s mastery of both poetic and philosophical language. Sūktimuktāvali on the whole is a rich and diverse collection of poems that showcases Jallhaṇa’s skill as a poet and his deep understanding of the human experience.
+The work consists of 135 verses, each of which is a self-contained poem on a variety of subjects, including love, morality, ethics, and metaphysics. The verses in Sūktimuktāvali are notable for their lyrical beauty and philosophical depth. Many of the poems express a sense of yearning for a higher reality, and explore themes such as the transience of life, the nature of desire, and the search for meaning and purpose. The collection begins with a series of verses that praise the beauty and virtues of a beloved, whom the poet addresses as "Devi" or "Goddess." These poems are characterized by their rich imagery and passionate tone, and express the poet’s intense longing for union with the beloved.<br>Other poems in Sūktimuktāvali explore more abstract themes, such as the nature of the self and the ultimate reality. These verses use complex metaphors and analogies to convey profound philosophical ideas, and demonstrate Jallhaṇa’s mastery of both poetic and philosophical language. Sūktimuktāvali on the whole is a rich and diverse collection of poems that showcases Jallhaṇa’s skill as a poet and his deep understanding of the human experience.
 </div>
 </div>
 </div>
@@ -240,7 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-Sūktimuktāvali is a collection of 135 Sanskrit verses that cover a range of themes and subjects, including love, ethics, morality, and metaphysics. The collection begins with a series of verses that praise the beauty and virtues of a beloved, whom the poet addresses as “Devi” or “Goddess.” These poems are characterized by their rich imagery and passionate tone, and express the poet’s intense longing for union with the beloved. The next group of poems explore the nature of desire and attachment, and question whether it is possible to attain true happiness through material possessions and sensual pleasures. The third section of the collection contains poems that reflect on the transience of life and the inevitability of death. These verses encourage the reader to live in the present moment and to cultivate inner peace and detachment. The fourth section of the collection contains a series of verses that explore the nature of the self and the ultimate reality. These poems use complex metaphors and analogies to convey profound philosophical ideas, and demonstrate Jallhaṇa’s mastery of both poetic and philosophical language. The final section of the collection contains poems that offer moral and ethical guidance, and encourage the reader to cultivate virtues such as compassion, humility, and self-discipline.
+Sūktimuktāvali is a collection of 135 Sanskrit verses that cover a range of themes and subjects, including love, ethics, morality, and metaphysics. <br>The collection begins with a series of verses that praise the beauty and virtues of a beloved, whom the poet addresses as "Devi" or "Goddess." These poems are characterized by their rich imagery and passionate tone, and express the poet’s intense longing for union with the beloved.<br>The next group of poems explore the nature of desire and attachment, and question whether it is possible to attain true happiness through material possessions and sensual pleasures.<br>The third section of the collection contains poems that reflect on the transience of life and the inevitability of death. These verses encourage the reader to live in the present moment and to cultivate inner peace and detachment.<br>The fourth section of the collection contains a series of verses that explore the nature of the self and the ultimate reality. These poems use complex metaphors and analogies to convey profound philosophical ideas, and demonstrate Jallhaṇa’s mastery of both poetic and philosophical language.<br>The final section of the collection contains poems that offer moral and ethical guidance, and encourage the reader to cultivate virtues such as compassion, humility, and self-discipline.
 </div>
 </div>
 </div>
@@ -252,7 +240,7 @@ Uniqueness
 </h2>
 <div id="work-acc-uniqueness" class="accordion-collapse collapse">
 <div class="accordion-body">
-Sūktimuktāvali is a unique work in Sanskrit literature due to its lyrical beauty, philosophical depth, and the wide range of themes and subjects it covers. The collection of 135 verses is notable for its rich imagery, passionate tone, and intricate wordplay, making it a masterpiece of Sanskrit poetry. What sets Sūktimuktāvali apart from other works in the Sanskrit poetic tradition is its combination of philosophical inquiry and poetic expression. The verses in the collection explore a variety of themes, including love, morality, ethics, and metaphysics, using complex metaphors and analogies to convey profound philosophical ideas. The collection also displays a deep understanding of the human experience and reflects the poet’s personal search for meaning and purpose. Jallhaṇa’s poems express a sense of yearning for a higher reality, and explore themes such as the transience of life, the nature of desire, and the search for inner peace and detachment.
+Sūktimuktāvali is a unique work in Sanskrit literature due to its lyrical beauty, philosophical depth, and the wide range of themes and subjects it covers. The collection of 135 verses is notable for its rich imagery, passionate tone, and intricate wordplay, making it a masterpiece of Sanskrit poetry. What sets Sūktimuktāvali apart from other works in the Sanskrit poetic tradition is its combination of philosophical inquiry and poetic expression. The verses in the collection explore a variety of themes, including love, morality, ethics, and metaphysics, using complex metaphors and analogies to convey profound philosophical ideas.<br>The collection also displays a deep understanding of the human experience and reflects the poet’s personal search for meaning and purpose. Jallhaṇa’s poems express a sense of yearning for a higher reality, and explore themes such as the transience of life, the nature of desire, and the search for inner peace and detachment.
 </div>
 </div>
 </div>
@@ -264,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>Sūktimuktāvali is considered a significant contribution to Sanskrit literature due to its literary and philosophical qualities. The collection of 135 verses is notable for its rich imagery, passionate tone, and intricate wordplay, making it a masterpiece of Sanskrit poetry. The work displays Jallhaṇa’s mastery of the Sanskrit language and his skill as a poet, and it has influenced many poets who came after him. The philosophical depth of Sūktimuktāvali is another significant contribution to Sanskrit literature. The collection explores a variety of themes, including love, morality, ethics, and metaphysics, using complex metaphors and analogies to convey profound philosophical ideas. The work offers a unique blend of poetic beauty and philosophical depth, which makes it an important work in the Sanskrit literary canon. Sūktimuktāvali also reflects the social and cultural milieu of its time. The work offers insights into the beliefs, values, and attitudes of medieval Indian society, and it provides a window into the intellectual and spiritual currents of the period.</p>
-<hr>
-The work is written in a form of Sanskrit poetry known as kāvya, which is characterized by its elaborate use of metaphor, alliteration, and other poetic devices. The intricate wordplay and rich imagery of Sūktimuktāvali make it a classic example of kāvya poetry. The collection is divided into three sections: Mukula, Kalika, and Saṅgīta. The sections are named after different flowers, and each section contains a series of verses that explore different themes and ideas. Sūktimuktāvali is notable for its use of complex metaphors and allegories to convey philosophical ideas. The work explores a range of themes, including love, morality, ethics, and metaphysics, and it offers a unique blend of poetic beauty and philosophical depth. The work has been translated into several languages, including English, Hindi, and Tamil. These translations have helped to introduce Sūktimuktāvali to a wider audience, and they have contributed to its ongoing popularity and influence.
+Sūktimuktāvali is considered a significant contribution to Sanskrit literature due to its literary and philosophical qualities. The collection of 135 verses is notable for its rich imagery, passionate tone, and intricate wordplay, making it a masterpiece of Sanskrit poetry. The work displays Jallhaṇa’s mastery of the Sanskrit language and his skill as a poet, and it has influenced many poets who came after him. The philosophical depth of Sūktimuktāvali is another significant contribution to Sanskrit literature. The collection explores a variety of themes, including love, morality, ethics, and metaphysics, using complex metaphors and analogies to convey profound philosophical ideas. The work offers a unique blend of poetic beauty and philosophical depth, which makes it an important work in the Sanskrit literary canon. Sūktimuktāvali also reflects the social and cultural milieu of its time. The work offers insights into the beliefs, values, and attitudes of medieval Indian society, and it provides a window into the intellectual and spiritual currents of the period.<br><br>The work is written in a form of Sanskrit poetry known as kāvya, which is characterized by its elaborate use of metaphor, alliteration, and other poetic devices. The intricate wordplay and rich imagery of Sūktimuktāvali make it a classic example of kāvya poetry. The collection is divided into three sections: Mukula, Kalika, and Saṅgīta. The sections are named after different flowers, and each section contains a series of verses that explore different themes and ideas.<br>Sūktimuktāvali is notable for its use of complex metaphors and allegories to convey philosophical ideas. The work explores a range of themes, including love, morality, ethics, and metaphysics, and it offers a unique blend of poetic beauty and philosophical depth. The work has been translated into several languages, including English, Hindi, and Tamil. These translations have helped to introduce Sūktimuktāvali to a wider audience, and they have contributed to its ongoing popularity and influence.
 </div>
 </div>
 </div>
@@ -293,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Lyric</span>
+<span class="badge bg-primary work-genre-badge">Lyric</span>
 </p>
 </div>
 </div>
@@ -704,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

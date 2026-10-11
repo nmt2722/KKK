@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,7 +222,7 @@ Works (1)
 </p>
 </div>
 <div id="nav-śūdraka-life" class="tab-pane fade" role="tabpanel">
-It is believed that he lived in the kingdom of Magadha, which was located in present-day Bihar and parts of Uttar Pradesh in India. Some scholars also suggest that he may have been associated with the Gupta dynasty, which ruled over a large part of India during the 4th-5th centuries CE. However, very little is known about his life. His works are the only source of information about him. Śūdraka was born in the Aśmāka area, according to&nbsp;‘Avantisundarikathāsāra’. According to the&nbsp;‘Vividhatīrthakalpa’, he was born at Pratiṣṭhāna, which is in the same region. Śūdraka&nbsp;was one of the first dramatists to employ the local language, Maharashtrian Prakrit, in a play. According to the&nbsp;Skandapurāṇa,&nbsp;Śūdraka lived in the Kali year 3290, which corresponds to 188 CE, near to the Abhīrā era. Śūdraka invokes Śiva in his play, and the Abhīrā names (as revealed by their inscriptions) indicate that they were Śaivites. Based on the language and style of his plays, some scholars have suggested that Śūdraka may have been born into a family of Brāhmaṇa (a Hindu priestly class) and received a formal education in Sanskrit literature and drama. It is also possible that he may have had some connections to the royal courts of his time, given the themes of power and politics that are present in his works. Kumārikaṇḍa is a play attributed to the ancient Indian playwright Bhavabhūti, who lived in the 8th century CE. The play tells the story of a young prince named Naravāhanadatta, who falls in love with a princess named Kumāri. The play has several similarities with Śūdraka’s play “Mṛicchakaṭika” (The Little Clay Cart). Śūdraka’s writing style is characterized by his use of vivid imagery, intricate wordplay, and complex characters with conflicting motivations and desires. His plays are known for their deep insights into human nature and the complexities of relationships between individuals and society. His writing is filled with vivid and imaginative comparisons that help to bring his characters and their world to life. His use of metaphor adds depth and complexity to his plays, and helps to make them enduring works of literature.
+It is believed that he lived in the kingdom of Magadha, which was located in present-day Bihar and parts of Uttar Pradesh in India. Some scholars also suggest that he may have been associated with the Gupta dynasty, which ruled over a large part of India during the 4th-5th centuries CE. However, very little is known about his life. His works are the only source of information about him. Śūdraka was born in the Aśmāka area, according to&nbsp;‘Avantisundarikathāsāra’. According to the&nbsp;‘Vividhatīrthakalpa’, he was born at Pratiṣṭhāna, which is in the same region. Śūdraka&nbsp;was one of the first dramatists to employ the local language, Maharashtrian Prakrit, in a play. According to the&nbsp;Skandapurāṇa,&nbsp;Śūdraka lived in the Kali year 3290, which corresponds to 188 CE, near to the Abhīrā era. Śūdraka invokes Śiva in his play, and the Abhīrā names (as revealed by their inscriptions) indicate that they were Śaivites. Based on the language and style of his plays, some scholars have suggested that Śūdraka may have been born into a family of Brāhmaṇa (a Hindu priestly class) and received a formal education in Sanskrit literature and drama. It is also possible that he may have had some connections to the royal courts of his time, given the themes of power and politics that are present in his works. Kumārikaṇḍa is a play attributed to the ancient Indian playwright Bhavabhūti, who lived in the 8th century CE. The play tells the story of a young prince named Naravāhanadatta, who falls in love with a princess named Kumāri. The play has several similarities with Śūdraka’s play "Mṛicchakaṭika" (The Little Clay Cart). Śūdraka’s writing style is characterized by his use of vivid imagery, intricate wordplay, and complex characters with conflicting motivations and desires. His plays are known for their deep insights into human nature and the complexities of relationships between individuals and society. His writing is filled with vivid and imaginative comparisons that help to bring his characters and their world to life. His use of metaphor adds depth and complexity to his plays, and helps to make them enduring works of literature.
 </div>
 <div id="nav-śūdraka-contribution" class="tab-pane fade" role="tabpanel">
 <p class="text-muted">
@@ -654,6 +642,19 @@ No information available.
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

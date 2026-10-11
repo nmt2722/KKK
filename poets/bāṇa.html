@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -234,8 +222,7 @@ Bāṇa’s time is well known and is established as he lived in the court of Ha
 </p>
 </div>
 <div id="nav-bāṇa-life" class="tab-pane fade" role="tabpanel">
-<p>Bāṇa belonged to the Vātsyāyana gotra of brāhmaṇas and his father’s name was Citrabhānu and his mother’s name was Rājadevi. In one of his works, Bāṇa talks about his lineage in which the names of his ancestors Kubera, Pāśupata, Arthapati are mentioned. He also mentions about the various Vedic sacrifices that his ancestor Kubera performed. Arthapati’s son was Citrabhānu, who was the father of poet Bāṇa. Bāṇa eulogizes them by mentioning that all of them were great authors, poets, and scholars etc. However, nothing is known about the work of Bāṇa’s ancestors. Bāṇa had a very affluent background. But misfortune struck early and he lost his mother when he was very young and his father stepped into the role of being both parents and brought him up. Bāṇa was fourteen years’ old when his father also died and he became an orphan at a very young age. Bāṇa has given lot of details about his friends and relatives in his works. However, nothing is known about his wife though Bāṇa himself mentions that he was a “gṛhastha” (a married man). He also made no mention about his son. Later sources however confirm that he had a son called Bhūṣaṇabhaṭṭa. Some other sources have named his son as Pulinda or Pulindra and true to his father’s reputation he was also a great scholar.</p>
-After his father’s death Bāṇa travelled to various places to gain experience of life, to meet different types of scholars, Gurus, etc. Many of his friends also followed him. He gained a bit of notoriety during this travel and thus became infamous. No offence or any wrong doing was ascribed to this notoriety. Finally, after ending his travel he returned to his village called Prītikūṭa. On the banks of the village was a river called Shona which is called Sona now. Later in his life he became friends with Kṛṣṇa who was a relative of the emperor Harṣavardhana. And with the help of Kṛṣṇa, Bāṇa went to the court of Harṣa or Harṣavardhana. King Harṣavardhana, though aware that Bāṇa was a scholar with impeccable poetic kills, he was also aware of Bāṇa’s infamous reputation and did not have a favorable opinion towards him. And when Bāṇa was introduced to King Harṣavardhana, the King immediately said, so’yaṃ bhujaṅgaḥ – the meaning being “This is that notorious fellow”. (Bhujaṅga is not considered to be a good term to be used on any respectable gentleman). On hearing this Bāṇa immediately replied – kā me bhujaṅgatā? Which would mean different things in different contexts. However, later King understood his greatness, his scholarship and his poetic talents and invited him to his court again, gave him a very respectful position and made him Court-poet, Āsthānakavi. King also allowed him to sit on a high pedestal in the court. And thus, Bāṇa was greatly influenced by Harṣavardhana. Harṣavardhana, was indeed the emperor of a very large kingdom once however, through a treaty with a southern king called Pulikeśi, from Karnataka his Kingdom was restricted to the area to the north of Narmada while Pulikeśi ruled the area of the south of Narmadā.
+Bāṇa belonged to the Vātsyāyana gotra of brāhmaṇas and his father’s name was Citrabhānu and his mother’s name was Rājadevi. In one of his works, Bāṇa talks about his lineage in which the names of his ancestors Kubera, Pāśupata, Arthapati are mentioned. He also mentions about the various Vedic sacrifices that his ancestor Kubera performed. Arthapati’s son was Citrabhānu, who was the father of poet Bāṇa. Bāṇa eulogizes them by mentioning that all of them were great authors, poets, and scholars etc. However, nothing is known about the work of Bāṇa’s ancestors. Bāṇa had a very affluent background. But misfortune struck early and he lost his mother when he was very young and his father stepped into the role of being both parents and brought him up. Bāṇa was fourteen years’ old when his father also died and he became an orphan at a very young age. Bāṇa has given lot of details about his friends and relatives in his works. However, nothing is known about his wife though Bāṇa himself mentions that he was a “gṛhastha” (a married man). He also made no mention about his son. Later sources however confirm that he had a son called Bhūṣaṇabhaṭṭa. Some other sources have named his son as Pulinda or Pulindra and true to his father’s reputation he was also a great scholar. <br><br>After his father’s death Bāṇa travelled to various places to gain experience of life, to meet different types of scholars, Gurus, etc. Many of his friends also followed him. He gained a bit of notoriety during this travel and thus became infamous. No offence or any wrong doing was ascribed to this notoriety. Finally, after ending his travel he returned to his village called Prītikūṭa. On the banks of the village was a river called Shona which is called Sona now. Later in his life he became friends with Kṛṣṇa who was a relative of the emperor Harṣavardhana. And with the help of Kṛṣṇa, Bāṇa went to the court of Harṣa or Harṣavardhana. <br>King Harṣavardhana, though aware that Bāṇa was a scholar with impeccable poetic kills, he was also aware of Bāṇa’s infamous reputation and did not have a favorable opinion towards him. And when Bāṇa was introduced to King Harṣavardhana, the King immediately said, so’yaṃ bhujaṅgaḥ – the meaning being “This is that notorious fellow”. (Bhujaṅga is not considered to be a good term to be used on any respectable gentleman). On hearing this Bāṇa immediately replied – kā me bhujaṅgatā? Which would mean different things in different contexts. <br>However, later King understood his greatness, his scholarship and his poetic talents and invited him to his court again, gave him a very respectful position and made him Court-poet, Āsthānakavi. King also allowed him to sit on a high pedestal in the court. <br>And thus, Bāṇa was greatly influenced by Harṣavardhana. Harṣavardhana, was indeed the emperor of a very large kingdom once however, through a treaty with a southern king called Pulikeśi, from Karnataka his Kingdom was restricted to the area to the north of Narmada while Pulikeśi ruled the area of the south of Narmadā.
 </div>
 <div id="nav-bāṇa-contribution" class="tab-pane fade" role="tabpanel">
 Many poets have tried to imitate Bāṇa but were not successful. There is one saying to summarize Bāṇa’s greatness - bāṇocchiṣṭaṃ jagatsarvam । - The whole world is what has already chewed by Bāṇa and left and there is nothing that was unknown to him. That is the greatness of Bāṇa.
@@ -653,6 +640,19 @@ Many poets have tried to imitate Bāṇa but were not successful. There is one s
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

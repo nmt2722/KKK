@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,7 +202,7 @@ Author
 </h2>
 <div id="work-acc-author" class="accordion-collapse collapse show">
 <div class="accordion-body">
-<p class="mb-0">
+<p class="mb-0 work-author">
 <a href="../poets/vedavyāsa.html">Vedavyāsa</a>
 </p>
 </div>
@@ -240,7 +228,7 @@ Contents
 </h2>
 <div id="work-acc-contents" class="accordion-collapse collapse">
 <div class="accordion-body">
-The Mahābhārata is a vast and complex work, and its contents can be divided into several sections. Here is a brief overview of some of the main contents of the epic: 1. Ādiparva: This Parva sets the stage for the Mahābhārata and introduces the main characters. It includes stories of the births and early lives of the Kuru princes, including Dhṛtarāṣṭra and Pāṇḍu, and the story of the Pāndavas’ exile to the forest. 2. Sabhāparva: This Parva describes the life of the Pāndavas in exile, and the efforts of the Kaurava-s to humiliate them. It includes the story of Arjuna’s journey to heaven and his marriage to Subhadrā. 3. Āraṇyakaparva: This Parva describes the time the Pāndavas spend in the forest during their exile. It includes several stories within the main narrative, including the story of Nala and Damayantī. 4. Virāṭaparva: This Parva describes the Pāndavas’ time in the kingdom of Virāta, where they live in disguise to avoid being discovered by the Kauravas. 5. Udyogaparva: This Parva describes the preparations for the war between the Kauravas and the Pāndavas, and includes many discussions between the two sides. 6. Bhīṣmaparva: This Parva describes the first ten days of the war, including the famous battle between Arjuna and Bhīṣma. 7. Droṇaparva: This Parva describes the next five days of the war, including the death of the Kaurava prince Abhimanyu. 8. Karṇaparva: This Parva describes the next two days of the war, including the death of the Kaurava warrior Karṇa. 9. Śalyaparva: This Parva describes the last day of the war, including the death of the Kaurava king Duryodhana. 10. Sauptikaparva: This Parva describes the events that take place after the end of the war, including the death of the remaining Kaurava warriors. 11. Strīparva: This Parva describes the fates of the women in the story, including the Pāndava queen Draupadī. 12. Śāntiparva: This Parva contains several discourses on morality and ethics, including the Bhagavadgītā. 13. Anuśāsanaparva: This Parva contains more discourses on morality and ethics, and includes the story of Yudhiṣṭhira journey to heaven. 14. Āśvamedhikaparva: This Parva describes the horse sacrifice performed by Yudhiṣṭhira to assert his dominance over the kingdom. 15. Āśramavāsikaparva: This Parva describes the time the Pāndavas spend in retirement after the end of the war. 16. Mausalaparva: This Parva describes the destruction of the Yādava clan and the death of Lord Kṛṣṇa. 17. Mahāprasthānikaparva: This Parva describes the journey of the Pāndavas to the Himālayas and their eventual death. 18. Svargāvarohaṇaparva: This Parva describes the ascent of Yudhiṣṭhira to heaven and the end of the epic.
+The Mahābhārata is a vast and complex work, and its contents can be divided into several sections. Here is a brief overview of some of the main contents of the epic: 1. Ādiparva: This Parva sets the stage for the Mahābhārata and introduces the main characters. It includes stories of the births and early lives of the Kuru princes, including Dhṛtarāṣṭra and Pāṇḍu, and the story of the Pāndavas’ exile to the forest.<br>2. Sabhāparva: This Parva describes the life of the Pāndavas in exile, and the efforts of the Kaurava-s to humiliate them. It includes the story of Arjuna’s journey to heaven and his marriage to Subhadrā.<br>3. Āraṇyakaparva: This Parva describes the time the Pāndavas spend in the forest during their exile. It includes several stories within the main narrative, including the story of Nala and Damayantī.<br>4. Virāṭaparva: This Parva describes the Pāndavas’ time in the kingdom of Virāta, where they live in disguise to avoid being discovered by the Kauravas.<br>5. Udyogaparva: This Parva describes the preparations for the war between the Kauravas and the Pāndavas, and includes many discussions between the two sides.<br>6. Bhīṣmaparva: This Parva describes the first ten days of the war, including the famous battle between Arjuna and Bhīṣma.<br>7. Droṇaparva: This Parva describes the next five days of the war, including the death of the Kaurava prince Abhimanyu.<br>8. Karṇaparva: This Parva describes the next two days of the war, including the death of the Kaurava warrior Karṇa.<br>9. Śalyaparva: This Parva describes the last day of the war, including the death of the Kaurava king Duryodhana.<br>10. Sauptikaparva: This Parva describes the events that take place after the end of the war, including the death of the remaining Kaurava warriors.<br>11. Strīparva: This Parva describes the fates of the women in the story, including the Pāndava queen Draupadī.<br>12. Śāntiparva: This Parva contains several discourses on morality and ethics, including the Bhagavadgītā.<br>13. Anuśāsanaparva: This Parva contains more discourses on morality and ethics, and includes the story of Yudhiṣṭhira journey to heaven.<br>14. Āśvamedhikaparva: This Parva describes the horse sacrifice performed by Yudhiṣṭhira to assert his dominance over the kingdom.<br>15. Āśramavāsikaparva: This Parva describes the time the Pāndavas spend in retirement after the end of the war.<br>16. Mausalaparva: This Parva describes the destruction of the Yādava clan and the death of Lord Kṛṣṇa.<br>17. Mahāprasthānikaparva: This Parva describes the journey of the Pāndavas to the Himālayas and their eventual death.<br>18. Svargāvarohaṇaparva: This Parva describes the ascent of Yudhiṣṭhira to heaven and the end of the epic.
 </div>
 </div>
 </div>
@@ -264,9 +252,7 @@ Contribution &amp; Notes
 </h2>
 <div id="work-acc-contribution" class="accordion-collapse collapse">
 <div class="accordion-body">
-<p>The Mahābhārata is a landmark work in Sanskrit literature that has made a significant contribution to the development and evolution of the language. It is not only one of the oldest and longest epic poems in Sanskrit, but also a comprehensive work that showcases the richness and complexity of the language. The Mahābhārata has had a lasting impact on Sanskrit literature, influencing the development of various genres such as poetry, drama, and historical narrative. Its themes and characters have been the subject of numerous literary works in Sanskrit and other Indian languages, and its influence can be seen in later works such as the Rāmāyaṇa and the Purānās. Overall, the Mahābhārata is a towering achievement in Sanskrit literature that has enriched and expanded the language in countless ways.</p>
-<hr>
-The Mahābhārata is one of the most notable and significant works of Indian literature, dating back to ancient times. It is an epic poem that tells the story of the Kuru dynasty, a royal family in ancient India, and their struggles for power and dominance. The Mahābhārata is believed to have been composed over a period of several centuries, between 400 BCE and 400 CE. It is attributed to the sage Vedavyāsa, who is also a character in the story. The Mahābhārata is not only a literary masterpiece but also a cultural and religious touchstone for millions of people around the world. It has inspired countless works of art, literature, and philosophy, and its themes and characters continue to resonate with people of all ages and backgrounds. The Mahābhārata is a testament to the richness and depth of Indian culture and a reminder of the enduring power of storytelling to shape our understanding of the world around us.
+The Mahābhārata is a landmark work in Sanskrit literature that has made a significant contribution to the development and evolution of the language. It is not only one of the oldest and longest epic poems in Sanskrit, but also a comprehensive work that showcases the richness and complexity of the language. The Mahābhārata has had a lasting impact on Sanskrit literature, influencing the development of various genres such as poetry, drama, and historical narrative. Its themes and characters have been the subject of numerous literary works in Sanskrit and other Indian languages, and its influence can be seen in later works such as the Rāmāyaṇa and the Purānās. Overall, the Mahābhārata is a towering achievement in Sanskrit literature that has enriched and expanded the language in countless ways.<br><br>The Mahābhārata is one of the most notable and significant works of Indian literature, dating back to ancient times. It is an epic poem that tells the story of the Kuru dynasty, a royal family in ancient India, and their struggles for power and dominance. The Mahābhārata is believed to have been composed over a period of several centuries, between 400 BCE and 400 CE. It is attributed to the sage Vedavyāsa, who is also a character in the story. The Mahābhārata is not only a literary masterpiece but also a cultural and religious touchstone for millions of people around the world. It has inspired countless works of art, literature, and philosophy, and its themes and characters continue to resonate with people of all ages and backgrounds. The Mahābhārata is a testament to the richness and depth of Indian culture and a reminder of the enduring power of storytelling to shape our understanding of the world around us.
 </div>
 </div>
 </div>
@@ -293,7 +279,7 @@ Genre
 <div id="work-acc-genre" class="accordion-collapse collapse">
 <div class="accordion-body">
 <p class="mb-0">
-<span class="badge bg-primary">Epic Drama</span>
+<span class="badge bg-primary work-genre-badge">Epic Drama</span>
 </p>
 </div>
 </div>
@@ -704,6 +690,19 @@ Genre
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

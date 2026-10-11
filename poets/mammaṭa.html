@@ -32,10 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,18 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
 
     if (!nav || document.getElementById('navbar-search-form')) return;
 
+    if (document.getElementById('global-search')) return;
+
+    var prefix = '';
+
+    var brand = document.querySelector('.navbar-brand');
+
+    if (brand) {
+
+      var href = brand.getAttribute('href') || '';
+
+      prefix = href.replace(/index\.html.*$/, '');
+
+    }
+
     var form = document.createElement('form');
 
     form.id = 'navbar-search-form';
@@ -102,10 +100,6 @@ ul.task-list li input[type="checkbox"] {
       var q = form.querySelector('input').value.trim();
 
       if (!q) return;
-
-      var segs = (window.location.pathname || '').split('/').filter(function (s) { return s; });
-
-      var prefix = segs.length >= 2 ? '../' : '';
 
       window.location.href = prefix + 'search.html?q=' + encodeURIComponent(q);
 
@@ -142,7 +136,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Sanskrit Poets &amp; Works</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,11 +156,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../works/index.html"> 
 <span class="menu-text">Works</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../search.html"> <i class="bi bi-search" role="img">
-</i> 
-<span class="menu-text">Search</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -237,7 +225,7 @@ Works (1)
 Though not much is known about Mammaṭa, he is assumed to have been born around the end of the 11th century or beginning of the 12th century. From what we know, Mammaṭa appears to be from a Kashmiri forum and goes by the full name of Rājānaka Mammaṭa – this leads us to believe, without any doubts that Mammaṭa belonged to the region of Kashmir. Because most details about this poet remains lost in the pages of history and time, we can only rely on external sources to pinpoint the time period he may have belonged to. For example, in his book, he has quoted Dhvanikāraka and Āryavardhana who belonged to the 9th century AD. He has also quoted Abhirāma Gupta Pāda who lived in the beginning of the 11th century or the end of the 10th century. In his notable work, Kāvyaprakāśa he refutes the view of Mahima Bhaṭṭa, the author of Vyaktivivēka. The familiarity Mammaṭa has shown with all these authors provides significant proof that he existed much later than all these scholars. Similarly, Mammaṭa’s work has been commented on by Maṇikya Candra and Ruyyukā who lived and flourished in the second half of the 12th century. All these factors lead us to conclude that Mammaṭa existed in the 12th century – possibly the beginning of the 12th century. Mammaṭa was a follower of the Dwani school, which was established by Ānandavardhana. According to their principle, in poetry, the meaning that is suggested is more important than the meaning that is denoted.
 </div>
 <div id="nav-mammaṭa-contribution" class="tab-pane fade" role="tabpanel">
-Mammaṭa emulates why one should study Kāvya. He says that epic poetry is the work of a poet who has given form to the unfathomable through his skilful words. According to him, poets write poetry for ‘yashas’ and ‘artha’ – or fame and money. There are several poets like Kālidāsa, Bhāravi , and Bhavabhūti who remain etched in time even after thousands of years for their magnanimous contributions in the field of classical Sanskrit poetry. According to Mammaṭa, poetry has also taught people many things, - for example, it has taught people the art of Vyavahāra or how to behave in this world. It teaches how to behave when one is king, when one is in the market, when one is meeting friends, so on and so forth. It has also familiarised people with various types of diseases. Mayūra, for example was able to get rid of these diseases by writing the Sūryaśataka and invoking the grace of the Sun God. Mammaṭa states that poetry is written in order to give advice to the world in a very smooth, interesting and loving way. Where the Vedas provide a set of instructions to follow, Purānās recite stories like to a friend – the kāvya or poetry is more desirable for people to read because it speaks to the reader like to a beloved. Therefore, poetry must not be used just for entertainment but for enlightenment also. These purposes of learning poetry has been contributed by Mammaṭa in the beginning of his epic Kāvyaprakāśa. Mammaṭa, though, did not produce either a Mahākāvya or a drama or a Campū or a Gadyakāvya himself, his contributions by analyzing the earlier works word by word, sentence by sentence, stanza by stanza he has helped us experience poetry in a better way. His work can also help aspiring poet reach greatness. Mammaṭa can be undoubtedly credited as he arranged all the details and nuances of poetry in a very scientific way - even if he had not personally made any written contributions or introduced any new concepts to Alaṅkāraśāstra. Metaphorically - he can be said to have digested all the material that was given by earlier writers and has arranged them in beautiful way it is true that various trees produce flowers of different colours and there is florist who brings all those flowers together and makes it a beautiful garland and therefore we appreciate not only the trees that produced those beautiful flowers we also appreciate the art of the florist. Mammaṭa has also contributed his might by arranging all these different ideas in his Kāvyaprakāśa and therefore even though he is not a great poet himself, we do not have any work of his independent work of his year, only this Kāvyaprakāśa which the discusses earlier poetry is available to us but in spite of it. His contribution to the Alaṅkāraśāstra literature and to the growth of the poetry in India is great and therefore there are many commentators who says that Mammaṭa was an incarnation of Goddess Sarasvatī. He is one of the most important Sanskritist of Kashmir and so he is so much respected and studied by the students Sanskrit all over the country, in all over the world.
+Mammaṭa emulates why one should study Kāvya. He says that epic poetry is the work of a poet who has given form to the unfathomable through his skilful words. According to him, poets write poetry for ‘yashas’ and ‘artha’ – or fame and money. There are several poets like Kālidāsa, Bhāravi , and Bhavabhūti who remain etched in time even after thousands of years for their magnanimous contributions in the field of classical Sanskrit poetry.<br>According to Mammaṭa, poetry has also taught people many things, - for example, it has taught people the art of Vyavahāra or how to behave in this world. It teaches how to behave when one is king, when one is in the market, when one is meeting friends, so on and so forth. It has also familiarised people with various types of diseases. Mayūra, for example was able to get rid of these diseases by writing the Sūryaśataka and invoking the grace of the Sun God. Mammaṭa states that poetry is written in order to give advice to the world in a very smooth, interesting and loving way. Where the Vedas provide a set of instructions to follow, Purānās recite stories like to a friend – the kāvya or poetry is more desirable for people to read because it speaks to the reader like to a beloved. Therefore, poetry must not be used just for entertainment but for enlightenment also.<br>These purposes of learning poetry has been contributed by Mammaṭa in the beginning of his epic Kāvyaprakāśa. Mammaṭa, though, did not produce either a Mahākāvya or a drama or a Campū or a Gadyakāvya himself, his contributions by analyzing the earlier works word by word, sentence by sentence, stanza by stanza he has helped us experience poetry in a better way. His work can also help aspiring poet reach greatness.<br>Mammaṭa can be undoubtedly credited as he arranged all the details and nuances of poetry in a very scientific way - even if he had not personally made any written contributions or introduced any new concepts to Alaṅkāraśāstra. Metaphorically - he can be said to have digested all the material that was given by earlier writers and has arranged them in beautiful way it is true that various trees produce flowers of different colours and there is florist who brings all those flowers together and makes it a beautiful garland and therefore we appreciate not only the trees that produced those beautiful flowers we also appreciate the art of the florist.<br>Mammaṭa has also contributed his might by arranging all these different ideas in his Kāvyaprakāśa and therefore even though he is not a great poet himself, we do not have any work of his independent work of his year, only this Kāvyaprakāśa which the discusses earlier poetry is available to us but in spite of it. His contribution to the Alaṅkāraśāstra literature and to the growth of the poetry in India is great and therefore there are many commentators who says that Mammaṭa was an incarnation of Goddess Sarasvatī. He is one of the most important Sanskritist of Kashmir and so he is so much respected and studied by the students Sanskrit all over the country, in all over the world.
 </div>
 <div id="nav-mammaṭa-works" class="tab-pane fade" role="tabpanel">
 <ul class="list-group list-group-flush">
@@ -652,6 +640,19 @@ Mammaṭa emulates why one should study Kāvya. He says that epic poetry is the 
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sanskrit Poets &amp; Works</strong></p>
+</div>   
+    <div class="nav-footer-center">
+<p>[Add footer content here. This footer can be populated later.]</p>
+</div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 
