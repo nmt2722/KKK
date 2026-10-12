@@ -166,6 +166,16 @@ h2 {
   white-space: nowrap;
 }
 
+#poet-table td.poet-name,
+#poet-table td.poet-name a,
+#work-table td.work-name-cell,
+#work-table td.work-name-cell a,
+#work-table td.work-author-cell,
+#work-table td.work-author-cell a {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
 #poet-table td.poet-works {
   font-size: 0.9rem;
   line-height: 1.9;
